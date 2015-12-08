@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project
+  name="php-sdk"
+  default="build"
+  basedir="."
+  description="PortaText PHP API Client">
+
+  <target name="prepare">
+    <exec command="./composer.phar install" checkreturn="true" passthru="true"/>
+    <exec command="./composer.phar update" checkreturn="true" passthru="true"/>
+  </target>
+
+  <target name="cs">
+    <exec command="vendor/bin/phpcs --standard=PSR2 src/*"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
+  <target name="doc">
+    <exec command="vendor/bin/phpdoc -d src --validate --sourcecode --force --log"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
+  <target name="test">
+    <exec command="vendor/bin/phpunit --debug -v --bootstrap test/resources/bootstrap.php test/*"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
+  <target name="build" depends="cs, doc, test">
+  </target>
+</project>
