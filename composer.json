@@ -1,5 +1,5 @@
 {
-  "name": "PortaText/php-sdk",
+  "name": "portatext/php-sdk",
   "description": "PHP Client for the PortaText API",
   "autoload": {
     "psr-4": {
