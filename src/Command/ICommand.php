@@ -18,7 +18,49 @@ interface ICommand
      *
      * @param array $args Associative array with the arguments.
      *
-     * @return PortaText\Command\Result;
+     * @return PortaText\Command\Result
+     * @throws PortaText\Exception\NotImplemented
      */
-    public function run(array $args);
+    public function get(array $args = array());
+
+    /**
+     * Executes this command.
+     *
+     * @param array $args Associative array with the arguments.
+     *
+     * @return PortaText\Command\Result
+     * @throws PortaText\Exception\NotImplemented
+     */
+    public function post(array $args = array());
+
+    /**
+     * Executes this command.
+     *
+     * @param array $args Associative array with the arguments.
+     *
+     * @return PortaText\Command\Result
+     * @throws PortaText\Exception\NotImplemented
+     */
+    public function delete(array $args = array());
+
+    /**
+     * Executes this command.
+     *
+     * @param array $args Associative array with the arguments.
+     *
+     * @return PortaText\Command\Result
+     * @throws PortaText\Exception\NotImplemented
+     */
+    public function put(array $args = array());
+
+    /**
+     * Returns a string with the endpoint for the given command.
+     *
+     * @param string $method Method for this command.
+     * @param string $args The endpoint for this command.
+     *
+     * @return string
+     * @throws PortaText\Exception\NotImplemented
+     */
+    public function endpoint($method, array $args = array());
 }
