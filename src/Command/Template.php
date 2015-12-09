@@ -1,6 +1,6 @@
 <?php
 /**
- * An API command interface.
+ * The Template endpoint.
  *
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
@@ -8,10 +8,12 @@
  */
 namespace PortaText\Command;
 
+use PortaText\Exception\NotImplemented;
+
 /**
- * An API command interface.
+ * The Template endpoint.
  */
-interface ICommand
+class Template extends Base
 {
     /**
      * Returns a string with the endpoint for the given command.
@@ -20,7 +22,13 @@ interface ICommand
      * @param string $args The endpoint for this command.
      *
      * @return string
-     * @throws PortaText\Exception\NotImplemented
      */
-    public function endpoint($method, array $args = array());
+    public function endpoint($method, array $args = array())
+    {
+        $endpoint = "templates";
+        if (isset($args["id"])) {
+            $endpoint .= "/{$args['id']}";
+        }
+        return $endpoint;
+    }
 }
