@@ -167,56 +167,33 @@ class Client implements IClient
         }
         $this->logger->debug("Calling $method $uri with $authType");
         $headers = array(
-            "Content-Type: $contentType",
-            "Accept: application/json"
+            "Content-Type" => $contentType,
+            "Accept" => "application/json"
         );
         switch ($authType) {
             case "apiKey":
-                $headers[] = "X-Api-Key: {$this->apiKey}";
+                $headers["X-Api-Key"] = $this->apiKey;
                 break;
             case "sessionToken":
-                $headers[] = "X-Session-Token: {$this->sessionToken}";
+                $headers["X-Session-Token"] = $this->sessionToken;
                 break;
             case "basic":
                 $auth = base64_encode(
                     $this->credentials[0] . ":" . $this->credentials[1]
                 );
-                $headers[] = "Authorization: Basic $auth";
+                $headers["Authorization"] = "Basic $auth";
                 break;
             default:
                 throw new \InvalidArgumentException(
                     "Invalid auth type: $authType"
                 );
         }
-        $curl = @curl_init();
-        @curl_setopt_array($curl, array(
-          CURLOPT_URL => $uri,
-          CURLOPT_HEADER => true,
-          CURLOPT_CUSTOMREQUEST => strtoupper($method),
-          CURLOPT_USERAGENT => "PortaText PHP SDK",
-          CURLOPT_HTTPHEADER => $headers,
-          CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_SSL_VERIFYPEER => true,
-          //CURLOPT_VERBOSE => true,
-          CURLOPT_POSTFIELDS => $body
-        ));
-        $result = curl_exec($curl);
-        if ($result === false) {
-            $error = curl_error($curl);
-            @curl_close($curl);
-            throw new RequestError($error);
-        }
-        $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
-        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        list($preHeaders, $body) = explode("\r\n\r\n", $result, 2);
-        list($statusLine, $preHeaders) = explode("\r\n", $preHeaders, 2);
-        $preHeaders = explode("\r\n", $preHeaders);
-        $headers = array();
-        foreach ($preHeaders as $h) {
-            list($k, $v) = explode(": ", $h, 2);
-            $headers[strtolower($k)] = $v;
-        }
-        @curl_close($curl);
+        list($code, $headers, $body) = $this->runCurl(
+            $uri,
+            $method,
+            $headers,
+            $body
+        );
         $result = new Result($code, $headers, json_decode($body, true));
         switch ($code) {
             case 401:
@@ -252,6 +229,68 @@ class Client implements IClient
                 break;
         }
         return $result;
+    }
+
+    /**
+     * Runs the result for the given CURL request as an array with code,
+     * headers, and body.
+     *
+     * @param string $uri The URI to request.
+     * @param string $method The HTTP method to use.
+     * @param array $headers The HTTP headers.
+     * @param string $body Payload to send.
+     *
+     * @return array
+     * @throws PortaText\Exception\RequestError
+     */
+    protected function runCurl($uri, $method, $preHeaders, $body)
+    {
+        $curl = @curl_init();
+        $headers = array();
+        foreach ($preHeaders as $k => $v) {
+            $headers[] = "$k: $v";
+        }
+        @curl_setopt_array($curl, array(
+          CURLOPT_URL => $uri,
+          CURLOPT_HEADER => true,
+          CURLOPT_CUSTOMREQUEST => strtoupper($method),
+          CURLOPT_USERAGENT => "PortaText PHP SDK",
+          CURLOPT_HTTPHEADER => $headers,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_SSL_VERIFYPEER => true,
+          //CURLOPT_VERBOSE => true,
+          CURLOPT_POSTFIELDS => $body
+        ));
+        $result = curl_exec($curl);
+        if ($result === false) {
+            $error = curl_error($curl);
+            @curl_close($curl);
+            throw new RequestError($error);
+        }
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        @curl_close($curl);
+        list($headers, $body) = $this->parseCurlResult($result);
+        return array($code, $headers, $body);
+    }
+
+    /**
+     * Given a curl result, will return headers and body.
+     *
+     * @param string $result The CURL result.
+     *
+     * @return array
+     */
+    protected function parseCurlResult($result)
+    {
+        list($preHeaders, $body) = explode("\r\n\r\n", $result, 2);
+        list($statusLine, $preHeaders) = explode("\r\n", $preHeaders, 2);
+        $preHeaders = explode("\r\n", $preHeaders);
+        $headers = array();
+        foreach ($preHeaders as $h) {
+            list($k, $v) = explode(": ", $h, 2);
+            $headers[strtolower($k)] = $v;
+        }
+        return array($headers, $body);
     }
 
     /**
