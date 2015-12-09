@@ -1,19 +1,20 @@
 <?php
 /**
- * The Template endpoint.
+ * The Me endpoint.
  *
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
  * @copyright 2015 PortaText
  */
-namespace PortaText\Command;
+namespace PortaText\Command\Api;
 
 use PortaText\Exception\NotImplemented;
+use PortaText\Command\Base;
 
 /**
- * The Template endpoint.
+ * The Me endpoint.
  */
-class Template extends Base
+class Me extends Base
 {
     /**
      * Returns a string with the endpoint for the given command.
@@ -24,11 +25,6 @@ class Template extends Base
      */
     public function endpoint($method)
     {
-        $endpoint = "templates";
-        $id = $this->getArgument("id");
-        if (!is_null($id)) {
-            $endpoint .= "/$id";
-        }
-        return $endpoint;
+        return "me";
     }
 }

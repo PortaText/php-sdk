@@ -19,37 +19,34 @@ class Curl extends Base
      * Executes the request. Will depend on the client implementation.
      * Returns an array with code, headers, and body.
      *
-     * @param string $uri The URI to request.
-     * @param string $method The HTTP method to use.
-     * @param array $headers The HTTP headers.
-     * @param string $body Payload to send.
+     * @param PortaText\Command\Descriptor $descriptor Command descriptor.
      *
      * @return array
      * @throws PortaText\Exception\RequestError
      */
-    public function execute($uri, $method, $preHeaders, $body)
+    public function execute($descriptor)
     {
         $curl = @curl_init();
         $headers = array();
-        foreach ($preHeaders as $k => $v) {
+        foreach ($descriptor->headers as $k => $v) {
             $headers[] = "$k: $v";
         }
         @curl_setopt_array($curl, array(
-          CURLOPT_URL => $uri,
+          CURLOPT_URL => $descriptor->uri,
           CURLOPT_HEADER => true,
-          CURLOPT_CUSTOMREQUEST => strtoupper($method),
+          CURLOPT_CUSTOMREQUEST => strtoupper($descriptor->method),
           CURLOPT_USERAGENT => "PortaText PHP SDK",
-          CURLOPT_HTTPHEADER => $headers,
+          CURLOPT_HTTPHEADER => $descriptor->headers,
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_SSL_VERIFYPEER => true,
           //CURLOPT_VERBOSE => true,
-          CURLOPT_POSTFIELDS => $body
+          CURLOPT_POSTFIELDS => $descriptor->body
         ));
         $result = curl_exec($curl);
         if ($result === false) {
             $error = curl_error($curl);
             @curl_close($curl);
-            throw new RequestError($error);
+            throw new RequestError($descriptor, $error);
         }
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         @curl_close($curl);
@@ -67,7 +64,8 @@ class Curl extends Base
     protected function parseCurlResult($result)
     {
         list($preHeaders, $body) = explode("\r\n\r\n", $result, 2);
-        list($statusLine, $preHeaders) = explode("\r\n", $preHeaders, 2);
+        $statusAndHeaders = explode("\r\n", $preHeaders, 2);
+        $preHeaders = $statusAndHeaders[1];
         $preHeaders = explode("\r\n", $preHeaders);
         $headers = array();
         foreach ($preHeaders as $h) {

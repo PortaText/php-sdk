@@ -24,7 +24,7 @@ class Factory implements IFactory
     public function get($command)
     {
         $className = ucfirst($command);
-        $className = "PortaText\\Command\\$className";
+        $className = "PortaText\\Command\\Api\\$className";
         if (!class_exists($className)) {
             throw new \InvalidArgumentException(
                 "Command $command does not exist"

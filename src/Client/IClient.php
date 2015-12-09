@@ -20,7 +20,7 @@ interface IClient
      *
      * @param Psr\Log\LoggerInterface $logger The PSR3-Logger
      *
-     * @return PortaText\Client\Base
+     * @return PortaText\Client\IClient
      */
     public function setLogger(LoggerInterface $logger);
 

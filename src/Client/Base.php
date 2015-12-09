@@ -12,6 +12,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use PortaText\Command\Factory;
 use PortaText\Command\Result;
+use PortaText\Command\Descriptor;
 use PortaText\Exception\RequestError;
 use PortaText\Exception\ServerError;
 use PortaText\Exception\ClientError;
@@ -25,6 +26,8 @@ use PortaText\Exception\RateLimited;
 
 /**
  * All API client implementations should extend this class.
+ *
+ * @SuppressWarnings("CouplingBetweenObjects")
  */
 abstract class Base implements IClient
 {
@@ -33,7 +36,7 @@ abstract class Base implements IClient
      *
      * @var string
      */
-    public static $DEFAULT_ENDPOINT = "https://rest.portatext.com";
+    public static $defaultEndpoint = "https://rest.portatext.com";
 
     /**
      * REST endpoint in use.
@@ -89,7 +92,7 @@ abstract class Base implements IClient
      *
      * @param Psr\Log\LoggerInterface $logger The PSR3-Logger
      *
-     * @return PortaText\Client\Base
+     * @return PortaText\Client\IClient
      */
     public function setLogger(LoggerInterface $logger)
     {
@@ -108,9 +111,9 @@ abstract class Base implements IClient
      */
     public function __call($name, $args)
     {
-        $this->currentcommand = $this->commandFactory->get($name);
-        $this->currentcommand->setClient($this);
-        return $this->currentcommand;
+        $this->currentCommand = $this->commandFactory->get($name);
+        $this->currentCommand->setClient($this);
+        return $this->currentCommand;
     }
 
     /**
@@ -154,14 +157,9 @@ abstract class Base implements IClient
          *     fallback to the api key.
          */
         if (is_null($authType)) {
-            if (is_null($this->sessionToken)) {
-                if (!is_null($this->credentials)) {
-                    $this->login();
-                    $authType = "sessionToken";
-                } else {
-                    $authType = "apiKey";
-                }
-            } else {
+            $authType = $this->authType();
+            if ($authType === "basic") {
+                $this->login();
                 $authType = "sessionToken";
             }
         }
@@ -188,66 +186,90 @@ abstract class Base implements IClient
                     "Invalid auth type: $authType"
                 );
         }
-        list($code, $resultHeaders, $resultBody) = $this->execute(
-            $uri,
-            $method,
-            $headers,
-            $body
-        );
+        $descriptor = new Descriptor($uri, $method, $headers, $body);
+        list($code, $resultHeaders, $resultBody) = $this->execute($descriptor);
         $result = new Result(
             $code,
             $resultHeaders,
             json_decode($resultBody, true)
         );
-        switch ($code) {
-            case 401:
-                /*
-                 * It could happen that the session token expires, so try
-                 * to login again and then reissue the request if the login was
-                 * successful.
-                 */
-                if ($authType === "sessionToken") {
-                    $this->login();
-                    return $this->run($endpoint, $method, $contentType, $body);
-                } else {
-                    throw new InvalidCredentials;
-                }
-                break;
-            case 402:
-                throw new PaymentRequired;
-            case 402:
-                throw new Forbidden;
-            case 404:
-                throw new NotFound;
-            case 405:
-                throw new InvalidMethod;
-            case 415:
-                throw new InvalidMedia;
-            case 429:
-                throw new RateLimited($result);
-            case 500:
-                throw new ServerError;
-            case 400:
-                throw new ClientError($result);
-            default:
-                break;
+        /*
+         * It could happen that the session token expires, so try
+         * to login again and then reissue the request if the login was
+         * successful.
+         */
+        if ($code === 401 && $authType === "sessionToken") {
+            $this->login();
+            return $this->run($endpoint, $method, $contentType, $body);
         }
+        $this->assertResult($descriptor, $result);
         return $result;
+    }
+
+    /**
+     * Deduce an authorization type.
+     *
+     * @return string
+     */
+    protected function authType()
+    {
+        if (!is_null($this->sessionToken)) {
+            return "sessionToken";
+        }
+        if (!is_null($this->credentials)) {
+            return "basic";
+        }
+        return "apiKey";
     }
 
     /**
      * Executes the request. Will depend on the client implementation.
      * Returns an array with code, headers, and body.
      *
-     * @param string $uri The URI to request.
-     * @param string $method The HTTP method to use.
-     * @param array $headers The HTTP headers.
-     * @param string $body Payload to send.
+     * @param PortaText\Command\Descriptor $descriptor Command descriptor.
      *
      * @return array
      * @throws PortaText\Exception\RequestError
      */
-    abstract public function execute($uri, $method, $headers, $body);
+    abstract public function execute($descriptor);
+
+    /**
+     * Will assert that the request finished successfuly.
+     *
+     * @param PortaText\Command\Descriptor $descriptor The Command execution
+     * descriptor.
+     * @param PortaText\Command\Result $result Request execution result.
+     *
+     * @return void
+     * @throws PortaText\Exception\ServerError
+     * @throws PortaText\Exception\ClientError
+     * @throws PortaText\Exception\InvalidCredentials
+     * @throws PortaText\Exception\PaymentRequired
+     * @throws PortaText\Exception\Forbidden
+     * @throws PortaText\Exception\NotFound
+     * @throws PortaText\Exception\InvalidMedia
+     * @throws PortaText\Exception\InvalidMethod
+     * @throws PortaText\Exception\RateLimited
+     */
+    protected function assertResult($descriptor, $result)
+    {
+        $errors = array(
+            401 => "InvalidCredentials",
+            402 => "PaymentRequired",
+            403 => "Forbidden",
+            404 => "NotFound",
+            405 => "InvalidMethod",
+            415 => "InvalidMedia",
+            429 => "RateLimited",
+            500 => "ServerError",
+            400 => "ClientError"
+        );
+        if (isset($errors[$result->code])) {
+            $class = $errors[$result->code];
+            $class = "PortaText\\Exception\\$class";
+            throw new $class($descriptor, $result);
+        }
+    }
 
     /**
      * Logs in and stores session token on success.
@@ -318,6 +340,6 @@ abstract class Base implements IClient
     {
         $this->logger = new NullLogger;
         $this->commandFactory = new Factory;
-        $this->endpoint = self::$DEFAULT_ENDPOINT;
+        $this->endpoint = self::$defaultEndpoint;
     }
 }

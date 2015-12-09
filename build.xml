@@ -10,6 +10,12 @@
     <exec command="./composer.phar update" checkreturn="true" passthru="true"/>
   </target>
 
+  <target name="md">
+    <exec command="vendor/bin/phpmd ./src text cleancode,codesize,controversial,design,naming,unusedcode"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
   <target name="cs">
     <exec command="vendor/bin/phpcs --standard=PSR2 src/*"
       checkreturn="true"
@@ -28,6 +34,6 @@
       passthru="true"/>
   </target>
 
-  <target name="build" depends="cs, doc, test">
+  <target name="build" depends="cs, md, doc, test">
   </target>
 </project>

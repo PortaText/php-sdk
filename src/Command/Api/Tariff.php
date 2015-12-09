@@ -6,9 +6,10 @@
  * @author Marcelo Gornstein <marcelog@portatext.com>
  * @copyright 2015 PortaText
  */
-namespace PortaText\Command;
+namespace PortaText\Command\Api;
 
 use PortaText\Exception\NotImplemented;
+use PortaText\Command\Base;
 
 /**
  * The Tariff endpoint.
@@ -18,13 +19,13 @@ class Tariff extends Base
     /**
      * Sets the tariff country ISO code.
      *
-     * @param integer $id The tariff country ISO code.
+     * @param string $countryIso The tariff country ISO code.
      *
      * @return PortaText\Command\ICommand
      */
-    public function forCountry($id)
+    public function forCountry($countryIso)
     {
-        return $this->setArgument("id", $id);
+        return $this->setArgument("id", $countryIso);
     }
 
     /**
@@ -37,9 +38,9 @@ class Tariff extends Base
     public function endpoint($method)
     {
         $endpoint = "tariffs";
-        $id = $this->getArgument("id");
-        if (!is_null($id)) {
-            $endpoint .= "/$id";
+        $countryIso = $this->getArgument("id");
+        if (!is_null($countryIso)) {
+            $endpoint .= "/$countryIso";
         }
         return $endpoint;
     }

@@ -13,31 +13,5 @@ namespace PortaText\Exception;
  */
 class ClientError extends RequestError
 {
-    /**
-     * The request result.
-     *
-     * @var PortaText\Command\Result
-     */
-    protected $result;
 
-    /**
-     * Returns the request result.
-     *
-     * @return PortaText\Command\Result
-     */
-    public function getResult()
-    {
-        return $this->result;
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param PortaText\Command\Result $result Request result.
-     *
-     */
-    public function __construct($result)
-    {
-        $this->result = $result;
-    }
 }
