@@ -36,10 +36,10 @@ class Curl extends Base
           CURLOPT_HEADER => true,
           CURLOPT_CUSTOMREQUEST => strtoupper($descriptor->method),
           CURLOPT_USERAGENT => "PortaText PHP SDK",
-          CURLOPT_HTTPHEADER => $descriptor->headers,
+          CURLOPT_HTTPHEADER => $headers,
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_SSL_VERIFYPEER => true,
-          //CURLOPT_VERBOSE => true,
+          CURLOPT_VERBOSE => true,
           CURLOPT_POSTFIELDS => $descriptor->body
         ));
         $result = curl_exec($curl);
