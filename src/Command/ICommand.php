@@ -8,7 +8,7 @@
  */
 namespace PortaText\Command;
 
-use PortaText\Client\Client;
+use PortaText\Client\IClient;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -93,5 +93,5 @@ interface ICommand
      *
      * @return PortaText\Api\Api
      */
-    public function setClient(Client $client);
+    public function setClient(IClient $client);
 }

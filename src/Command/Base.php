@@ -8,7 +8,7 @@
  */
 namespace PortaText\Command;
 
-use PortaText\Client\Client;
+use PortaText\Client\IClient;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
@@ -170,7 +170,7 @@ class Base implements ICommand
      *
      * @return PortaText\Api\Api
      */
-    public function setClient(Client $client)
+    public function setClient(IClient $client)
     {
         $this->client = $client;
         return $this;
