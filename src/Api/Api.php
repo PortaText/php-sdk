@@ -76,7 +76,7 @@ class Api
      * @return PortaText\Command\ICommand
      * @throws InvalidArgumentException
      */
-    public function __call($name, $args = array())
+    public function __call($name, $args)
     {
         switch ($name) {
             case "get":
@@ -85,6 +85,9 @@ class Api
             case "delete":
                 $command = $this->executionDescriptor["command"];
                 $method = $name;
+                if (count($args) > 0) {
+                    $args = array_shift($args);
+                }
                 $uri = implode("/", array(
                   $this->endpoint, $command->endpoint($method, $args)
                 ));
