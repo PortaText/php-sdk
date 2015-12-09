@@ -19,15 +19,15 @@ class Template extends Base
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
-     * @param string $args The endpoint for this command.
      *
      * @return string
      */
-    public function endpoint($method, array $args = array())
+    public function endpoint($method)
     {
         $endpoint = "templates";
-        if (isset($args["id"])) {
-            $endpoint .= "/{$args['id']}";
+        $id = $this->getArgument("id");
+        if (!is_null($id)) {
+            $endpoint .= "/$id";
         }
         return $endpoint;
     }

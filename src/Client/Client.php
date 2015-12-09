@@ -10,23 +10,52 @@ namespace PortaText\Client;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use PortaText\Exception\RequestError;
+use PortaText\Command\Factory;
 use PortaText\Command\Result;
+use PortaText\Exception\RequestError;
 
 /**
  * All API client implementations should extend this class.
  */
-class Client
+class Client implements IClient
 {
+    /**
+     * Default API REST Endpoint.
+     *
+     * @var string
+     */
+    public static $DEFAULT_ENDPOINT = "https://rest.portatext.com";
+
+    /**
+     * REST endpoint in use.
+     *
+     * @var string
+     */
+    protected $endpoint = null;
+
+    /**
+     * API Key
+     *
+     * @var string
+     */
+    protected $apiKey = null;
+
+    /**
+     * Holds the command factory implementation.
+     *
+     * @var PortaText\Command\IFactory
+     */
+    protected $commandFactory = null;
+
     /**
      * Holds the logger implementation.
      *
      * @var Psr\Log\LoggerInterface
      */
-    protected $logger;
+    protected $logger = null;
 
     /**
-     * Current command.
+     * Current command to run.
      *
      * @var PortaText\Command\ICommand
      */
@@ -46,21 +75,37 @@ class Client
     }
 
     /**
+     * This magic method is used to spawn commands on demand.
+     *
+     * @param string $name Name of the invoked method.
+     * @param array $args Array of arguments for invocation.
+     *
+     * @return PortaText\Command\ICommand
+     * @throws InvalidArgumentException
+     */
+    public function __call($name, $args)
+    {
+        $this->currentcommand = $this->commandFactory->get($name);
+        $this->currentcommand->setClient($this);
+        return $this->currentcommand;
+    }
+
+    /**
      * Runs the given command.
      *
+     * @param string $endpoint Endpoint to invoke.
      * @param string $method HTTP method to use.
-     * @param string $uri Full URI.
+     * @param string $contentType Content-Type value.
      * @param string $apiKey Your PortaText API Key.
-     * @param array $args Endpoint arguments.
+     * @param string $body Payload to send.
      *
      * @return PortaText\Command\Result
      * @throws PortaText\Exception\RequestError
      */
-    public function run($method, $uri, $apiKey, $args)
+    public function run($endpoint, $method, $contentType, $body)
     {
-        $this->logger->debug(
-            "Calling $method $uri with " . print_r($args, true)
-        );
+        $uri = implode("/", array($this->endpoint, $endpoint));
+        $this->logger->debug("Calling $method $uri");
         $result = null;
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -69,10 +114,13 @@ class Client
           CURLOPT_CUSTOMREQUEST => strtoupper($method),
           CURLOPT_USERAGENT => "PortaText PHP SDK",
           CURLOPT_HTTPHEADER => array(
-              "X-Api-Key: $apiKey"
+              "X-Api-Key: {$this->apiKey}",
+              "Content-Type: $contentType",
+              "Accept: application/json"
           ),
           CURLOPT_RETURNTRANSFER => true,
-          CURLOPT_SSL_VERIFYPEER => true
+          CURLOPT_SSL_VERIFYPEER => true,
+          CURLOPT_POSTFIELDS => $body
         ));
         $result = curl_exec($curl);
         if ($result === false) {
@@ -98,10 +146,18 @@ class Client
      * Class constructor.
      *
      * @param string $apiKey Your PortaText API Key.
+     * @param string $endpoint You can optionally specify a different endpoint.
      *
      */
-    public function __construct()
+    public function __construct($apiKey, $endpoint = null)
     {
         $this->logger = new NullLogger;
+        $this->commandFactory = new Factory;
+        $this->apiKey = $apiKey;
+        if (is_null($endpoint)) {
+            $this->endpoint = self::$DEFAULT_ENDPOINT;
+        } else {
+            $this->endpoint = $endpoint;
+        }
     }
 }
