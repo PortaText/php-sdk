@@ -188,13 +188,17 @@ abstract class Base implements IClient
                     "Invalid auth type: $authType"
                 );
         }
-        list($code, $headers, $body) = $this->execute(
+        list($code, $resultHeaders, $resultBody) = $this->execute(
             $uri,
             $method,
             $headers,
             $body
         );
-        $result = new Result($code, $headers, json_decode($body, true));
+        $result = new Result(
+            $code,
+            $resultHeaders,
+            json_decode($resultBody, true)
+        );
         switch ($code) {
             case 401:
                 /*
