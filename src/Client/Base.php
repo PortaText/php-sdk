@@ -27,6 +27,9 @@ use PortaText\Exception\RateLimited;
 /**
  * All API client implementations should extend this class.
  *
+ * The PHPMD.CouplingBetweenObjects warning is suppressed here. It is triggered
+ * because of the number of @throws declarations :\
+ *
  * @SuppressWarnings("CouplingBetweenObjects")
  */
 abstract class Base implements IClient
