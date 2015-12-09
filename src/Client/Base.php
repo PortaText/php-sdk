@@ -243,7 +243,7 @@ abstract class Base implements IClient
      * @return array
      * @throws PortaText\Exception\RequestError
      */
-    public abstract function execute($uri, $method, $headers, $body);
+    abstract public function execute($uri, $method, $headers, $body);
 
     /**
      * Logs in and stores session token on success.
