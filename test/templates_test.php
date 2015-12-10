@@ -23,7 +23,7 @@ class TemplatesTest extends BaseCommandTest
         $this->mockClientForCommand("templates/44")
         ->templates()
         ->withId(44)
-        ->delete()
+        ->delete();
     }
 
     /**
