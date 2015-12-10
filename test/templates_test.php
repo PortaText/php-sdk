@@ -32,7 +32,7 @@ class TemplatesTest extends BaseCommandTest
     {
         $this->mockClientForCommand("templates/763")
             ->templates()
-            ->id(763)
+            ->withId(763)
             ->get();
     }
 }

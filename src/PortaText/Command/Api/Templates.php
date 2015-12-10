@@ -22,7 +22,7 @@ class Templates extends Base
      *
      * @return PortaText\Command\ICommand
      */
-    public function id($templateId)
+    public function withId($templateId)
     {
         return $this->setArgument("id", $templateId);
     }

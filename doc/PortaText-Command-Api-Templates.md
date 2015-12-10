@@ -33,6 +33,22 @@ Methods
 -------
 
 
+### withId
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::withId($templateId)
+
+Sets the template id.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $templateId **mixed**
+
+
+
 ### endpoint
 
     string PortaText\Command\ICommand::endpoint(string $method)
