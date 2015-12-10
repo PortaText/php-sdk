@@ -85,20 +85,20 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                 ));
                 $this->assertEquals($body, "{\"success\": \"true\"}");
 
-                $this->assertEquals(
-                    file_get_contents($readFileFlag),
-                    implode("\r\n", array(
-                        "DELETE / HTTP/1.1",
-                        "Host: 127.0.0.1:10450",
-                        "User-Agent: PortaText PHP SDK",
-                        "Accept: */*",
-                        "X-Request-header1: value1",
-                        "X-Request-header2: value2",
-                        "Content-Length: 14",
-                        "Content-Type: application/x-www-form-urlencoded",
-                        "",
-                        "this is a body"
-                    ))
+                $contents = explode("\r\n", file_get_contents($readFileFlag));
+                $this->assertTrue(
+                    count(
+                        array_diff(
+                            array(
+                                "DELETE / HTTP/1.1",
+                                "User-Agent: PortaText PHP SDK",
+                                "X-Request-header1: value1",
+                                "X-Request-header2: value2",
+                                "this is a body"
+                            ),
+                            $contents
+                        )
+                    ) === 0
                 );
                 break;
         }
