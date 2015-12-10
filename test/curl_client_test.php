@@ -34,6 +34,7 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                     "{\"success\": \"true\"}"
                 ));
                 @socket_write($clientSock, $result);
+                usleep(100000);
                 @socket_close($serverSock);
                 file_put_contents($writeFileFlag, $result);
                 exit(0);
