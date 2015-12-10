@@ -50,13 +50,15 @@ class RequestError extends Base
     /**
      * Constructor.
      *
+     * @param string $message Error message.
      * @param PortaText\Command\Descriptor $descriptor The Command descriptor.
      * @param PortaText\Command\Result $result Request result.
      *
      */
-    public function __construct($commandDescriptor = null, $result = null)
+    public function __construct($message, $descriptor = null, $result = null)
     {
+        parent::__construct($message);
         $this->result = $result;
-        $this->descriptor = $commandDescriptor;
+        $this->descriptor = $descriptor;
     }
 }

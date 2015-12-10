@@ -46,7 +46,7 @@ class Curl extends Base
         if ($result === false) {
             $error = curl_error($curl);
             @curl_close($curl);
-            throw new RequestError($descriptor, $error);
+            throw new RequestError($error, $descriptor);
         }
         $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         @curl_close($curl);

@@ -20,22 +20,7 @@ class CurlClient extends \PHPUnit_Framework_TestCase
             case -1:
                 throw new \Exception("Could not fork");
             case 0:
-                $serverSock = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-                if ($serverSock === false) {
-                    $error = socket_last_error();
-                    throw new \Exception("socket_create: $error");
-                }
-                @socket_set_option($serverSock, SOL_SOCKET, SO_REUSEADDR, 1);
-
-                if (@socket_bind($serverSock, $address, $port) === false) {
-                    $error = socket_strerror(socket_last_error($serverSock));
-                    throw new \Exception("socket_bind: $error");
-                }
-                if (@socket_listen($serverSock, 5) === false) {
-                    $error = socket_strerror(socket_last_error($serverSock));
-                    throw new \Exception("socket_listen: $error");
-                }
-
+                $serverSock = $this->openServer($address, $port);
                 touch($acceptFileFlag);
                 $clientSock = @socket_accept($serverSock);
                 $buffer = '';
@@ -105,8 +90,7 @@ class CurlClient extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * test
-     * @expectedException PortaText\Exception\RequestError
+     * @test
      */
     public function can_throw_request_error()
     {
@@ -120,6 +104,44 @@ class CurlClient extends \PHPUnit_Framework_TestCase
           "this is a body"
         );
         $portatext = new Client();
-        $portatext->execute($descriptor);
+        try
+        {
+            $portatext->execute($descriptor);
+        } catch(\PortaText\Exception\RequestError $e) {
+            $eDescriptor = $e->getDescriptor();
+            $this->assertTrue(strlen($e->getMessage()) > 10);
+            $this->assertEquals($eDescriptor->uri, $descriptor->uri);
+            $this->assertEquals($eDescriptor->method, $descriptor->method);
+            $this->assertEquals($eDescriptor->headers, $descriptor->headers);
+            $this->assertEquals($eDescriptor->body, $descriptor->body);
+            $this->assertNull($e->getResult());
+        }
+    }
+
+    private function openServer($address, $port)
+    {
+        $serverSock = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+        if ($serverSock === false) {
+            $error = socket_last_error();
+            throw new \Exception("socket_create: $error");
+        }
+        @socket_set_option($serverSock, SOL_SOCKET, SO_REUSEADDR, 1);
+
+        if (@socket_bind($serverSock, $address, $port) === false) {
+            $error = socket_strerror(socket_last_error($serverSock));
+            throw new \Exception("socket_bind: $error");
+        }
+        if (@socket_listen($serverSock, 5) === false) {
+            $error = socket_strerror(socket_last_error($serverSock));
+            throw new \Exception("socket_listen: $error");
+        }
+        return $serverSock;
+    }
+
+    private function readRequest($sock)
+    {
+        $buffer = '';
+        @socket_recv($clientSock, $buffer, 2048, \MSG_DONTWAIT);
+        return $buffer;
     }
 }
