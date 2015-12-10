@@ -18,6 +18,7 @@
     <mkdir dir="build" mode="0755"/>
     <mkdir dir="build/doc" mode="0755"/>
     <mkdir dir="build/logs" mode="0755"/>
+    <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
 
   <target name="md">
@@ -39,7 +40,7 @@
   </target>
 
   <target name="test">
-    <exec command="vendor/bin/phpunit --coverage-clover build/logs/clover.xml --debug -v --bootstrap test/resources/bootstrap.php test/*"
+    <exec command="vendor/bin/phpunit -c test/resources/phpunit.xml"
       checkreturn="true"
       passthru="true"/>
   </target>
