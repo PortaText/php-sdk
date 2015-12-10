@@ -39,7 +39,7 @@ class Curl extends Base
           CURLOPT_HTTPHEADER => $headers,
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_SSL_VERIFYPEER => true,
-          CURLOPT_VERBOSE => true,
+          //CURLOPT_VERBOSE => true,
           CURLOPT_POSTFIELDS => $descriptor->body
         ));
         $result = curl_exec($curl);
