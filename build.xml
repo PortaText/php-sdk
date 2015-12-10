@@ -52,6 +52,11 @@
     <exec dir="build/doc/md" command="../../../vendor/bin/phpdocmd ../xml/structure.xml"
       checkreturn="true"
       passthru="true"/>
+    <copy todir="doc" overwrite="true">
+      <fileset dir="build/doc/md">
+        <include name="*.md" />
+      </fileset>
+    </copy>
   </target>
 
   <target name="test">
