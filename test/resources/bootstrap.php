@@ -17,3 +17,7 @@ require implode(DIRECTORY_SEPARATOR, array(
 require implode(DIRECTORY_SEPARATOR, array(
   __DIR__, "..", "helper", "CustomCommand.php"
 ));
+
+require implode(DIRECTORY_SEPARATOR, array(
+  __DIR__, "..", "helper", "BaseCommandTest.php"
+));

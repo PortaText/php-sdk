@@ -35,16 +35,3 @@ Returns a command instance based on the command name requested.
 * $command **string** - &lt;p&gt;The name of the command.&lt;/p&gt;
 
 
-
-### __construct
-
-    mixed PortaText\Command\Factory::__construct()
-
-Class constructor.
-
-
-
-* Visibility: **public**
-
-
-

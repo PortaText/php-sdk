@@ -37,6 +37,19 @@ abstract class Base implements ICommand
     }
 
     /**
+     * Deleted an argument.
+     *
+     * @param string $key Name of the argument.
+     *
+     * @return array
+     */
+    protected function delArgument($key)
+    {
+        unset($this->args[$key]);
+        return $this;
+    }
+
+    /**
      * Returns the value for the given argument name.
      *
      * @param string $key Name of the argument.
@@ -82,7 +95,10 @@ abstract class Base implements ICommand
      */
     public function body($method)
     {
-        return json_encode($this->arguments($method));
+        if (count($this->arguments($method)) > 0) {
+            return json_encode($this->arguments($method));
+        }
+        return "";
     }
 
     /**

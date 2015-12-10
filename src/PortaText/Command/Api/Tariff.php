@@ -40,6 +40,7 @@ class Tariff extends Base
         $countryIso = $this->getArgument("id");
         if (!is_null($countryIso)) {
             $endpoint .= "/$countryIso";
+            $this->delArgument("id");
         }
         return $endpoint;
     }

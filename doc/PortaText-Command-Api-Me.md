@@ -68,6 +68,23 @@ Returns an associative array with the arguments.
 
 
 
+### delArgument
+
+    array PortaText\Command\Base::delArgument(string $key)
+
+Deleted an argument.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $key **string** - &lt;p&gt;Name of the argument.&lt;/p&gt;
+
+
+
 ### getArgument
 
     mixed|null PortaText\Command\Base::getArgument(string $key)
@@ -223,23 +240,6 @@ Sets the API client to use.
 
 #### Arguments
 * $client **PortaText\Command\PortaText\Client\Client** - &lt;p&gt;New injected client.&lt;/p&gt;
-
-
-
-### setLogger
-
-    \PortaText\Command\PortaText\Client\Base PortaText\Command\Base::setLogger(\PortaText\Command\Psr\Log\LoggerInterface $logger)
-
-Sets the logger implementation.
-
-
-
-* Visibility: **public**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
-
-#### Arguments
-* $logger **PortaText\Command\Psr\Log\LoggerInterface** - &lt;p&gt;The PSR3-Logger&lt;/p&gt;
 
 
 

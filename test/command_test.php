@@ -32,18 +32,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     {
         $client = $this
             ->getMockBuilder('PortaText\Client\Base')
-            ->setMethods(array('run', 'execute', 'customCommand'))
+            ->setMethods(array('run', 'execute'))
             ->getMock();
-        $client
-          ->expects($this->exactly(4))
-          ->method('customCommand')
-          ->withConsecutive(array(), array(), array(), array())
-          ->will($this->onConsecutiveCalls(
-            $client->__call('customCommand', array()),
-            $client->__call('customCommand', array()),
-            $client->__call('customCommand', array()),
-            $client->__call('customCommand', array())
-          ));
         $client
             ->expects($this->exactly(4))
             ->method('run')
