@@ -112,31 +112,3 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
         $client->run();
     }
 }
-
-class CustomClient extends BaseClient
-{
-    protected $resultData = array();
-
-    public function run(
-        $endpoint = "endpoint",
-        $method = "get",
-        $contentType = "application/json",
-        $body = "",
-        $authType = null
-    )
-    {
-        return parent::run($endpoint, $method, $contentType, $body, $authType);
-    }
-
-    public function execute($descriptor)
-    {
-        return $this->resultData;
-    }
-
-    public function __construct($retCode, $retHeaders, $retBody)
-    {
-        parent::__construct();
-        $this->resultData = array($retCode, $retHeaders, $retBody);
-    }
-}
-
