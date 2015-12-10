@@ -8,6 +8,8 @@
  */
 namespace PortaText\Test;
 
+use PortaText\Client\Base as Client;
+
 /**
  * Generic command tests.
  */
@@ -23,4 +25,74 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $client->someInvalidCommand();
     }
 
+    /**
+     * @test
+     */
+    public function can_use_command_post()
+    {
+        $client = $this
+            ->getMockBuilder('PortaText\Client\Base')
+            ->setMethods(array('run', 'execute', 'customCommand'))
+            ->getMock();
+        $client
+          ->expects($this->exactly(4))
+          ->method('customCommand')
+          ->withConsecutive(array(), array(), array(), array())
+          ->will($this->onConsecutiveCalls(
+            $client->__call('customCommand', array()),
+            $client->__call('customCommand', array()),
+            $client->__call('customCommand', array()),
+            $client->__call('customCommand', array())
+          ));
+        $client
+            ->expects($this->exactly(4))
+            ->method('run')
+            ->withConsecutive(
+                array(
+                    $this->equalTo("customCommandEndpoint"),
+                    $this->equalTo('get'),
+                    $this->equalTo('application/json'),
+                    $this->callback(function($body) {
+                        $body = json_decode($body, true);
+                        return $body["argument1"] === "aValue";
+                    }),
+                    $this->equalTo(null)
+                ),
+                array(
+                    $this->equalTo("customCommandEndpoint"),
+                    $this->equalTo('post'),
+                    $this->equalTo('application/json'),
+                    $this->callback(function($body) {
+                        $body = json_decode($body, true);
+                        return $body["argument1"] === "aValue";
+                    }),
+                    $this->equalTo(null)
+                ),
+                array(
+                    $this->equalTo("customCommandEndpoint"),
+                    $this->equalTo('put'),
+                    $this->equalTo('application/json'),
+                    $this->callback(function($body) {
+                        $body = json_decode($body, true);
+                        return $body["argument1"] === "aValue";
+                    }),
+                    $this->equalTo(null)
+                ),
+                array(
+                    $this->equalTo("customCommandEndpoint"),
+                    $this->equalTo('delete'),
+                    $this->equalTo('application/json'),
+                    $this->callback(function($body) {
+                        $body = json_decode($body, true);
+                        return $body["argument1"] === "aValue";
+                    }),
+                    $this->equalTo(null)
+                )
+            );
+        $client->setApiKey("anapikey");
+        $client->customCommand()->anArgument("aValue")->get();
+        $client->customCommand()->anArgument("aValue")->post();
+        $client->customCommand()->anArgument("aValue")->put();
+        $client->customCommand()->anArgument("aValue")->delete();
+    }
 }
