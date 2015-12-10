@@ -13,5 +13,14 @@ namespace PortaText\Exception;
  */
 class Base extends \Exception
 {
-
+    /**
+     * Constructor.
+     *
+     * @param string $message Error message.
+     *
+     */
+    public function __construct($message)
+    {
+        parent::__construct($message);
+    }
 }

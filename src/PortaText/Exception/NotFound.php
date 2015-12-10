@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class NotFound extends RequestError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("The resource could not be found");
+    }
 }

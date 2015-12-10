@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class RateLimited extends ClientError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("You've been rate limited, try again later");
+    }
 }

@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class InvalidCredentials extends RequestError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("Your authentication credentials were rejected");
+    }
 }

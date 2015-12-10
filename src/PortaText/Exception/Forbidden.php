@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class Forbidden extends RequestError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("Access to the asked resource was denied");
+    }
 }

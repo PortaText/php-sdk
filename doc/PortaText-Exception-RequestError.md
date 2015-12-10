@@ -72,18 +72,17 @@ Returns the request descriptor.
 
 ### __construct
 
-    mixed PortaText\Exception\RequestError::__construct(string $message, \PortaText\Exception\PortaText\Command\Descriptor $descriptor, \PortaText\Exception\PortaText\Command\Result $result)
+    mixed PortaText\Exception\Base::__construct(string $message)
 
 Constructor.
 
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Exception\Base](PortaText-Exception-Base.md)
 
 
 #### Arguments
 * $message **string** - &lt;p&gt;Error message.&lt;/p&gt;
-* $descriptor **PortaText\Exception\PortaText\Command\Descriptor** - &lt;p&gt;The Command descriptor.&lt;/p&gt;
-* $result **PortaText\Exception\PortaText\Command\Result** - &lt;p&gt;Request result.&lt;/p&gt;
 
 

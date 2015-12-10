@@ -13,5 +13,11 @@ namespace PortaText\Exception;
  */
 class ClientError extends RequestError
 {
-
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("There was an error with how the request was sent");
+    }
 }

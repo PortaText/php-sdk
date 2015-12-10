@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class ServerError extends RequestError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("Internal server error, please contact support");
+    }
 }

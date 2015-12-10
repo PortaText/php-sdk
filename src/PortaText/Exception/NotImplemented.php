@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class NotImplemented extends Base
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("The asked endpoint/method is not implemented");
+    }
 }

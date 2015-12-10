@@ -16,4 +16,22 @@ Base class for all PortaText Exceptions.
 
 
 
+Methods
+-------
+
+
+### __construct
+
+    mixed PortaText\Exception\Base::__construct(string $message)
+
+Constructor.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $message **string** - &lt;p&gt;Error message.&lt;/p&gt;
+
 

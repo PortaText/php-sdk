@@ -13,4 +13,11 @@ namespace PortaText\Exception;
  */
 class PaymentRequired extends RequestError
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct("Please contact sales or support");
+    }
 }
