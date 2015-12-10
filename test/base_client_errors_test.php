@@ -8,6 +8,16 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function cannot_use_invalid_authentication_type()
+    {
+        $client = new CustomClient(400, array(), '{"success": "false"}');
+        $client->run("a", "b", "c", "d", "e");
+    }
+
+    /**
+     * @test
      * @expectedException PortaText\Exception\ClientError
      */
     public function cannot_request_on_client_error()
