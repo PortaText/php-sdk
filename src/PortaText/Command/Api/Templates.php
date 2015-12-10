@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template endpoint.
+ * The Templates endpoint.
  *
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
@@ -11,9 +11,9 @@ namespace PortaText\Command\Api;
 use PortaText\Command\Base;
 
 /**
- * The Template endpoint.
+ * The Templates endpoint.
  */
-class Template extends Base
+class Templates extends Base
 {
     /**
      * Returns a string with the endpoint for the given command.

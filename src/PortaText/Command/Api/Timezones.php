@@ -13,7 +13,7 @@ use PortaText\Command\Base;
 /**
  * The Timezone endpoint.
  */
-class Timezone extends Base
+class Timezones extends Base
 {
     /**
      * Returns a string with the endpoint for the given command.

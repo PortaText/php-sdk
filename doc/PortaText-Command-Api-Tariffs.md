@@ -1,12 +1,12 @@
-PortaText\Command\Api\Tariff
+PortaText\Command\Api\Tariffs
 ===============
 
-The Tariff endpoint.
+The Tariffs endpoint.
 
 
 
 
-* Class name: Tariff
+* Class name: Tariffs
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -35,7 +35,7 @@ Methods
 
 ### forCountry
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Tariff::forCountry(string $countryIso)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Tariffs::forCountry(string $countryIso)
 
 Sets the tariff country ISO code.
 

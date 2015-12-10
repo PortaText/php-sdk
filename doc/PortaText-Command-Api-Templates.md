@@ -1,12 +1,12 @@
-PortaText\Command\Api\Template
+PortaText\Command\Api\Templates
 ===============
 
-The Template endpoint.
+The Templates endpoint.
 
 
 
 
-* Class name: Template
+* Class name: Templates
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * The Tariff endpoint.
+ * The Tariffs endpoint.
  *
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
@@ -11,9 +11,9 @@ namespace PortaText\Command\Api;
 use PortaText\Command\Base;
 
 /**
- * The Tariff endpoint.
+ * The Tariffs endpoint.
  */
-class Tariff extends Base
+class Tariffs extends Base
 {
     /**
      * Sets the tariff country ISO code.

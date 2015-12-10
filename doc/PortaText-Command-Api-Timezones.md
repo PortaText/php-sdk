@@ -1,4 +1,4 @@
-PortaText\Command\Api\Timezone
+PortaText\Command\Api\Timezones
 ===============
 
 The Timezone endpoint.
@@ -6,7 +6,7 @@ The Timezone endpoint.
 
 
 
-* Class name: Timezone
+* Class name: Timezones
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
