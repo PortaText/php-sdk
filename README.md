@@ -28,6 +28,7 @@ This project uses [phing](https://www.phing.info/). Current tasks include:
  * test: Runs [PHPUnit](https://phpunit.de/).
  * cs: Runs [CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).
  * doc: Runs [PhpDocumentor](http://www.phpdoc.org/).
+ * md: runs [PHPMD](http://phpmd.org/).
  * build: This is the default task, and will run all the other tasks.
 
 To run a task, just do:
