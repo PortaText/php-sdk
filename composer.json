@@ -3,7 +3,7 @@
   "description": "PHP Client for the PortaText API",
   "autoload": {
     "psr-4": {
-      "PortaText\\": "src"
+      "PortaText\\": "src/PortaText"
     }
   },
   "license": "Apache-2.0",
@@ -18,6 +18,7 @@
     "phpdocumentor/phpdocumentor": "2.*",
     "phing/phing": "2.*",
     "phpmd/phpmd": "2.*",
-    "satooshi/php-coveralls": "0.*"
+    "satooshi/php-coveralls": "0.*",
+    "evert/phpdoc-md" : "~0.1.1"
   }
 }

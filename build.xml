@@ -17,6 +17,9 @@
   <target name="prepare">
     <mkdir dir="build" mode="0755"/>
     <mkdir dir="build/doc" mode="0755"/>
+    <mkdir dir="build/doc/xml" mode="0755"/>
+    <mkdir dir="build/doc/html" mode="0755"/>
+    <mkdir dir="build/doc/md" mode="0755"/>
     <mkdir dir="build/logs" mode="0755"/>
     <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
@@ -33,8 +36,20 @@
       passthru="true"/>
   </target>
 
-  <target name="doc">
-    <exec command="vendor/bin/phpdoc -t build/doc -d src --validate --sourcecode --force --log"
+  <target name="docxml">
+    <exec command="vendor/bin/phpdoc --template=xml -t build/doc/xml -d src --validate --sourcecode --force --log"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
+  <target name="dochtml">
+    <exec command="vendor/bin/phpdoc -t build/doc/html -d src --validate --sourcecode --force --log"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
+  <target name="docmd">
+    <exec dir="build/doc/md" command="../../../vendor/bin/phpdocmd ../xml/structure.xml"
       checkreturn="true"
       passthru="true"/>
   </target>
@@ -45,6 +60,7 @@
       passthru="true"/>
   </target>
 
-  <target name="build" depends="clean, prepare, cs, md, doc, test">
-  </target>
+  <target name="build" depends="clean, prepare, cs, md, doc, test"/>
+  <target name="doc" depends="docxml, dochtml, docmd"/>
+
 </project>
