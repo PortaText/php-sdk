@@ -15,7 +15,7 @@ use Psr\Log\NullLogger;
 /**
  * The super class of every API command.
  */
-class Base implements ICommand
+abstract class Base implements ICommand
 {
     /**
      * Arguments for endpoint invokation.
@@ -72,12 +72,8 @@ class Base implements ICommand
      * @param string $args The endpoint for this command.
      *
      * @return string
-     * @throws PortaText\Exception\NotImplemented
      */
-    public function endpoint($method, array $args = array())
-    {
-        throw new NotImplemented;
-    }
+    abstract public function endpoint($method);
 
     /**
      * Returns the body for this endpoint.

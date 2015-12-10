@@ -8,7 +8,6 @@
  */
 namespace PortaText\Command\Api;
 
-use PortaText\Exception\NotImplemented;
 use PortaText\Command\Base;
 
 /**

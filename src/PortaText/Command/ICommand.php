@@ -32,7 +32,6 @@ interface ICommand
      * @param string $args The endpoint for this command.
      *
      * @return string
-     * @throws PortaText\Exception\NotImplemented
      */
     public function endpoint($method);
 

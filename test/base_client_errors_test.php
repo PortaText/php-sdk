@@ -48,6 +48,36 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @expectedException PortaText\Exception\NotFound
+     */
+    public function cannot_request_on_not_found()
+    {
+        $client = new CustomClient(404, array(), '{"success": "false"}');
+        $client->run();
+    }
+
+    /**
+     * @test
+     * @expectedException PortaText\Exception\InvalidMethod
+     */
+    public function cannot_request_on_invalid_method()
+    {
+        $client = new CustomClient(405, array(), '{"success": "false"}');
+        $client->run();
+    }
+
+    /**
+     * @test
+     * @expectedException PortaText\Exception\InvalidMedia
+     */
+    public function cannot_request_on_invalid_media()
+    {
+        $client = new CustomClient(415, array(), '{"success": "false"}');
+        $client->run();
+    }
+
+    /**
+     * @test
      * @expectedException PortaText\Exception\RateLimited
      */
     public function cannot_request_on_rate_limit()

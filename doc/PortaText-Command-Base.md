@@ -8,6 +8,7 @@ The super class of every API command.
 
 * Class name: Base
 * Namespace: PortaText\Command
+* This is an **abstract** class
 * This class implements: [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
 
 
