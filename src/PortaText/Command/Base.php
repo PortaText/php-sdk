@@ -9,8 +9,6 @@
 namespace PortaText\Command;
 
 use PortaText\Client\IClient;
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
 
 /**
  * The super class of every API command.
@@ -169,19 +167,6 @@ abstract class Base implements ICommand
     public function setClient(IClient $client)
     {
         $this->client = $client;
-        return $this;
-    }
-
-    /**
-     * Sets the logger implementation.
-     *
-     * @param Psr\Log\LoggerInterface $logger The PSR3-Logger
-     *
-     * @return PortaText\Client\Base
-     */
-    public function setLogger(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
         return $this;
     }
 

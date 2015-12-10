@@ -32,12 +32,4 @@ class Factory implements IFactory
         }
         return new $className();
     }
-
-    /**
-     * Class constructor.
-     */
-    public function __construct()
-    {
-
-    }
 }

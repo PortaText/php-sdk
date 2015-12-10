@@ -9,7 +9,6 @@
 namespace PortaText\Command;
 
 use PortaText\Client\IClient;
-use Psr\Log\LoggerInterface;
 
 /**
  * An API command interface.
