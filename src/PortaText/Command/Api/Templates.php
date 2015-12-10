@@ -16,6 +16,18 @@ use PortaText\Command\Base;
 class Templates extends Base
 {
     /**
+     * Sets the template id.
+     *
+     * @param integer $template Template id.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function id($templateId)
+    {
+        return $this->setArgument("id", $templateId);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -28,6 +40,7 @@ class Templates extends Base
         $templateId = $this->getArgument("id");
         if (!is_null($templateId)) {
             $endpoint .= "/$templateId";
+            $this->delArgument("id");
         }
         return $endpoint;
     }
