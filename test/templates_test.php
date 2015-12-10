@@ -15,6 +15,20 @@ use PortaText\Client\Base as Client;
  */
 class TemplatesTest extends BaseCommandTest
 {
+    public function can_save_template()
+    {
+        $this->mockClientForCommand("templates", array(
+            "name" => "a template",
+            "text" => "a template text {{and_a_variable}}",
+            "description" => "super duper template"
+        ))
+        ->templates()
+        ->name("a template")
+        ->text("a template text {{and_a_variable}}")
+        ->description("super duper template")
+        ->post();
+    }
+
     /**
      * @test
      */

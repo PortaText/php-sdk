@@ -33,6 +33,54 @@ Methods
 -------
 
 
+### name
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::name(string $name)
+
+Sets the template name.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $name **string** - &lt;p&gt;name name.&lt;/p&gt;
+
+
+
+### description
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::description(string $description)
+
+Sets the template description.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $description **string** - &lt;p&gt;Template description.&lt;/p&gt;
+
+
+
+### text
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::text(string $text)
+
+Sets the template text.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $text **string** - &lt;p&gt;Template text.&lt;/p&gt;
+
+
+
 ### withId
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::withId($templateId)

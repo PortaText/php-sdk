@@ -10,6 +10,7 @@ API Index
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
             * [Me](PortaText-Command-Api-Me.md)
+            * [Settings](PortaText-Command-Api-Settings.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)

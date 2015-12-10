@@ -16,6 +16,42 @@ use PortaText\Command\Base;
 class Templates extends Base
 {
     /**
+     * Sets the template name.
+     *
+     * @param string $name name name.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function name($name)
+    {
+        return $this->setArgument("name", $name);
+    }
+
+    /**
+     * Sets the template description.
+     *
+     * @param string $description Template description.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function description($description)
+    {
+        return $this->setArgument("description", $description);
+    }
+
+    /**
+     * Sets the template text.
+     *
+     * @param string $text Template text.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function text($text)
+    {
+        return $this->setArgument("text", $text);
+    }
+
+    /**
      * Sets the template id.
      *
      * @param integer $template Template id.

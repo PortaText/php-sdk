@@ -15,6 +15,9 @@ class ClientError extends RequestError
 {
     /**
      * Constructor.
+     *
+     * @param PortaText\Command\Descriptor $descriptor The Command descriptor.
+     * @param PortaText\Command\Result $result Request result.
      */
     public function __construct($descriptor = null, $result = null)
     {
