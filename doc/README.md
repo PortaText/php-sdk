@@ -1,5 +1,4 @@
-PortaText API PHP SDK
-=====================
+# PortaText API PHP SDK
 
 Welcome!
 
