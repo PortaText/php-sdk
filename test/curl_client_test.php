@@ -16,6 +16,7 @@ class CurlClient extends \PHPUnit_Framework_TestCase
         $acceptFileFlag = tempnam("/tmp", "accept" . __CLASS__);
         $readFileFlag = tempnam("/tmp", "read" . __CLASS__);
         $writeFileFlag = tempnam("/tmp", "write" . __CLASS__);
+        $receivedFileFlag = tempnam("/tmp", "write" . __CLASS__);
         switch($pid = pcntl_fork()) {
             case -1:
                 throw new \Exception("Could not fork");
@@ -24,17 +25,23 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                 touch($acceptFileFlag);
                 $clientSock = @socket_accept($serverSock);
                 $buffer = '';
-                @socket_recv($clientSock, $buffer, 2048, \MSG_DONTWAIT);
+                while(!strstr($buffer, "body")) {
+                    $newBuff = '';
+                    @socket_recv($clientSock, $newBuff, 2048, \MSG_DONTWAIT);
+                    $buffer .= $newBuff;
+                }
                 file_put_contents($readFileFlag, $buffer);
                 $result = implode("\r\n", array(
                     "HTTP/1.1 742 OK",
+                    "Connection: close",
                     "X-header1: value1",
                     "X-header2: value2",
                     "",
                     "{\"success\": \"true\"}"
                 ));
                 @socket_write($clientSock, $result);
-                usleep(100000);
+                $this->waitForFile($receivedFileFlag);
+                @socket_close($clientSock);
                 @socket_close($serverSock);
                 file_put_contents($writeFileFlag, $result);
                 exit(0);
@@ -50,28 +57,26 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                     "this is a body"
                 );
                 $portatext = new Client();
-                while(true) {
-                    usleep(100000);
-                    if(file_exists($acceptFileFlag)) {
-                        break;
-                    }
-                }
+                $this->waitForFile($acceptFileFlag);
+
                 list($code, $headers, $body) = $portatext->execute($descriptor);
-                while(true) {
-                    usleep(100000);
-                    if(file_exists($writeFileFlag)) {
-                        break;
-                    }
-                }
+                touch($receivedFileFlag);
+
+                $this->waitForFile($writeFileFlag);
 
                 $this->assertEquals($code, 742);
                 $this->assertEquals($headers, array(
+                    "connection" => "close",
                     "x-header1" => "value1",
                     "x-header2" => "value2"
                 ));
                 $this->assertEquals($body, "{\"success\": \"true\"}");
 
                 $contents = explode("\r\n", file_get_contents($readFileFlag));
+                @unlink($acceptFileFlag);
+                @unlink($readFileFlag);
+                @unlink($receivedFileFlag);
+                @unlink($writeFileFlag);
                 $this->assertTrue(
                     count(
                         array_diff(
@@ -116,6 +121,22 @@ class CurlClient extends \PHPUnit_Framework_TestCase
             $this->assertEquals($eDescriptor->headers, $descriptor->headers);
             $this->assertEquals($eDescriptor->body, $descriptor->body);
             $this->assertNull($e->getResult());
+        }
+    }
+
+    private function waitForFile($file)
+    {
+        $totalTime = 0;
+        $sleepTime = 100;
+        while(true) {
+            usleep($sleepTime);
+            if(file_exists($file)) {
+                break;
+            }
+            $totalTime += $sleepTime;
+            if ($totalTime > 5000000) {
+                throw new \Exception("Timeout waiting for $file");
+            }
         }
     }
 
