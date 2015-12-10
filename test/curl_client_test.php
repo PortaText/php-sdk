@@ -65,14 +65,14 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                 );
                 $portatext = new Client();
                 while(true) {
-                    usleep(500);
+                    usleep(100000);
                     if(file_exists($acceptFileFlag)) {
                         break;
                     }
                 }
                 list($code, $headers, $body) = $portatext->execute($descriptor);
                 while(true) {
-                    usleep(500);
+                    usleep(100000);
                     if(file_exists($writeFileFlag)) {
                         break;
                     }
