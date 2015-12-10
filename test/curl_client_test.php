@@ -58,7 +58,7 @@ class CurlClient extends \PHPUnit_Framework_TestCase
                 );
                 $portatext = new Client();
                 $this->waitForFile($acceptFileFlag);
-
+                usleep(100000);
                 list($code, $headers, $body) = $portatext->execute($descriptor);
                 touch($receivedFileFlag);
 
