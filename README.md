@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/PortaText/php-sdk.svg)](https://travis-ci.org/PortaText/php-sdk)
+[![Latest Stable Version](https://poser.pugx.org/portatext/php-sdk/v/stable)](https://packagist.org/packages/portatext/php-sdk)
+[![Total Downloads](https://poser.pugx.org/portatext/php-sdk/downloads)](https://packagist.org/packages/portatext/php-sdk)
+[![Latest Unstable Version](https://poser.pugx.org/portatext/php-sdk/v/unstable)](https://packagist.org/packages/portatext/php-sdk)
+[![License](https://poser.pugx.org/portatext/php-sdk/license)](https://packagist.org/packages/portatext/php-sdk)
 
 # php-sdk
 PHP Client for the PortaText API.
