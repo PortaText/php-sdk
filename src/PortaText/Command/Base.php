@@ -176,7 +176,6 @@ abstract class Base implements ICommand
      */
     public function __construct()
     {
-        $this->logger = new NullLogger;
         $this->args = array();
     }
 }
