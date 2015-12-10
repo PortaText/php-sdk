@@ -5,9 +5,19 @@
   basedir="."
   description="PortaText PHP API Client">
 
-  <target name="prepare">
+  <target name="install">
     <exec command="./composer.phar install" checkreturn="true" passthru="true"/>
     <exec command="./composer.phar update" checkreturn="true" passthru="true"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+
+  <target name="prepare">
+    <mkdir dir="build" mode="0755"/>
+    <mkdir dir="build/doc" mode="0755"/>
+    <mkdir dir="build/logs" mode="0755"/>
   </target>
 
   <target name="md">
@@ -23,17 +33,17 @@
   </target>
 
   <target name="doc">
-    <exec command="vendor/bin/phpdoc -d src --validate --sourcecode --force --log"
+    <exec command="vendor/bin/phpdoc -t build/doc -d src --validate --sourcecode --force --log"
       checkreturn="true"
       passthru="true"/>
   </target>
 
   <target name="test">
-    <exec command="vendor/bin/phpunit --debug -v --bootstrap test/resources/bootstrap.php test/*"
+    <exec command="vendor/bin/phpunit --coverage-clover build/logs/clover.xml --debug -v --bootstrap test/resources/bootstrap.php test/*"
       checkreturn="true"
       passthru="true"/>
   </target>
 
-  <target name="build" depends="cs, md, doc, test">
+  <target name="build" depends="clean, prepare, cs, md, doc, test">
   </target>
 </project>

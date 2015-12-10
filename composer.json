@@ -17,6 +17,7 @@
     "squizlabs/php_codesniffer": "2.*",
     "phpdocumentor/phpdocumentor": "2.*",
     "phing/phing": "2.*",
-    "phpmd/phpmd": "2.*"
+    "phpmd/phpmd": "2.*",
+    "satooshi/php-coveralls": "0.*"
   }
 }
