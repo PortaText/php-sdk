@@ -33,6 +33,41 @@ Methods
 -------
 
 
+### add
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Acl::add(string $ipAddress, integer $netmask, string $description)
+
+Adds an ip to the ACL.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $ipAddress **string** - &lt;p&gt;IP Address.&lt;/p&gt;
+* $netmask **integer** - &lt;p&gt;Netmask.&lt;/p&gt;
+* $description **string** - &lt;p&gt;Address description.&lt;/p&gt;
+
+
+
+### body
+
+    string PortaText\Command\ICommand::body(string $method)
+
+Returns the body for this endpoint.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
 ### endpoint
 
     string PortaText\Command\ICommand::endpoint(string $method)
@@ -107,23 +142,6 @@ Returns the value for the given argument name.
     array PortaText\Command\ICommand::arguments(string $method)
 
 Returns an associative array with the arguments.
-
-
-
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
-### body
-
-    string PortaText\Command\ICommand::body(string $method)
-
-Returns the body for this endpoint.
 
 
 

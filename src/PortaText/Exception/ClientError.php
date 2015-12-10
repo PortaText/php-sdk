@@ -16,8 +16,12 @@ class ClientError extends RequestError
     /**
      * Constructor.
      */
-    public function __construct()
+    public function __construct($descriptor = null, $result = null)
     {
-        parent::__construct("There was an error with how the request was sent");
+        parent::__construct(
+            "There was an error with how the request was sent",
+            $descriptor,
+            $result
+        );
     }
 }

@@ -18,6 +18,29 @@ class MeTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_put_me()
+    {
+        $this->mockClientForCommand("me", array(
+            "first_name" => "John",
+            "last_name" => "Doe",
+            "email" => "john@doe.com",
+            "company" => "Mr. spiffy",
+            "callback_url" => null,
+            "timezone" => "UTC"
+        ))
+        ->me()
+        ->firstname("John")
+        ->lastname("Doe")
+        ->email("john@doe.com")
+        ->company("Mr. spiffy")
+        ->callbackUrl(null)
+        ->timezone("UTC")
+        ->put();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_me()
     {
         $this->mockClientForCommand("me")

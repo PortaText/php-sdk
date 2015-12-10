@@ -33,6 +33,102 @@ Methods
 -------
 
 
+### firstname
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::firstname(string $firstname)
+
+Set firstname.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $firstname **string** - &lt;p&gt;The firstname.&lt;/p&gt;
+
+
+
+### lastname
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::lastname(string $lastname)
+
+Set lastname.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $lastname **string** - &lt;p&gt;The lastname.&lt;/p&gt;
+
+
+
+### company
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::company(string $company)
+
+Set company.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $company **string** - &lt;p&gt;The company.&lt;/p&gt;
+
+
+
+### email
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::email(\PortaText\Command\Api\email $email)
+
+Set email.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $email **PortaText\Command\Api\email** - &lt;p&gt;The email.&lt;/p&gt;
+
+
+
+### callbackUrl
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::callbackUrl(string $callbackUrl)
+
+Set the callback url.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $callbackUrl **string** - &lt;p&gt;The callback url.&lt;/p&gt;
+
+
+
+### timezone
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::timezone(string $timezone)
+
+Set timezone.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $timezone **string** - &lt;p&gt;The timezone.&lt;/p&gt;
+
+
+
 ### endpoint
 
     string PortaText\Command\ICommand::endpoint(string $method)

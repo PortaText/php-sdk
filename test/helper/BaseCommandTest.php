@@ -30,6 +30,9 @@ class BaseCommandTest extends \PHPUnit_Framework_TestCase
               $this->anything(),
               $this->equalTo($assertContentType),
               $this->callback(function($body) use (&$assertBody) {
+                  if (is_array($assertBody)) {
+                      $assertBody = json_encode($assertBody);
+                  }
                   return $assertBody === $body;
               }),
               $this->anything()
