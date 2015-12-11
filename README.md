@@ -25,6 +25,41 @@ composer.json:
   }
 ```
 
+# Basic use
+
+## Getting a client instance.
+The first thing is to get a [Client](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Client/Base.php) instance, for example
+the [Curl](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Client/Curl.php) implementation:
+
+```php
+use PortaText\Client\Curl as Client;
+$portatext = new Client();
+```
+
+## (Optional) Set your logger.
+You can optionally set a [PSR-3](http://www.php-fig.org/psr/psr-3/) compatible logger:
+```php
+$portatext->setLogger($logger);
+```
+
+By default, the client will use the [NullLogger](http://www.php-fig.org/psr/psr-3/#1-4-helper-classes-and-interfaces).
+
+## Authenticating
+You can authenticate to the endpoints by using your API key or your username/password. This translated to
+either set
+
+```php
+$client->setApiKey($apiKey);
+```
+
+Or
+
+```php
+$client->setCredentials($username, $password);
+```
+
+# Using the endpoints
+
 # Developers
 This project uses [phing](https://www.phing.info/). Current tasks include:
  * test: Runs [PHPUnit](https://phpunit.de/).
