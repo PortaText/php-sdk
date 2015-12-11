@@ -2,6 +2,7 @@
 /**
  * The Tariffs endpoint.
  *
+ * @link https://github.com/PortaText/docs/wiki/REST-API#api_tariffs Tariffs endpoint.
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
  * @copyright 2015 PortaText
