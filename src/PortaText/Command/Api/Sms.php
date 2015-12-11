@@ -97,7 +97,7 @@ class Sms extends Base
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
         $endpoint = "sms";
         $operationId = $this->getArgument("id");

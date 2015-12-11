@@ -35,7 +35,7 @@ class Tariffs extends Base
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
         $endpoint = "tariffs";
         $countryIso = $this->getArgument("id");

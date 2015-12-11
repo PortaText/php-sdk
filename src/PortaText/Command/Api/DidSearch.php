@@ -120,14 +120,27 @@ class DidSearch extends Base
     }
 
     /**
+     * Returns the body for this endpoint.
+     *
+     * @param string $method Method for this command.
+     *
+     * @return string
+     */
+    protected function body($method)
+    {
+        return "";
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
-        return "dids/search";
+        $queryString = http_build_query($this->arguments($method));
+        return "dids/search?$queryString";
     }
 }

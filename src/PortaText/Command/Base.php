@@ -71,8 +71,10 @@ abstract class Base implements ICommand
      *
      * @return array
      */
-    public function arguments($method)
+    protected function arguments($method)
     {
+        // Just to make PHPMD happy.
+        $method = null;
         return $this->args;
     }
 
@@ -84,7 +86,7 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    abstract public function endpoint($method);
+    abstract protected function endpoint($method);
 
     /**
      * Returns the body for this endpoint.
@@ -93,7 +95,7 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    public function body($method)
+    protected function body($method)
     {
         if (count($this->arguments($method)) > 0) {
             return json_encode($this->arguments($method));
@@ -108,8 +110,10 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    public function contentType($method)
+    protected function contentType($method)
     {
+        // Just to make PHPMD happy.
+        $method = null;
         return 'application/json';
     }
 

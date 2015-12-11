@@ -16,43 +16,6 @@ use PortaText\Client\IClient;
 interface ICommand
 {
     /**
-     * Returns an associative array with the arguments.
-     *
-     * @param string $method Method for this command.
-     *
-     * @return array
-     */
-    public function arguments($method);
-
-    /**
-     * Returns a string with the endpoint for the given command.
-     *
-     * @param string $method Method for this command.
-     * @param string $args The endpoint for this command.
-     *
-     * @return string
-     */
-    public function endpoint($method);
-
-    /**
-     * Returns the content type for this endpoint.
-     *
-     * @param string $method Method for this command.
-     *
-     * @return string
-     */
-    public function contentType($method);
-
-    /**
-     * Returns the body for this endpoint.
-     *
-     * @param string $method Method for this command.
-     *
-     * @return string
-     */
-    public function body($method);
-
-    /**
      * Runs this command with a GET method and returns the result.
      *
      * @return PortaText\Command\ICommand

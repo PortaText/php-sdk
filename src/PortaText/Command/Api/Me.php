@@ -86,7 +86,7 @@ class Me extends Base
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
         return "me";
     }

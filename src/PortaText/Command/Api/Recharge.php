@@ -49,7 +49,7 @@ class Recharge extends Base
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
         return "recharge";
     }

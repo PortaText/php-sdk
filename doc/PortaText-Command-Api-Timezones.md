@@ -35,14 +35,15 @@ Methods
 
 ### endpoint
 
-    string PortaText\Command\ICommand::endpoint(string $method)
+    string PortaText\Command\Base::endpoint(string $method)
 
 Returns a string with the endpoint for the given command.
 
 
 
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+* Visibility: **protected**
+* This method is **abstract**.
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
 
 
 #### Arguments
@@ -104,14 +105,14 @@ Returns the value for the given argument name.
 
 ### arguments
 
-    array PortaText\Command\ICommand::arguments(string $method)
+    array PortaText\Command\Base::arguments(string $method)
 
 Returns an associative array with the arguments.
 
 
 
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
 
 
 #### Arguments
@@ -121,14 +122,14 @@ Returns an associative array with the arguments.
 
 ### body
 
-    string PortaText\Command\ICommand::body(string $method)
+    string PortaText\Command\Base::body(string $method)
 
 Returns the body for this endpoint.
 
 
 
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
 
 
 #### Arguments
@@ -138,14 +139,14 @@ Returns the body for this endpoint.
 
 ### contentType
 
-    string PortaText\Command\ICommand::contentType(string $method)
+    string PortaText\Command\Base::contentType(string $method)
 
 Returns the content type for this endpoint.
 
 
 
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
 
 
 #### Arguments

@@ -41,7 +41,7 @@ class Acl extends Base
      *
      * @return string
      */
-    public function body($method)
+    protected function body($method)
     {
         if ($method === "get") {
             return parent::body($method);
@@ -60,7 +60,7 @@ class Acl extends Base
      *
      * @return string
      */
-    public function endpoint($method)
+    protected function endpoint($method)
     {
         return "me/acl";
     }
