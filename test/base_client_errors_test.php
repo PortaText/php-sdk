@@ -125,6 +125,16 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function cannot_return_errors_on_success()
+    {
+        $client = new CustomClient(200, array(), '{"success": "true"}');
+        $result = $client->run();
+        $this->assertNull($result->errors());
+    }
+
+    /**
+     * @test
+     */
     public function can_return_errors_in_result()
     {
         try
