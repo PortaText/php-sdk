@@ -31,8 +31,8 @@ class TariffsTest extends BaseCommandTest
     public function can_get_one_tariff()
     {
         $this->mockClientForCommand("tariffs/us")
-            ->tariffs()
-            ->forCountry("us")
-            ->get();
+        ->tariffs()
+        ->forCountry("us")
+        ->get();
     }
 }

@@ -77,8 +77,8 @@ class TemplatesTest extends BaseCommandTest
     public function can_get_one_template()
     {
         $this->mockClientForCommand("templates/763")
-            ->templates()
-            ->withId(763)
-            ->get();
+        ->templates()
+        ->withId(763)
+        ->get();
     }
 }

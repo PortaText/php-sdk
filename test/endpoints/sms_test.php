@@ -60,8 +60,8 @@ class SmsTest extends BaseCommandTest
     public function can_get_sms_operation()
     {
         $this->mockClientForCommand("sms/763")
-            ->sms()
-            ->withId(763)
-            ->get();
+        ->sms()
+        ->withId(763)
+        ->get();
     }
 }
