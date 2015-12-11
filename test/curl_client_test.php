@@ -18,15 +18,124 @@ class CurlClient extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
+     * @expectedException InvalidArgumentException
+     */
+    public function cannot_request_invalid_file()
+    {
+        $descriptor = new Descriptor(
+            "http://1.2.3.4",
+            "delete",
+            array(),
+            "file:/tmp/a/b/c/d/e/f"
+        );
+        $portatext = new Client();
+        $portatext->execute($descriptor);
+    }
+
+    /**
+     * @test
+     */
+    public function can_request_with_file()
+    {
+        $address = "127.0.0.1";
+        $port = 10451;
+        $acceptFileFlag = tempnam("/tmp", "accept$port");
+        $readFileFlag = tempnam("/tmp", "read$port");
+        $writeFileFlag = tempnam("/tmp", "write$port");
+        $receivedFileFlag = tempnam("/tmp", "write$port");
+        $dataFile = tempnam("/tmp", "data$port");
+        file_put_contents($dataFile, "upload this one");
+
+        switch($pid = pcntl_fork()) {
+            case -1:
+                throw new \Exception("Could not fork");
+            case 0:
+                $serverSock = $this->openServer($address, $port);
+                touch($acceptFileFlag);
+                $clientSock = @socket_accept($serverSock);
+                $buffer = '';
+                while(!strstr($buffer, "this one")) {
+                    $newBuff = '';
+                    @socket_recv($clientSock, $newBuff, 2048, \MSG_DONTWAIT);
+                    $buffer .= $newBuff;
+                }
+                file_put_contents($readFileFlag, $buffer);
+                $result = implode("\r\n", array(
+                    "HTTP/1.1 742 OK",
+                    "Connection: close",
+                    "X-header1: value1",
+                    "X-header2: value2",
+                    "",
+                    "{\"success\": \"true\"}"
+                ));
+                @socket_write($clientSock, $result);
+                $this->waitForFile($receivedFileFlag);
+                @socket_close($clientSock);
+                @socket_close($serverSock);
+                file_put_contents($writeFileFlag, $result);
+                exit(0);
+                break;
+            default:
+                $descriptor = new Descriptor(
+                    "http://$address:$port",
+                    "delete",
+                    array(
+                        "X-Request-header1" => "value1",
+                        "X-Request-header2" => "value2"
+                    ),
+                    "file:$dataFile"
+                );
+                $portatext = new Client();
+                $this->waitForFile($acceptFileFlag);
+                usleep(100000);
+                list($code, $headers, $body) = $portatext->execute($descriptor);
+                touch($receivedFileFlag);
+
+                $this->waitForFile($writeFileFlag);
+
+                $this->assertEquals($code, 742);
+                $this->assertEquals($headers, array(
+                    "connection" => "close",
+                    "x-header1" => "value1",
+                    "x-header2" => "value2"
+                ));
+                $this->assertEquals($body, "{\"success\": \"true\"}");
+
+                $contents = explode("\r\n", file_get_contents($readFileFlag));
+                @unlink($acceptFileFlag);
+                @unlink($readFileFlag);
+                @unlink($receivedFileFlag);
+                @unlink($writeFileFlag);
+                @unlink($dataFile);
+                $this->assertTrue(
+                    count(
+                        array_diff(
+                            array(
+                                "DELETE / HTTP/1.1",
+                                "User-Agent: PortaText PHP SDK",
+                                "X-Request-header1: value1",
+                                "X-Request-header2: value2",
+                                "upload this one"
+                            ),
+                            $contents
+                        )
+                    ) === 0
+                );
+                break;
+        }
+    }
+
+    /**
+     * @test
      */
     public function can_request()
     {
         $address = "127.0.0.1";
         $port = 10450;
-        $acceptFileFlag = tempnam("/tmp", "accept" . __CLASS__);
-        $readFileFlag = tempnam("/tmp", "read" . __CLASS__);
-        $writeFileFlag = tempnam("/tmp", "write" . __CLASS__);
-        $receivedFileFlag = tempnam("/tmp", "write" . __CLASS__);
+        $acceptFileFlag = tempnam("/tmp", "accept$port");
+        $readFileFlag = tempnam("/tmp", "read$port");
+        $writeFileFlag = tempnam("/tmp", "write$port");
+        $receivedFileFlag = tempnam("/tmp", "write$port");
         switch($pid = pcntl_fork()) {
             case -1:
                 throw new \Exception("Could not fork");

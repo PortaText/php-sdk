@@ -9,6 +9,7 @@ API Index
     * PortaText\Command
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
+            * [Blacklist](PortaText-Command-Api-Blacklist.md)
             * [Cnam](PortaText-Command-Api-Cnam.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
             * [DidSearch](PortaText-Command-Api-DidSearch.md)

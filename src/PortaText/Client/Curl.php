@@ -31,7 +31,9 @@ class Curl extends Base
         foreach ($descriptor->headers as $k => $v) {
             $headers[] = "$k: $v";
         }
-        @curl_setopt_array($curl, array(
+        $isFile = false;
+        $headers[] = "Expect:";
+        $curlOpts = array(
           CURLOPT_URL => $descriptor->uri,
           CURLOPT_HEADER => true,
           CURLOPT_CUSTOMREQUEST => strtoupper($descriptor->method),
@@ -41,8 +43,27 @@ class Curl extends Base
           CURLOPT_SSL_VERIFYPEER => true,
           //CURLOPT_VERBOSE => true,
           CURLOPT_POSTFIELDS => $descriptor->body
-        ));
+        );
+        if (strncmp($descriptor->body, "file:", 5) === 0) {
+            $isFile = true;
+            $fileData = explode(":", $descriptor->body);
+            $filename = $fileData[1];
+            $fileHandle = @fopen($filename, 'r');
+            if ($fileHandle === false) {
+                throw new \InvalidArgumentException("Could not open $filename");
+            }
+            unset($curlOpts[CURLOPT_POSTFIELDS]);
+            $curlOpts[CURLOPT_UPLOAD] = 1;
+            $curlOpts[CURLOPT_INFILESIZE] = filesize($filename);
+            $curlOpts[CURLOPT_INFILE] = $fileHandle;
+            $curlOpts[CURLOPT_BUFFERSIZE] = 4096;
+            $curlOpts[CURLOPT_NOPROGRESS] = true;
+        }
+        @curl_setopt_array($curl, $curlOpts);
         $result = curl_exec($curl);
+        if ($isFile) {
+            fclose($fileHandle);
+        }
         if ($result === false) {
             $error = curl_error($curl);
             @curl_close($curl);
