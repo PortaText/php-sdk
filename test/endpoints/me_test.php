@@ -29,8 +29,7 @@ class MeTest extends BaseCommandTest
             "timezone" => "UTC"
         ))
         ->me()
-        ->firstname("John")
-        ->lastname("Doe")
+        ->name("John", "Doe")
         ->email("john@doe.com")
         ->company("Mr. spiffy")
         ->callbackUrl(null)

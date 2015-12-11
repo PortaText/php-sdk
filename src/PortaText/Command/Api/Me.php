@@ -17,27 +17,17 @@ use PortaText\Command\Base;
 class Me extends Base
 {
     /**
-     * Set firstname.
+     * Set Name.
      *
-     * @param string $firstname The firstname.
-     *
-     * @return PortaText\Command\ICommand
-     */
-    public function firstname($firstname)
-    {
-        return $this->setArgument('first_name', $firstname);
-    }
-
-    /**
-     * Set lastname.
-     *
-     * @param string $lastname The lastname.
+     * @param string $first The firstname.
+     * @param string $last The lastname.
      *
      * @return PortaText\Command\ICommand
      */
-    public function lastname($lastname)
+    public function name($first, $last)
     {
-        return $this->setArgument('last_name', $lastname);
+        $this->setArgument('first_name', $first);
+        return $this->setArgument('last_name', $last);
     }
 
     /**

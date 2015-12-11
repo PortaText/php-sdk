@@ -1,12 +1,12 @@
-PortaText\Command\Api\Me
+PortaText\Command\Api\CreditCards
 ===============
 
-The Me endpoint.
+The me/settings endpoint.
 
 
 
 
-* Class name: Me
+* Class name: CreditCards
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,28 +33,11 @@ Methods
 -------
 
 
-### name
+### withId
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::name(string $first, string $last)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::withId(integer $cardId)
 
-Set Name.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $first **string** - &lt;p&gt;The firstname.&lt;/p&gt;
-* $last **string** - &lt;p&gt;The lastname.&lt;/p&gt;
-
-
-
-### company
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::company(string $company)
-
-Set company.
+Sets the credit card id.
 
 
 
@@ -62,31 +45,15 @@ Set company.
 
 
 #### Arguments
-* $company **string** - &lt;p&gt;The company.&lt;/p&gt;
+* $cardId **integer** - &lt;p&gt;Credit Card id.&lt;/p&gt;
 
 
 
-### email
+### nameOnCard
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::email(\PortaText\Command\Api\email $email)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::nameOnCard(string $firstname, string $lastname)
 
-Set email.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $email **PortaText\Command\Api\email** - &lt;p&gt;The email.&lt;/p&gt;
-
-
-
-### callbackUrl
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::callbackUrl(string $callbackUrl)
-
-Set the callback url.
+Set name on card.
 
 
 
@@ -94,15 +61,16 @@ Set the callback url.
 
 
 #### Arguments
-* $callbackUrl **string** - &lt;p&gt;The callback url.&lt;/p&gt;
+* $firstname **string** - &lt;p&gt;The firstname.&lt;/p&gt;
+* $lastname **string** - &lt;p&gt;The lastname.&lt;/p&gt;
 
 
 
-### timezone
+### cardInfo
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::timezone(string $timezone)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::cardInfo(string $number, string $expirationDate, string $code)
 
-Set timezone.
+Set lastname.
 
 
 
@@ -110,7 +78,29 @@ Set timezone.
 
 
 #### Arguments
-* $timezone **string** - &lt;p&gt;The timezone.&lt;/p&gt;
+* $number **string** - &lt;p&gt;The card number.&lt;/p&gt;
+* $expirationDate **string** - &lt;p&gt;In format: YYYY-MM.&lt;/p&gt;
+* $code **string** - &lt;p&gt;The card security code.&lt;/p&gt;
+
+
+
+### address
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::address(string $streetAddress, string $city, string $state, string $zip, string $country)
+
+Set lastname.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $streetAddress **string** - &lt;p&gt;The full street address.&lt;/p&gt;
+* $city **string** - &lt;p&gt;The city name.&lt;/p&gt;
+* $state **string** - &lt;p&gt;The state name.&lt;/p&gt;
+* $zip **string** - &lt;p&gt;The ZIP code.&lt;/p&gt;
+* $country **string** - &lt;p&gt;The country name.&lt;/p&gt;
 
 
 
