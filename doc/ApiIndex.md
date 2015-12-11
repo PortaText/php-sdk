@@ -11,6 +11,7 @@ API Index
             * [Acl](PortaText-Command-Api-Acl.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
             * [DidSettings](PortaText-Command-Api-DidSettings.md)
+            * [EmailVerify](PortaText-Command-Api-EmailVerify.md)
             * [Me](PortaText-Command-Api-Me.md)
             * [Settings](PortaText-Command-Api-Settings.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
