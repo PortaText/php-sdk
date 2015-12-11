@@ -27,7 +27,7 @@ composer.json:
 
 # Basic use
 
-## Getting a client instance.
+## Getting a client instance
 The first thing is to get a [Client](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Client/Base.php) instance, for example
 the [Curl](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Client/Curl.php) implementation:
 
@@ -36,7 +36,7 @@ use PortaText\Client\Curl as Client;
 $portatext = new Client();
 ```
 
-## (Optional) Set your logger.
+## (Optional) Set your logger
 You can optionally set a [PSR-3](http://www.php-fig.org/psr/psr-3/) compatible logger:
 ```php
 $portatext->setLogger($logger);
@@ -45,14 +45,14 @@ $portatext->setLogger($logger);
 By default, the client will use the [NullLogger](http://www.php-fig.org/psr/psr-3/#1-4-helper-classes-and-interfaces).
 
 ## Authenticating
-You can authenticate to the endpoints by using your API key or your username/password. This translated to
-either set
+You can authenticate to the endpoints by using your API key or your username/password. This translates to
+either doing this:
 
 ```php
 $client->setApiKey($apiKey);
 ```
 
-Or
+Or this:
 
 ```php
 $client->setCredentials($username, $password);
@@ -68,11 +68,26 @@ This project uses [phing](https://www.phing.info/). Current tasks include:
  * md: runs [PHPMD](http://phpmd.org/).
  * build: This is the default task, and will run all the other tasks.
 
+## Running a phing task
 To run a task, just do:
 
 ```sh
 vendor/bin/phing build
 ```
+
+## Contributing
+To contribute:
+ * Make sure you open a **concise** and **short** pull request.
+ * Throw in any needed unit tests to accomodate the new code or the
+ changes involved.
+ * Run `phing` and make sure everything is ok before submitting the pull
+ request (make phpmd and CodeSniffer happy, also make sure that phpDocumentor
+ does not throw any warnings, since all our documentation is automatically
+ generated).
+ * Your code must comply with [PSR-2](http://www.php-fig.org/psr/psr-2/),
+ CodeSniffer should take care of that.
+ * If your code is accepted, it will belong to PortaText and will be published
+ under the Apache2 License.
 
 # License
 The source code is released under Apache 2 License.
