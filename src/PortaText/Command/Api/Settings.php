@@ -66,7 +66,7 @@ class Settings extends Base
      * @param integer $whenCredit Autorecharge when credit reaches this amount.
      * @param integer $cardId Credit card ID to use for autorecharges.
      * @param integer $planId The plan ID to use.
-     * @param integer $total Total money to autorecharge.
+     * @param float $total Total money to autorecharge.
      *
      * @return PortaText\Command\ICommand
      */

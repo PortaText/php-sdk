@@ -1,12 +1,12 @@
-PortaText\Command\Api\Settings
+PortaText\Command\Api\Recharge
 ===============
 
-The me/settings endpoint.
+The Recharge endpoint.
 
 
 
 
-* Class name: Settings
+* Class name: Recharge
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,24 +33,11 @@ Methods
 -------
 
 
-### dontAlertOnLowCredit
+### withCard
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::dontAlertOnLowCredit()
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Recharge::withCard(integer $cardId)
 
-Dont send an alert by email on low credit.
-
-
-
-* Visibility: **public**
-
-
-
-
-### alertWhenCreditLessThan
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::alertWhenCreditLessThan(integer $value)
-
-Sends an alert by email when credit reaches the given threshold.
+Sets the card id to use.
 
 
 
@@ -58,28 +45,15 @@ Sends an alert by email when credit reaches the given threshold.
 
 
 #### Arguments
-* $value **integer** - &lt;p&gt;Credit threshold.&lt;/p&gt;
+* $cardId **integer** - &lt;p&gt;The card id.&lt;/p&gt;
 
 
 
-### dontSendInboundByEmail
+### total
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::dontSendInboundByEmail()
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Recharge::total(integer $planId, float $total)
 
-Don't send emails on inbound messages.
-
-
-
-* Visibility: **public**
-
-
-
-
-### sendInboundByEmail
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::sendInboundByEmail(string $email)
-
-Set email where to send inbound messages to.
+Set Name.
 
 
 
@@ -87,39 +61,8 @@ Set email where to send inbound messages to.
 
 
 #### Arguments
-* $email **string** - &lt;p&gt;Use this email to send inbound messages.&lt;/p&gt;
-
-
-
-### enableAutoRecharges
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::enableAutoRecharges(integer $whenCredit, integer $cardId, integer $planId, float $total)
-
-Enables auto recharges.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $whenCredit **integer** - &lt;p&gt;Autorecharge when credit reaches this amount.&lt;/p&gt;
-* $cardId **integer** - &lt;p&gt;Credit card ID to use for autorecharges.&lt;/p&gt;
-* $planId **integer** - &lt;p&gt;The plan ID to use.&lt;/p&gt;
-* $total **float** - &lt;p&gt;Total money to autorecharge.&lt;/p&gt;
-
-
-
-### disableAutoRecharges
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::disableAutoRecharges()
-
-Disables auto recharges.
-
-
-
-* Visibility: **public**
-
+* $planId **integer** - &lt;p&gt;The plan id to use.&lt;/p&gt;
+* $total **float** - &lt;p&gt;Total money to recharge.&lt;/p&gt;
 
 
 
