@@ -59,6 +59,32 @@ $client->setCredentials($username, $password);
 ```
 
 # Using the endpoints
+All the API commands can be found in the [Command/Api](https://github.com/PortaText/php-sdk/tree/master/src/PortaText/Command/Api)
+directory. The client offers a way to instantiate them by just calling them by their name.
+
+## Quick example
+As an example, to create a template, you would do:
+
+```php
+$client
+  ->templates()                       // Get an instance of the Templates endpoint.
+  ->text("The text of my template")
+  ->description("My first template")
+  ->name("template1")
+  ->post();                           // Call the Templates endpoint with a POST.
+```
+
+To get a template by id:
+
+```php
+$client->templates()->withId(45)->get();
+```
+
+Or, to get all the templates:
+
+```php
+$client->templates()->get();
+```
 
 # Developers
 This project uses [phing](https://www.phing.info/). Current tasks include:
