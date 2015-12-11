@@ -9,6 +9,7 @@ API Index
     * PortaText\Command
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
+            * [Cnam](PortaText-Command-Api-Cnam.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
             * [DidSettings](PortaText-Command-Api-DidSettings.md)
             * [EmailVerify](PortaText-Command-Api-EmailVerify.md)
