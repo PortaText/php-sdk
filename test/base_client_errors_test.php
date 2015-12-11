@@ -121,4 +121,28 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
         $client = new CustomClient(500, array(), '{"success": "false"}');
         $client->run();
     }
+
+    /**
+     * @test
+     */
+    public function can_return_errors_in_result()
+    {
+        try
+        {
+            $result = json_encode(array(
+                "success" => false,
+                "error_description" => array(
+                    "error1",
+                    "error2"
+                )
+            ));
+            $client = new CustomClient(400, array(), $result);
+            $client->run();
+
+        } catch(\PortaText\Exception\ClientError $e) {
+            $this->assertEquals(
+                $e->getResult()->errors(), array("error1", "error2")
+            );
+        }
+    }
 }

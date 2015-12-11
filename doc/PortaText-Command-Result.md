@@ -19,7 +19,7 @@ Properties
 
 ### $data
 
-    public array $data
+    public array $data = null
 
 Returned data.
 
@@ -30,7 +30,7 @@ Returned data.
 
 ### $headers
 
-    public array $headers
+    public array $headers = array()
 
 Returned headers.
 
@@ -41,7 +41,7 @@ Returned headers.
 
 ### $success
 
-    public boolean $success
+    public boolean $success = false
 
 Whether the request was successful or not.
 
@@ -63,6 +63,19 @@ HTTP status code
 
 Methods
 -------
+
+
+### errors
+
+    array|null PortaText\Command\Result::errors()
+
+When the request was not successful, this will return all the errors.
+
+
+
+* Visibility: **public**
+
+
 
 
 ### __construct

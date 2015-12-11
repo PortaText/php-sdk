@@ -18,28 +18,41 @@ class Result
      *
      * @var array
      */
-    public $data;
+    public $data = null;
 
     /**
      * Returned headers.
      *
      * @var array
      */
-    public $headers;
+    public $headers = array();
 
     /**
      * Whether the request was successful or not.
      *
      * @var boolean
      */
-    public $success;
+    public $success = false;
 
     /**
      * HTTP status code
      *
      * @var integer
      */
-    public $code;
+    public $code = 0;
+
+    /**
+     * When the request was not successful, this will return all the errors.
+     *
+     * @return array|null
+     */
+    public function errors()
+    {
+        if (isset($this->data) && isset($this->data["error_description"])) {
+            return $this->data["error_description"];
+        }
+        return null;
+    }
 
     /**
      * Class constructor.
