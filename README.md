@@ -46,7 +46,7 @@ $portatext->setLogger($logger);
 By default, the client will use the [NullLogger](http://www.php-fig.org/psr/psr-3/#1-4-helper-classes-and-interfaces).
 
 ## Authenticating
-You can authenticate to the endpoints by using your API key or your username/password. This translates to
+You can authenticate to the endpoints by using your [API key](https://github.com/PortaText/docs/wiki/REST-API#auth_api) or your username/password. This translates to
 either doing this:
 
 ```php
@@ -59,6 +59,9 @@ Or this:
 $client->setCredentials($username, $password);
 ```
 
+When you specify a [username and password](https://github.com/PortaText/docs/wiki/REST-API#auth_basic) instead of an api key, the sdk will
+automatically login and get a [session token](https://github.com/PortaText/docs/wiki/REST-API#auth_session) when needed.
+
 # Using the endpoints
 All the API commands can be found in the [Command/Api](https://github.com/PortaText/php-sdk/tree/master/src/PortaText/Command/Api)
 directory. The client offers a way to instantiate them by just calling them by their name.
@@ -67,7 +70,7 @@ directory. The client offers a way to instantiate them by just calling them by t
 As an example, to create a template, you would do:
 
 ```php
-$client
+$result = $client
   ->templates()                       // Get an instance of the Templates endpoint.
   ->text("The text of my template")
   ->description("My first template")
@@ -78,13 +81,46 @@ $client
 To get a template by id:
 
 ```php
-$client->templates()->withId(45)->get();
+$result = $client->templates()->withId(45)->get();
 ```
 
 Or, to get all the templates:
 
 ```php
-$client->templates()->get();
+$result = $client->templates()->get();
+```
+
+## The result
+After calling and endpoint, one of two things can happen:
+ * A [PortaText Exception](https://github.com/PortaText/php-sdk/tree/master/src/PortaText/Exception) is thrown.
+ * A [Result](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Command/Result.php) instance is returned.
+
+Also, when possible, your PortaText exception will contain a `Result` object that
+can be retrieved by calling `getResult()` on the exception. This is usually useful for the
+[ClientError](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Exception/ClientError.php) exception, where
+you will be able to see if a field was missing or different than what was expected.
+
+### Testing for success
+```php
+if ($result->success) {
+    ...
+}
+```
+
+### Getting error strings back from the server
+```php
+if (!is_null($result->errors) {
+    foreach ($result->errors as $error) {
+        ...
+  }
+}
+```
+
+### Getting data back from the server
+```php
+if ($result->success) {
+    $data = $result->data;
+}
 ```
 
 # Developers
