@@ -45,7 +45,7 @@ class Me extends Base
     /**
      * Set email.
      *
-     * @param email $email The email.
+     * @param string $email The email.
      *
      * @return PortaText\Command\ICommand
      */

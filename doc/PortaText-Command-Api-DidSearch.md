@@ -1,12 +1,12 @@
-PortaText\Command\Api\Me
+PortaText\Command\Api\DidSearch
 ===============
 
-The Me endpoint.
+The dids/search endpoint.
 
 
 
 
-* Class name: Me
+* Class name: DidSearch
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,9 +33,9 @@ Methods
 -------
 
 
-### name
+### forCountry
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::name(string $first, string $last)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::forCountry(string $isoCode)
 
 Set Name.
 
@@ -45,16 +45,67 @@ Set Name.
 
 
 #### Arguments
-* $first **string** - &lt;p&gt;The firstname.&lt;/p&gt;
-* $last **string** - &lt;p&gt;The lastname.&lt;/p&gt;
+* $isoCode **string** - &lt;p&gt;The 2 letter country ISO code.&lt;/p&gt;
 
 
 
-### company
+### tollFree
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::company(string $company)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::tollFree()
 
-Set company.
+Search only for toll free numbers.
+
+
+
+* Visibility: **public**
+
+
+
+
+### local
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::local()
+
+Search only for local numbers.
+
+
+
+* Visibility: **public**
+
+
+
+
+### national
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::national()
+
+Search only for national numbers.
+
+
+
+* Visibility: **public**
+
+
+
+
+### mobile
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::mobile()
+
+Search only for mobile numbers.
+
+
+
+* Visibility: **public**
+
+
+
+
+### page
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::page(integer $page)
+
+Return the specific page of results.
 
 
 
@@ -62,31 +113,15 @@ Set company.
 
 
 #### Arguments
-* $company **string** - &lt;p&gt;The company.&lt;/p&gt;
+* $page **integer** - &lt;p&gt;Page number.&lt;/p&gt;
 
 
 
-### email
+### startsWith
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::email(string $email)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::startsWith(string $pattern)
 
-Set email.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $email **string** - &lt;p&gt;The email.&lt;/p&gt;
-
-
-
-### callbackUrl
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::callbackUrl(string $callbackUrl)
-
-Set the callback url.
+Searches numbers that start with the specific pattern.
 
 
 
@@ -94,15 +129,15 @@ Set the callback url.
 
 
 #### Arguments
-* $callbackUrl **string** - &lt;p&gt;The callback url.&lt;/p&gt;
+* $pattern **string** - &lt;p&gt;The pattern.&lt;/p&gt;
 
 
 
-### timezone
+### endsWith
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::timezone(string $timezone)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::endsWith(string $pattern)
 
-Set timezone.
+Searches numbers that ends with the specific pattern.
 
 
 
@@ -110,7 +145,23 @@ Set timezone.
 
 
 #### Arguments
-* $timezone **string** - &lt;p&gt;The timezone.&lt;/p&gt;
+* $pattern **string** - &lt;p&gt;The pattern.&lt;/p&gt;
+
+
+
+### contains
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::contains(string $pattern)
+
+Searches numbers that contains the specific pattern.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $pattern **string** - &lt;p&gt;The pattern.&lt;/p&gt;
 
 
 
