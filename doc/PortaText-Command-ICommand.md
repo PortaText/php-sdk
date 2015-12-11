@@ -87,7 +87,7 @@ Returns the body for this endpoint.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::get()
 
-Runs this command with the given method and returns the result.
+Runs this command with a GET method and returns the result.
 
 
 
@@ -100,7 +100,7 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::post()
 
-Runs this command with the given method and returns the result.
+Runs this command with a POST method and returns the result.
 
 
 
@@ -113,7 +113,7 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::put()
 
-Runs this command with the given method and returns the result.
+Runs this command with a PUT method and returns the result.
 
 
 
@@ -126,7 +126,20 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::delete()
 
-Runs this command with the given method and returns the result.
+Runs this command with a DELETE method and returns the result.
+
+
+
+* Visibility: **public**
+
+
+
+
+### patch
+
+    \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::patch()
+
+Runs this command with a PATCH method and returns the result.
 
 
 

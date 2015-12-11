@@ -114,7 +114,7 @@ abstract class Base implements ICommand
     }
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a GET method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -125,7 +125,7 @@ abstract class Base implements ICommand
     }
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a POST method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -136,7 +136,7 @@ abstract class Base implements ICommand
     }
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a PUT method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -147,7 +147,7 @@ abstract class Base implements ICommand
     }
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a DELETE method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -155,6 +155,17 @@ abstract class Base implements ICommand
     public function delete()
     {
         return $this->run("delete");
+    }
+
+    /**
+     * Runs this command with a PATCH method and returns the result.
+     *
+     * @return PortaText\Command\ICommand
+     * @throws PortaText\Exception\RequestError
+     */
+    public function patch()
+    {
+        return $this->run("patch");
     }
 
     /**

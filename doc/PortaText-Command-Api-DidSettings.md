@@ -1,12 +1,12 @@
-PortaText\Command\Api\Tariffs
+PortaText\Command\Api\DidSettings
 ===============
 
-The Tariffs endpoint.
+The me/dids/:did endpoint.
 
 
 
 
-* Class name: Tariffs
+* Class name: DidSettings
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,11 +33,11 @@ Methods
 -------
 
 
-### forCountry
+### forNumber
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Tariffs::forCountry(string $countryIso)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::forNumber(string $number)
 
-Sets the tariff country ISO code.
+Selects DID.
 
 
 
@@ -45,7 +45,62 @@ Sets the tariff country ISO code.
 
 
 #### Arguments
-* $countryIso **string** - &lt;p&gt;The tariff country ISO code.&lt;/p&gt;
+* $number **string** - &lt;p&gt;The DID to apply the settings to.&lt;/p&gt;
+
+
+
+### enableCnam
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::enableCnam()
+
+Enables CNAM lookup.
+
+
+
+* Visibility: **public**
+
+
+
+
+### disableCnam
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::disableCnam()
+
+Disables CNAM lookup.
+
+
+
+* Visibility: **public**
+
+
+
+
+### dontAutoRespond
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::dontAutoRespond()
+
+Disables autoresponder.
+
+
+
+* Visibility: **public**
+
+
+
+
+### autoRespondWith
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::autoRespondWith(string $text)
+
+Enables autoresponder.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $text **string** - &lt;p&gt;Autoresponder text.&lt;/p&gt;
 
 
 

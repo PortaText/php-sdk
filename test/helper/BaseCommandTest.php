@@ -14,16 +14,20 @@ namespace PortaText\Test;
 class BaseCommandTest extends \PHPUnit_Framework_TestCase
 {
     protected function mockClientForCommand(
-        $assertEndpoint,
+        $assertEndpoint = null,
         $assertBody = '',
         $assertContentType = 'application/json'
     ) {
+        $expectedCalls = 1;
+        if(is_null($assertEndpoint)) {
+          $expectedCalls = 0;
+        }
         $client = $this
             ->getMockBuilder('PortaText\Client\Base')
             ->setMethods(array('run', 'execute'))
             ->getMock();
         $client
-            ->expects($this->exactly(1))
+            ->expects($this->exactly($expectedCalls))
             ->method('run')
             ->with(
               $this->equalTo($assertEndpoint),

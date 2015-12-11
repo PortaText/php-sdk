@@ -8,7 +8,6 @@ The me/settings endpoint.
 
 * Class name: Settings
 * Namespace: PortaText\Command\Api
-* This is an **abstract** class
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
 
@@ -32,6 +31,113 @@ Arguments for endpoint invokation.
 
 Methods
 -------
+
+
+### dontAlertOnLowCredit
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::dontAlertOnLowCredit()
+
+Dont send an alert by email on low credit.
+
+
+
+* Visibility: **public**
+
+
+
+
+### alertWhenCreditLessThan
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::alertWhenCreditLessThan(integer $value)
+
+Sends an alert by email when credit reaches the given threshold.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $value **integer** - &lt;p&gt;Credit threshold.&lt;/p&gt;
+
+
+
+### dontSendInboundByEmail
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::dontSendInboundByEmail()
+
+Don't send emails on inbound messages.
+
+
+
+* Visibility: **public**
+
+
+
+
+### sendInboundByEmail
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::sendInboundByEmail(string $email)
+
+Set email where to send inbound messages to.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $email **string** - &lt;p&gt;Use this email to send inbound messages.&lt;/p&gt;
+
+
+
+### enableAutoRecharges
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::enableAutoRecharges(integer $whenCredit, integer $cardId, integer $planId, integer $total)
+
+Enables auto recharges.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $whenCredit **integer** - &lt;p&gt;Autorecharge when credit reaches this amount.&lt;/p&gt;
+* $cardId **integer** - &lt;p&gt;Credit card ID to use for autorecharges.&lt;/p&gt;
+* $planId **integer** - &lt;p&gt;The plan ID to use.&lt;/p&gt;
+* $total **integer** - &lt;p&gt;Total money to autorecharge.&lt;/p&gt;
+
+
+
+### disableAutoRecharges
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::disableAutoRecharges()
+
+Disables auto recharges.
+
+
+
+* Visibility: **public**
+
+
+
+
+### endpoint
+
+    string PortaText\Command\ICommand::endpoint(string $method)
+
+Returns a string with the endpoint for the given command.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
 
 
 ### setArgument
@@ -103,23 +209,6 @@ Returns an associative array with the arguments.
 
 
 
-### endpoint
-
-    string PortaText\Command\ICommand::endpoint(string $method)
-
-Returns a string with the endpoint for the given command.
-
-
-
-* Visibility: **public**
-* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
 ### body
 
     string PortaText\Command\ICommand::body(string $method)
@@ -158,7 +247,7 @@ Returns the content type for this endpoint.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::get()
 
-Runs this command with the given method and returns the result.
+Runs this command with a GET method and returns the result.
 
 
 
@@ -172,7 +261,7 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::post()
 
-Runs this command with the given method and returns the result.
+Runs this command with a POST method and returns the result.
 
 
 
@@ -186,7 +275,7 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::put()
 
-Runs this command with the given method and returns the result.
+Runs this command with a PUT method and returns the result.
 
 
 
@@ -200,7 +289,21 @@ Runs this command with the given method and returns the result.
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::delete()
 
-Runs this command with the given method and returns the result.
+Runs this command with a DELETE method and returns the result.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\ICommand](PortaText-Command-ICommand.md)
+
+
+
+
+### patch
+
+    \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::patch()
+
+Runs this command with a PATCH method and returns the result.
 
 
 

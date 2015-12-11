@@ -9,6 +9,7 @@ API Index
     * PortaText\Command
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
+            * [DidSettings](PortaText-Command-Api-DidSettings.md)
             * [Me](PortaText-Command-Api-Me.md)
             * [Settings](PortaText-Command-Api-Settings.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)

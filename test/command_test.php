@@ -35,7 +35,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
             ->setMethods(array('run', 'execute'))
             ->getMock();
         $client
-            ->expects($this->exactly(4))
+            ->expects($this->exactly(5))
             ->method('run')
             ->withConsecutive(
                 array(
@@ -77,6 +77,16 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                         return $body["argument1"] === "aValue";
                     }),
                     $this->equalTo(null)
+                ),
+                array(
+                    $this->equalTo("customCommandEndpoint"),
+                    $this->equalTo('patch'),
+                    $this->equalTo('application/json'),
+                    $this->callback(function($body) {
+                        $body = json_decode($body, true);
+                        return $body["argument1"] === "aValue";
+                    }),
+                    $this->equalTo(null)
                 )
             );
         $client->setApiKey("anapikey");
@@ -84,5 +94,6 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $client->customCommand()->anArgument("aValue")->post();
         $client->customCommand()->anArgument("aValue")->put();
         $client->customCommand()->anArgument("aValue")->delete();
+        $client->customCommand()->anArgument("aValue")->patch();
     }
 }

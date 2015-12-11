@@ -53,7 +53,7 @@ interface ICommand
     public function body($method);
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a GET method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -61,7 +61,7 @@ interface ICommand
     public function get();
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a POST method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -69,7 +69,7 @@ interface ICommand
     public function post();
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a PUT method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
@@ -77,12 +77,20 @@ interface ICommand
     public function put();
 
     /**
-     * Runs this command with the given method and returns the result.
+     * Runs this command with a DELETE method and returns the result.
      *
      * @return PortaText\Command\ICommand
      * @throws PortaText\Exception\RequestError
      */
     public function delete();
+
+    /**
+     * Runs this command with a PATCH method and returns the result.
+     *
+     * @return PortaText\Command\ICommand
+     * @throws PortaText\Exception\RequestError
+     */
+    public function patch();
 
     /**
      * Sets the API client to use.

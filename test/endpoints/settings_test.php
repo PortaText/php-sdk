@@ -65,7 +65,7 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->enableAutoRecharges(100, 66543221, 2, 150)
-        ->put();
+        ->patch();
     }
 
     /**
@@ -78,7 +78,7 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->disableAutoRecharges()
-        ->put();
+        ->patch();
     }
 
     /**
@@ -91,7 +91,7 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->dontSendInboundByEmail()
-        ->put();
+        ->patch();
     }
 
     /**
@@ -104,6 +104,6 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->sendInboundByEmail("john@doe.com")
-        ->put();
+        ->patch();
     }
 }
