@@ -5,6 +5,7 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
  * @copyright 2015 PortaText
+ *
  */
 namespace PortaText\Command;
 
@@ -12,6 +13,8 @@ use PortaText\Client\IClient;
 
 /**
  * The super class of every API command.
+ *
+ * @SuppressWarnings("NumberOfChildren")
  */
 abstract class Base implements ICommand
 {

@@ -15,6 +15,7 @@ API Index
             * [DidSearch](PortaText-Command-Api-DidSearch.md)
             * [DidSettings](PortaText-Command-Api-DidSettings.md)
             * [EmailVerify](PortaText-Command-Api-EmailVerify.md)
+            * [Jobs](PortaText-Command-Api-Jobs.md)
             * [Me](PortaText-Command-Api-Me.md)
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Settings](PortaText-Command-Api-Settings.md)
