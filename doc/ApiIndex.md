@@ -11,6 +11,7 @@ API Index
             * [Acl](PortaText-Command-Api-Acl.md)
             * [Blacklist](PortaText-Command-Api-Blacklist.md)
             * [Cnam](PortaText-Command-Api-Cnam.md)
+            * [ContactLists](PortaText-Command-Api-ContactLists.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
             * [DidSearch](PortaText-Command-Api-DidSearch.md)
             * [DidSettings](PortaText-Command-Api-DidSettings.md)

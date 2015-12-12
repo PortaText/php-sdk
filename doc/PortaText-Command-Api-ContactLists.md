@@ -1,12 +1,12 @@
-PortaText\Command\Api\Templates
+PortaText\Command\Api\ContactLists
 ===============
 
-The Templates endpoint.
+The ContactLists endpoint.
 
 
 
 
-* Class name: Templates
+* Class name: ContactLists
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,11 +33,11 @@ Methods
 -------
 
 
-### name
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::name(string $name)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::id(integer $contactListId)
 
-Sets the template name.
+Sets the contact list id.
 
 
 
@@ -45,31 +45,31 @@ Sets the template name.
 
 
 #### Arguments
-* $name **string** - &lt;p&gt;name name.&lt;/p&gt;
+* $contactListId **integer** - &lt;p&gt;Contact list id.&lt;/p&gt;
+
+
+
+### name
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::name(string $name)
+
+The contact list name.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $name **string** - &lt;p&gt;Name.&lt;/p&gt;
 
 
 
 ### description
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::description(string $description)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::description(string $description)
 
-Sets the template description.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $description **string** - &lt;p&gt;Template description.&lt;/p&gt;
-
-
-
-### text
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::text(string $text)
-
-Sets the template text.
+The contact list description.
 
 
 
@@ -77,15 +77,15 @@ Sets the template text.
 
 
 #### Arguments
-* $text **string** - &lt;p&gt;Template text.&lt;/p&gt;
+* $description **string** - &lt;p&gt;Description.&lt;/p&gt;
 
 
 
-### id
+### csv
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::id(integer $templateId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::csv(string $filename)
 
-Sets the template id.
+Send a CSV file to blacklist contacts.
 
 
 
@@ -93,7 +93,41 @@ Sets the template id.
 
 
 #### Arguments
-* $templateId **integer** - &lt;p&gt;Template id.&lt;/p&gt;
+* $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
+
+
+
+### body
+
+    string PortaText\Command\Base::body(string $method)
+
+Returns the body for this endpoint.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
+### contentType
+
+    string PortaText\Command\Base::contentType(string $method)
+
+Returns the content type for this endpoint.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
 
 
 
@@ -172,40 +206,6 @@ Returns the value for the given argument name.
     array PortaText\Command\Base::arguments(string $method)
 
 Returns an associative array with the arguments.
-
-
-
-* Visibility: **protected**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
-### body
-
-    string PortaText\Command\Base::body(string $method)
-
-Returns the body for this endpoint.
-
-
-
-* Visibility: **protected**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
-### contentType
-
-    string PortaText\Command\Base::contentType(string $method)
-
-Returns the content type for this endpoint.
 
 
 

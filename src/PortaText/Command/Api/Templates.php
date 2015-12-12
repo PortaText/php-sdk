@@ -55,7 +55,7 @@ class Templates extends Base
     /**
      * Sets the template id.
      *
-     * @param integer $template Template id.
+     * @param integer $templateId Template id.
      *
      * @return PortaText\Command\ICommand
      * @SuppressWarnings("ShortMethodName")
