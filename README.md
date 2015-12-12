@@ -81,7 +81,7 @@ $result = $client
 To get a template by id:
 
 ```php
-$result = $client->templates()->withId(45)->get();
+$result = $client->templates()->id(45)->get();
 ```
 
 Or, to get all the templates:

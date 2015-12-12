@@ -33,9 +33,9 @@ Methods
 -------
 
 
-### withId
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::withId(integer $cardId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::id(integer $cardId)
 
 Sets the credit card id.
 

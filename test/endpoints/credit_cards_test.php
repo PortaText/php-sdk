@@ -22,7 +22,7 @@ class CreditCardsTest extends BaseCommandTest
     {
         $this->mockClientForCommand("me/credit_cards/44")
         ->creditCards()
-        ->withId(44)
+        ->id(44)
         ->delete();
     }
 

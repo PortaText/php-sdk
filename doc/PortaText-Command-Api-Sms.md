@@ -33,9 +33,9 @@ Methods
 -------
 
 
-### withId
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::withId(string $smsId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::id(string $smsId)
 
 Sets the sms operation id.
 
@@ -49,9 +49,9 @@ Sets the sms operation id.
 
 
 
-### sendTo
+### to
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::sendTo(string $target)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::to(string $target)
 
 Sets the message destination number.
 
@@ -65,9 +65,9 @@ Sets the message destination number.
 
 
 
-### sendFrom
+### from
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::sendFrom(string $number)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::from(string $number)
 
 Sets the message source number.
 

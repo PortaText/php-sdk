@@ -22,8 +22,9 @@ class Jobs extends Base
      * @param integer $jobId The job id.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function withId($jobId)
+    public function id($jobId)
     {
         return $this->setArgument("id", $jobId);
     }

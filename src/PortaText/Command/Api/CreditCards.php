@@ -22,8 +22,9 @@ class CreditCards extends Base
      * @param integer $cardId Credit Card id.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function withId($cardId)
+    public function id($cardId)
     {
         return $this->setArgument("id", $cardId);
     }

@@ -32,7 +32,7 @@ class JobsTest extends BaseCommandTest
     {
         $this->mockClientForCommand("jobs/987")
         ->jobs()
-        ->withId(987)
+        ->id(987)
         ->get();
     }
 
@@ -43,7 +43,7 @@ class JobsTest extends BaseCommandTest
     {
         $this->mockClientForCommand("jobs/987")
         ->jobs()
-        ->withId(987)
+        ->id(987)
         ->delete();
     }
 }

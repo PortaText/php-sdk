@@ -58,8 +58,9 @@ class Templates extends Base
      * @param integer $template Template id.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function withId($templateId)
+    public function id($templateId)
     {
         return $this->setArgument("id", $templateId);
     }

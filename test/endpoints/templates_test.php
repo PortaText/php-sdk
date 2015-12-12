@@ -22,7 +22,7 @@ class TemplatesTest extends BaseCommandTest
     {
         $this->mockClientForCommand("templates/44")
         ->templates()
-        ->withId(44)
+        ->id(44)
         ->delete();
     }
 
@@ -37,7 +37,7 @@ class TemplatesTest extends BaseCommandTest
             "description" => "super duper template"
         ))
         ->templates()
-        ->withId(44)
+        ->id(44)
         ->name("a template")
         ->text("a template text {{and_a_variable}}")
         ->description("super duper template")
@@ -78,7 +78,7 @@ class TemplatesTest extends BaseCommandTest
     {
         $this->mockClientForCommand("templates/763")
         ->templates()
-        ->withId(763)
+        ->id(763)
         ->get();
     }
 }

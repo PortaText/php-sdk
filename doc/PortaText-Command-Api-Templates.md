@@ -81,9 +81,9 @@ Sets the template text.
 
 
 
-### withId
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::withId($templateId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::id($templateId)
 
 Sets the template id.
 

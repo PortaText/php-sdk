@@ -22,8 +22,9 @@ class Sms extends Base
      * @param string $smsId SMS operation id.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function withId($smsId)
+    public function id($smsId)
     {
         return $this->setArgument("id", $smsId);
     }
@@ -34,8 +35,9 @@ class Sms extends Base
      * @param string $target Phone number to send message to.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function sendTo($target)
+    public function to($target)
     {
         return $this->setArgument("to", $target);
     }
@@ -47,7 +49,7 @@ class Sms extends Base
      *
      * @return PortaText\Command\ICommand
      */
-    public function sendFrom($number)
+    public function from($number)
     {
         return $this->setArgument("from", $number);
     }

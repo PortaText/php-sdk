@@ -28,8 +28,8 @@ class SmsTest extends BaseCommandTest
             "client_ref" => "custom_client_ref"
         ))
         ->sms()
-        ->sendFrom("12223334444")
-        ->sendTo("15556667777")
+        ->from("12223334444")
+        ->to("15556667777")
         ->useTemplate(44, array("var1" => "value"))
         ->clientRef("custom_client_ref")
         ->post();
@@ -47,8 +47,8 @@ class SmsTest extends BaseCommandTest
             "client_ref" => "custom_client_ref"
         ))
         ->sms()
-        ->sendFrom("12223334444")
-        ->sendTo("15556667777")
+        ->from("12223334444")
+        ->to("15556667777")
         ->text("hello world")
         ->clientRef("custom_client_ref")
         ->post();
@@ -61,7 +61,7 @@ class SmsTest extends BaseCommandTest
     {
         $this->mockClientForCommand("sms/763")
         ->sms()
-        ->withId(763)
+        ->id(763)
         ->get();
     }
 }

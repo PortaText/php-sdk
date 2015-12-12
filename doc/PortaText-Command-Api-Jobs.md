@@ -33,9 +33,9 @@ Methods
 -------
 
 
-### withId
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Jobs::withId(integer $jobId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Jobs::id(integer $jobId)
 
 Sets the job id.
 
