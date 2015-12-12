@@ -14,3 +14,7 @@ script:
 
 after_script:
   - travis_retry php vendor/bin/coveralls -v
+
+addons:
+  code_climate:
+    repo_token: 664b8ea4ba9bdc98e704c687a88db79726913349385524813b3317dda7a132b2
