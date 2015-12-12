@@ -91,7 +91,7 @@ $result = $client->templates()->get();
 ```
 
 ## The result
-After calling and endpoint, one of two things can happen:
+After calling an endpoint, one of two things can happen:
  * A [PortaText Exception](https://github.com/PortaText/php-sdk/tree/master/src/PortaText/Exception) is thrown.
  * A [Result](https://github.com/PortaText/php-sdk/blob/master/src/PortaText/Command/Result.php) instance is returned.
 
