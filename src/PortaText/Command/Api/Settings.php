@@ -96,7 +96,7 @@ class Settings extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         return "me/settings";
     }

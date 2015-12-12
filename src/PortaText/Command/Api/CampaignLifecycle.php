@@ -77,7 +77,7 @@ class CampaignLifecycle extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $campaignId = $this->getArgument("id");
         if (is_null($campaignId)) {

@@ -72,7 +72,7 @@ class ContactLists extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $endpoint = "contact_lists";
         $contactListId = $this->getArgument("id");

@@ -47,7 +47,7 @@ class Blacklist extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $endpoint = "blacklist/contacts";
         $number = $this->getArgument("number");

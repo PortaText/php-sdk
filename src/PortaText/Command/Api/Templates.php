@@ -72,7 +72,7 @@ class Templates extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $endpoint = "templates";
         $templateId = $this->getArgument("id");

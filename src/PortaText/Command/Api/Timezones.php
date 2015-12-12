@@ -23,7 +23,7 @@ class Timezones extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         return "timezones";
     }

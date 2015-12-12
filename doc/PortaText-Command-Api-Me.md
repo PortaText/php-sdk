@@ -114,9 +114,9 @@ Set timezone.
 
 
 
-### endpoint
+### getEndpoint
 
-    string PortaText\Command\Base::endpoint(string $method)
+    string PortaText\Command\Base::getEndpoint(string $method)
 
 Returns a string with the endpoint for the given command.
 
@@ -201,9 +201,9 @@ Returns an associative array with the arguments.
 
 
 
-### body
+### getBody
 
-    string PortaText\Command\Base::body(string $method)
+    string PortaText\Command\Base::getBody(string $method)
 
 Returns the body for this endpoint.
 
@@ -218,9 +218,9 @@ Returns the body for this endpoint.
 
 
 
-### contentType
+### getContentType
 
-    string PortaText\Command\Base::contentType(string $method)
+    string PortaText\Command\Base::getContentType(string $method)
 
 Returns the content type for this endpoint.
 

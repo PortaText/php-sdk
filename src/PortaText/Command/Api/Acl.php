@@ -41,10 +41,10 @@ class Acl extends Base
      *
      * @return string
      */
-    protected function body($method)
+    protected function getBody($method)
     {
         if ($method === "get") {
-            return parent::body($method);
+            return parent::getBody($method);
         }
         $acls = array();
         foreach ($this->getArguments($method) as $value) {
@@ -60,7 +60,7 @@ class Acl extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         return "me/acl";
     }

@@ -20,7 +20,7 @@ class CustomCommand extends Base
         return $this->setArgument('argument1', $value);
     }
 
-    public function endpoint($method)
+    public function getEndpoint($method)
     {
         return "customCommandEndpoint";
     }

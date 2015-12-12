@@ -89,7 +89,7 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    abstract protected function endpoint($method);
+    abstract protected function getEndpoint($method);
 
     /**
      * Returns the body for this endpoint.
@@ -98,7 +98,7 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    protected function body($method)
+    protected function getBody($method)
     {
         $file = $this->getArgument("file");
         if (!is_null($file)) {
@@ -117,7 +117,7 @@ abstract class Base implements ICommand
      *
      * @return string
      */
-    protected function contentType($method)
+    protected function getContentType($method)
     {
         // Just to make PHPMD happy.
         $method = null;
@@ -193,9 +193,9 @@ abstract class Base implements ICommand
      */
     protected function run($method)
     {
-        $endpoint = $this->endpoint($method);
-        $body = $this->body($method);
-        $cType = $this->contentType($method);
+        $endpoint = $this->getEndpoint($method);
+        $body = $this->getBody($method);
+        $cType = $this->getContentType($method);
         return $this->client->run($endpoint, $method, $cType, $body);
     }
 

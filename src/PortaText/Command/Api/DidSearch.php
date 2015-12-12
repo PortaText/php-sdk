@@ -126,7 +126,7 @@ class DidSearch extends Base
      *
      * @return string
      */
-    protected function body($method)
+    protected function getBody($method)
     {
         return "";
     }
@@ -138,7 +138,7 @@ class DidSearch extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $queryString = http_build_query($this->getArguments($method));
         return "dids/search?$queryString";

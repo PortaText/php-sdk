@@ -78,7 +78,7 @@ class DidSettings extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $number = $this->getArgument("id");
         if (is_null($number)) {

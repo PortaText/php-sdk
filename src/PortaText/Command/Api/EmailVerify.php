@@ -35,7 +35,7 @@ class EmailVerify extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $endpoint = "me/email_verify";
         $nonce = $this->getArgument("nonce");

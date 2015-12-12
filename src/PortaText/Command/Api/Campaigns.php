@@ -84,7 +84,7 @@ class Campaigns extends Base
      *
      * @return string
      */
-    protected function endpoint($method)
+    protected function getEndpoint($method)
     {
         $endpoint = "campaigns";
         $campaignId = $this->getArgument("id");
