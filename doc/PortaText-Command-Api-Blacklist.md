@@ -65,40 +65,6 @@ Send a CSV file to blacklist contacts.
 
 
 
-### body
-
-    string PortaText\Command\Base::body(string $method)
-
-Returns the body for this endpoint.
-
-
-
-* Visibility: **protected**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
-### contentType
-
-    string PortaText\Command\Base::contentType(string $method)
-
-Returns the content type for this endpoint.
-
-
-
-* Visibility: **protected**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
-
-
-
 ### endpoint
 
     string PortaText\Command\Base::endpoint(string $method)
@@ -174,6 +140,40 @@ Returns the value for the given argument name.
     array PortaText\Command\Base::arguments(string $method)
 
 Returns an associative array with the arguments.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
+### body
+
+    string PortaText\Command\Base::body(string $method)
+
+Returns the body for this endpoint.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
+### contentType
+
+    string PortaText\Command\Base::contentType(string $method)
+
+Returns the content type for this endpoint.
 
 
 

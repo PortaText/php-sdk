@@ -100,6 +100,10 @@ abstract class Base implements ICommand
      */
     protected function body($method)
     {
+        $file = $this->getArgument("file");
+        if (!is_null($file)) {
+            return "file:$file";
+        }
         if (count($this->arguments($method)) > 0) {
             return json_encode($this->arguments($method));
         }
@@ -117,6 +121,10 @@ abstract class Base implements ICommand
     {
         // Just to make PHPMD happy.
         $method = null;
+        $file = $this->getArgument("file");
+        if (!is_null($file)) {
+            return "text/csv";
+        }
         return 'application/json';
     }
 

@@ -66,38 +66,6 @@ class ContactLists extends Base
     }
 
     /**
-     * Returns the body for this endpoint.
-     *
-     * @param string $method Method for this command.
-     *
-     * @return string
-     */
-    protected function body($method)
-    {
-        $file = $this->getArgument("file");
-        if (!is_null($file)) {
-            return "file:$file";
-        }
-        return parent::body($method);
-    }
-
-    /**
-     * Returns the content type for this endpoint.
-     *
-     * @param string $method Method for this command.
-     *
-     * @return string
-     */
-    protected function contentType($method)
-    {
-        $file = $this->getArgument("file");
-        if (!is_null($file)) {
-            return "text/csv";
-        }
-        return parent::contentType($method);
-    }
-
-    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
