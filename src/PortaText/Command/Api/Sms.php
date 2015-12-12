@@ -55,7 +55,7 @@ class Sms extends Base
     }
 
     /**
-     * Sets the message source number.
+     * Sets the template id to use.
      *
      * @param integer $templateId Use the given template as the message body.
      * @param array $variables Variables to use in template.

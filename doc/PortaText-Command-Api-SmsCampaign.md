@@ -1,14 +1,14 @@
-PortaText\Command\Api\Sms
+PortaText\Command\Api\SmsCampaign
 ===============
 
-The SMS endpoint.
+The Campaigns endpoint. This is a campaign of type SMS.
 
 
 
 
-* Class name: Sms
+* Class name: SmsCampaign
 * Namespace: PortaText\Command\Api
-* Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
+* Parent class: [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 
@@ -33,57 +33,9 @@ Methods
 -------
 
 
-### id
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::id(string $smsId)
-
-Sets the sms operation id.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $smsId **string** - &lt;p&gt;SMS operation id.&lt;/p&gt;
-
-
-
-### to
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::to(string $target)
-
-Sets the message destination number.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $target **string** - &lt;p&gt;Phone number to send message to.&lt;/p&gt;
-
-
-
-### from
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::from(string $number)
-
-Sets the message source number.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $number **string** - &lt;p&gt;Phone number to send message from.&lt;/p&gt;
-
-
-
 ### useTemplate
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::useTemplate(integer $templateId, array $variables)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\SmsCampaign::useTemplate(integer $templateId, array $variables)
 
 Sets the template id to use.
 
@@ -100,7 +52,7 @@ Sets the template id to use.
 
 ### text
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::text(string $text)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\SmsCampaign::text(string $text)
 
 Sets the message text.
 
@@ -114,11 +66,59 @@ Sets the message text.
 
 
 
-### clientRef
+### __construct
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::clientRef(string $clientRef)
+    mixed PortaText\Command\Base::__construct()
 
-Set a specific custom client reference.
+Standard constructor.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+
+
+### id
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::id(integer $campaignId)
+
+Sets the campaign id.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $campaignId **integer** - &lt;p&gt;Campaign id.&lt;/p&gt;
+
+
+
+### name
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::name(string $name)
+
+The campaign name.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $name **string** - &lt;p&gt;Name.&lt;/p&gt;
+
+
+
+### description
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\SmsCampaign::description(string $description)
+
+The campaign description.
 
 
 
@@ -126,7 +126,41 @@ Set a specific custom client reference.
 
 
 #### Arguments
-* $clientRef **string** - &lt;p&gt;Your custom reference.&lt;/p&gt;
+* $description **string** - &lt;p&gt;Description.&lt;/p&gt;
+
+
+
+### from
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::from(string $from)
+
+Specifies source telephone number for the campaign.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $from **string** - &lt;p&gt;Telephone number (you must own this one).&lt;/p&gt;
+
+
+
+### toContactLists
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::toContactLists(array $contactLists)
+
+Contact list IDs to use.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $contactLists **array** - &lt;p&gt;The contact list ids.&lt;/p&gt;
 
 
 
@@ -352,19 +386,5 @@ Sets the API client to use.
 
 #### Arguments
 * $client **PortaText\Command\PortaText\Client\Client** - &lt;p&gt;New injected client.&lt;/p&gt;
-
-
-
-### __construct
-
-    mixed PortaText\Command\Base::__construct()
-
-Standard constructor.
-
-
-
-* Visibility: **public**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
 
 

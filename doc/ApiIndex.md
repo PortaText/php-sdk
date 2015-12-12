@@ -10,6 +10,8 @@ API Index
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
             * [Blacklist](PortaText-Command-Api-Blacklist.md)
+            * [CampaignLifecycle](PortaText-Command-Api-CampaignLifecycle.md)
+            * [Campaigns](PortaText-Command-Api-Campaigns.md)
             * [Cnam](PortaText-Command-Api-Cnam.md)
             * [ContactLists](PortaText-Command-Api-ContactLists.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
@@ -21,6 +23,7 @@ API Index
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Settings](PortaText-Command-Api-Settings.md)
             * [Sms](PortaText-Command-Api-Sms.md)
+            * [SmsCampaign](PortaText-Command-Api-SmsCampaign.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)

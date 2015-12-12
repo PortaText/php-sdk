@@ -1,12 +1,12 @@
-PortaText\Command\Api\Sms
+PortaText\Command\Api\CampaignLifecycle
 ===============
 
-The SMS endpoint.
+The Campaigns Lifecycle endpoint.
 
 
 
 
-* Class name: Sms
+* Class name: CampaignLifecycle
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -35,25 +35,9 @@ Methods
 
 ### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::id(string $smsId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::id(integer $campaignId)
 
-Sets the sms operation id.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $smsId **string** - &lt;p&gt;SMS operation id.&lt;/p&gt;
-
-
-
-### to
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::to(string $target)
-
-Sets the message destination number.
+Sets the campaign id.
 
 
 
@@ -61,72 +45,59 @@ Sets the message destination number.
 
 
 #### Arguments
-* $target **string** - &lt;p&gt;Phone number to send message to.&lt;/p&gt;
+* $campaignId **integer** - &lt;p&gt;Campaign id.&lt;/p&gt;
 
 
 
-### from
+### start
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::from(string $number)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::start()
 
-Sets the message source number.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $number **string** - &lt;p&gt;Phone number to send message from.&lt;/p&gt;
-
-
-
-### useTemplate
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::useTemplate(integer $templateId, array $variables)
-
-Sets the template id to use.
+Starts a campaign.
 
 
 
 * Visibility: **public**
 
 
-#### Arguments
-* $templateId **integer** - &lt;p&gt;Use the given template as the message body.&lt;/p&gt;
-* $variables **array** - &lt;p&gt;Variables to use in template.&lt;/p&gt;
 
 
+### resume
 
-### text
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::resume()
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::text(string $text)
-
-Sets the message text.
+Resumes a campaign.
 
 
 
 * Visibility: **public**
 
 
-#### Arguments
-* $text **string** - &lt;p&gt;Message text.&lt;/p&gt;
 
 
+### pause
 
-### clientRef
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::pause()
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::clientRef(string $clientRef)
-
-Set a specific custom client reference.
+Starts a campaign.
 
 
 
 * Visibility: **public**
 
 
-#### Arguments
-* $clientRef **string** - &lt;p&gt;Your custom reference.&lt;/p&gt;
+
+
+### cancel
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::cancel()
+
+Cancels a campaign.
+
+
+
+* Visibility: **public**
+
 
 
 
