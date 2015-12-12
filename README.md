@@ -9,7 +9,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/portatext/php-sdk/v/unstable)](https://packagist.org/packages/portatext/php-sdk)
 
 # php-sdk
-PHP Client for the [PortaText](https://www.portatext.com/) API.
+Official PHP Client for the [PortaText](https://www.portatext.com/) API.
 
 # Documentation
 

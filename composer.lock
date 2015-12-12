@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9afb7ed5ac780c8172cc827fd27ae377",
-    "content-hash": "77cdd09a1df1fe6331eb7f44d9a6408d",
+    "hash": "b90c8fdcdd3fcd16925594d701eec3fa",
+    "content-hash": "fb8e9fb77f8954b81cebfc8bb70da9c8",
     "packages": [
         {
             "name": "psr/log",
@@ -47,53 +47,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "andrewsville/php-token-reflection",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Andrewsville/PHP-Token-Reflection.git",
-                "reference": "e6d0ac2baf66cdf154be34c3d2a2aa1bd4b426ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Andrewsville/PHP-Token-Reflection/zipball/e6d0ac2baf66cdf154be34c3d2a2aa1bd4b426ee",
-                "reference": "e6d0ac2baf66cdf154be34c3d2a2aa1bd4b426ee",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "TokenReflection": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3"
-            ],
-            "authors": [
-                {
-                    "name": "Ondřej Nešpor",
-                    "homepage": "https://github.com/andrewsville"
-                },
-                {
-                    "name": "Jaroslav Hanslík",
-                    "homepage": "https://github.com/kukulich"
-                }
-            ],
-            "description": "Library emulating the PHP internal reflection using just the tokenized source code.",
-            "homepage": "http://andrewsville.github.com/PHP-Token-Reflection/",
-            "keywords": [
-                "library",
-                "reflection",
-                "tokenizer"
-            ],
-            "time": "2014-08-06 16:37:08"
-        },
         {
             "name": "cilex/cilex",
             "version": "1.1.0",
@@ -1977,16 +1930,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.20",
+            "version": "4.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad"
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7438c43bc2bbb2febe1723eb595b1c49283a26ad",
-                "reference": "7438c43bc2bbb2febe1723eb595b1c49283a26ad",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
             "require": {
@@ -1995,7 +1948,7 @@
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
-                "php": "~5.3.3|~5.4|~5.5|~5.6",
+                "php": ">=5.3.3",
                 "phpspec/prophecy": "^1.3.1",
                 "phpunit/php-code-coverage": "~2.1",
                 "phpunit/php-file-iterator": "~1.4",
@@ -2045,7 +1998,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-12-10 07:48:52"
+            "time": "2015-12-12 07:45:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2635,76 +2588,26 @@
             "time": "2015-11-21 02:21:41"
         },
         {
-            "name": "sphpdox/sphpdox",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/varspool/sphpdox.git",
-                "reference": "8e2447c8f9f08d34f5d5c15be33088653477d8ae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/varspool/sphpdox/zipball/8e2447c8f9f08d34f5d5c15be33088653477d8ae",
-                "reference": "8e2447c8f9f08d34f5d5c15be33088653477d8ae",
-                "shasum": ""
-            },
-            "require": {
-                "andrewsville/php-token-reflection": ">=1.3.0",
-                "php": ">=5.3.2",
-                "symfony/console": ">=2.0.10",
-                "symfony/process": ">=2.0.10"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=1.6"
-            },
-            "bin": [
-                "composer/bin/sphpdox"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Sphpdox": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Dominic Scheirlinck",
-                    "email": "dominic@varspool.com",
-                    "homepage": "http://www.somethingemporium.com/"
-                }
-            ],
-            "description": "PHPDoc to Sphinx phpdomain tool",
-            "homepage": "http://github.com/varspool/sphpdox",
-            "keywords": [
-                "documentation",
-                "phpdoc",
-                "rst",
-                "sphinx"
-            ],
-            "time": "2015-06-05 01:01:35"
-        },
-        {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "32a879f4f35019d78d568db2885d7779ca084a33"
+                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/32a879f4f35019d78d568db2885d7779ca084a33",
-                "reference": "32a879f4f35019d78d568db2885d7779ca084a33",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/e4fb41d5d0387d556e2c25534d630b3cce90ea67",
+                "reference": "e4fb41d5d0387d556e2c25534d630b3cce90ea67",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "bin": [
                 "scripts/phpcs",
@@ -2759,7 +2662,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-11-23 21:30:59"
+            "time": "2015-12-11 00:12:46"
         },
         {
             "name": "symfony/config",
@@ -4215,9 +4118,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sphpdox/sphpdox": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
