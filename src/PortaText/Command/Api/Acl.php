@@ -47,7 +47,7 @@ class Acl extends Base
             return parent::body($method);
         }
         $acls = array();
-        foreach ($this->arguments($method) as $value) {
+        foreach ($this->getArguments($method) as $value) {
             $acls[] = $value;
         }
         return json_encode(array("acl" => $acls));

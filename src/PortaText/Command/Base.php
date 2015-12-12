@@ -74,7 +74,7 @@ abstract class Base implements ICommand
      *
      * @return array
      */
-    protected function arguments($method)
+    protected function getArguments($method)
     {
         // Just to make PHPMD happy.
         $method = null;
@@ -104,8 +104,8 @@ abstract class Base implements ICommand
         if (!is_null($file)) {
             return "file:$file";
         }
-        if (count($this->arguments($method)) > 0) {
-            return json_encode($this->arguments($method));
+        if (count($this->getArguments($method)) > 0) {
+            return json_encode($this->getArguments($method));
         }
         return "";
     }

@@ -140,7 +140,7 @@ class DidSearch extends Base
      */
     protected function endpoint($method)
     {
-        $queryString = http_build_query($this->arguments($method));
+        $queryString = http_build_query($this->getArguments($method));
         return "dids/search?$queryString";
     }
 }

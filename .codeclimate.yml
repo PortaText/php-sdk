@@ -5,7 +5,7 @@ engines:
       languages:
       - php
   fixme:
-    enabled: true
+    enabled: false
   phpcodesniffer:
     enabled: true
   phpmd:

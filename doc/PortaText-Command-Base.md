@@ -82,9 +82,9 @@ Returns the value for the given argument name.
 
 
 
-### arguments
+### getArguments
 
-    array PortaText\Command\Base::arguments(string $method)
+    array PortaText\Command\Base::getArguments(string $method)
 
 Returns an associative array with the arguments.
 
