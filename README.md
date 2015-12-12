@@ -1,12 +1,9 @@
 [![License](https://poser.pugx.org/portatext/php-sdk/license)](https://packagist.org/packages/portatext/php-sdk)
+[![Latest Stable Version](https://poser.pugx.org/portatext/php-sdk/v/stable)](https://packagist.org/packages/portatext/php-sdk)
 
 [![Build Status](https://travis-ci.org/PortaText/php-sdk.svg)](https://travis-ci.org/PortaText/php-sdk)
 [![Coverage Status](https://coveralls.io/repos/PortaText/php-sdk/badge.svg?branch=master&service=github)](https://coveralls.io/github/PortaText/php-sdk?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/portatext-php-sdk/badge/?version=latest)](http://portatext-php-sdk.readthedocs.org/en/latest/?badge=latest)
-
-[![Latest Stable Version](https://poser.pugx.org/portatext/php-sdk/v/stable)](https://packagist.org/packages/portatext/php-sdk)
-[![Total Downloads](https://poser.pugx.org/portatext/php-sdk/downloads)](https://packagist.org/packages/portatext/php-sdk)
-[![Latest Unstable Version](https://poser.pugx.org/portatext/php-sdk/v/unstable)](https://packagist.org/packages/portatext/php-sdk)
 
 # php-sdk
 Official PHP Client for the [PortaText](https://www.portatext.com/) API.
