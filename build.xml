@@ -24,6 +24,12 @@
     <mkdir dir="build/coverage-html" mode="0755"/>
   </target>
 
+  <target name="cpd">
+    <exec command="vendor/bin/phpcpd --fuzzy src"
+      checkreturn="true"
+      passthru="true"/>
+  </target>
+
   <target name="md">
     <exec command="vendor/bin/phpmd ./src text cleancode,codesize,controversial,design,naming,unusedcode"
       checkreturn="true"
@@ -65,7 +71,7 @@
       passthru="true"/>
   </target>
 
-  <target name="build" depends="clean, prepare, cs, md, doc, test"/>
+  <target name="build" depends="clean, prepare, cpd, cs, md, doc, test"/>
   <target name="doc" depends="docxml, dochtml, docmd"/>
 
 </project>
