@@ -21,7 +21,7 @@ class CnamTest extends BaseCommandTest
      */
     public function cannot_request_cnam_for_null_did()
     {
-        $this->mockClientForCommand(null)->cnam()->get();
+        $this->mockClientForCommand(null)->cnam()->post();
     }
 
     /**
