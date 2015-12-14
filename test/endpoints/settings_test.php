@@ -25,7 +25,7 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->alertWhenCreditLessThan(100)
-        ->get();
+        ->patch();
     }
 
     /**
@@ -38,7 +38,7 @@ class SettingsTest extends BaseCommandTest
         ))
         ->settings()
         ->dontAlertOnLowCredit()
-        ->get();
+        ->patch();
     }
 
     /**
