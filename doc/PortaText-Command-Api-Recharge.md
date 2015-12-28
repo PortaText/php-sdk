@@ -51,7 +51,7 @@ Sets the card id to use.
 
 ### total
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Recharge::total(integer $planId, float $total)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Recharge::total(float $total)
 
 Set Name.
 
@@ -61,7 +61,6 @@ Set Name.
 
 
 #### Arguments
-* $planId **integer** - &lt;p&gt;The plan id to use.&lt;/p&gt;
 * $total **float** - &lt;p&gt;Total money to recharge.&lt;/p&gt;
 
 

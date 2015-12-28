@@ -22,12 +22,11 @@ class RechargeTest extends BaseCommandTest
     {
         $this->mockClientForCommand("recharge", array(
             "card_id" => 445522,
-            "plan_id" => 2,
             "total" => 150
         ))
         ->recharge()
         ->withCard(445522)
-        ->total(2, 150)
+        ->total(150)
         ->post();
     }
 }

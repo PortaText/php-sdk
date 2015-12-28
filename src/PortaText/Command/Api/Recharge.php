@@ -31,14 +31,12 @@ class Recharge extends Base
     /**
      * Set Name.
      *
-     * @param integer $planId The plan id to use.
      * @param float $total Total money to recharge.
      *
      * @return PortaText\Command\ICommand
      */
-    public function total($planId, $total)
+    public function total($total)
     {
-        $this->setArgument('plan_id', $planId);
         return $this->setArgument('total', $total);
     }
 
