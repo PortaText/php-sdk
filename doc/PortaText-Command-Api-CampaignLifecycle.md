@@ -79,7 +79,7 @@ Resumes a campaign.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CampaignLifecycle::pause()
 
-Starts a campaign.
+Pauses a campaign.
 
 
 

@@ -50,7 +50,7 @@ class CampaignLifecycle extends Base
     }
 
     /**
-     * Starts a campaign.
+     * Pauses a campaign.
      *
      * @return PortaText\Command\ICommand
      */
