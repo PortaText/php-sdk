@@ -85,6 +85,6 @@ class DidSettings extends Base
             throw new \InvalidArgumentException("DID number cant be null");
         }
         $this->delArgument("id");
-        return "did/$number/settings";
+        return "me/dids/$number";
     }
 }
