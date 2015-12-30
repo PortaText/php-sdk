@@ -204,7 +204,7 @@ Returns a string with the endpoint for the given command.
 
     array PortaText\Command\Base::setArgument(string $key, string $value)
 
-Returns an associative array with the arguments.
+Sets the given argument to the given value.
 
 
 
@@ -222,7 +222,7 @@ Returns an associative array with the arguments.
 
     array PortaText\Command\Base::delArgument(string $key)
 
-Deleted an argument.
+Deletes an argument.
 
 
 

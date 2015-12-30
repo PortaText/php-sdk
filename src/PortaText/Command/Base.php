@@ -26,7 +26,7 @@ abstract class Base implements ICommand
     private $args;
 
     /**
-     * Returns an associative array with the arguments.
+     * Sets the given argument to the given value.
      *
      * @param string $key Name of the argument.
      * @param string $value Value of the argument.
@@ -40,7 +40,7 @@ abstract class Base implements ICommand
     }
 
     /**
-     * Deleted an argument.
+     * Deletes an argument.
      *
      * @param string $key Name of the argument.
      *
