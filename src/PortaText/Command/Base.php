@@ -85,7 +85,6 @@ abstract class Base implements ICommand
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
-     * @param string $args The endpoint for this command.
      *
      * @return string
      */
