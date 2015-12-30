@@ -176,7 +176,7 @@ Returns the value for the given argument name.
 
 ### getArguments
 
-    array PortaText\Command\Base::getArguments(string $method)
+    array PortaText\Command\Base::getArguments()
 
 Returns an associative array with the arguments.
 
@@ -185,9 +185,6 @@ Returns an associative array with the arguments.
 * Visibility: **protected**
 * This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
 
-
-#### Arguments
-* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
 
 
 

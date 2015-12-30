@@ -70,14 +70,10 @@ abstract class Base implements ICommand
     /**
      * Returns an associative array with the arguments.
      *
-     * @param string $method Method for this command.
-     *
      * @return array
      */
-    protected function getArguments($method)
+    protected function getArguments()
     {
-        // Just to make PHPMD happy.
-        $method = null;
         return $this->args;
     }
 
