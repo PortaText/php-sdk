@@ -17,7 +17,7 @@ use PortaText\Command\Base;
 class DidSearch extends Base
 {
     /**
-     * Set Name.
+     * Searches for DIDs for this specific country.
      *
      * @param string $isoCode The 2 letter country ISO code.
      *

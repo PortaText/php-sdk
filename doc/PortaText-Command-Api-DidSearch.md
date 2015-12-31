@@ -37,7 +37,7 @@ Methods
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSearch::forCountry(string $isoCode)
 
-Set Name.
+Searches for DIDs for this specific country.
 
 
 
