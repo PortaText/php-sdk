@@ -37,7 +37,7 @@ Methods
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Cnam::forNumber(string $number)
 
-Set Name.
+Asks for CNAM info for the specific number.
 
 
 

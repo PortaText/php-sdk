@@ -17,7 +17,7 @@ use PortaText\Command\Base;
 class Cnam extends Base
 {
     /**
-     * Set Name.
+     * Asks for CNAM info for the specific number.
      *
      * @param string $number The number for which to get the caller id name.
      *
