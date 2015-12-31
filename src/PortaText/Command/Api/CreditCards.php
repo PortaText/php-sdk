@@ -44,7 +44,7 @@ class CreditCards extends Base
     }
 
     /**
-     * Set lastname.
+     * Set card information.
      *
      * @param string $number The card number.
      * @param string $expirationDate In format: YYYY-MM.
@@ -60,7 +60,7 @@ class CreditCards extends Base
     }
 
     /**
-     * Set lastname.
+     * Set card billing address.
      *
      * @param string $streetAddress The full street address.
      * @param string $city The city name.

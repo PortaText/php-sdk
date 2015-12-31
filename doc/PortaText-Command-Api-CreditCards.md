@@ -70,7 +70,7 @@ Set name on card.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::cardInfo(string $number, string $expirationDate, string $code)
 
-Set lastname.
+Set card information.
 
 
 
@@ -88,7 +88,7 @@ Set lastname.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\CreditCards::address(string $streetAddress, string $city, string $state, string $zip, string $country)
 
-Set lastname.
+Set card billing address.
 
 
 
