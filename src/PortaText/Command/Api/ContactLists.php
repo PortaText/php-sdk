@@ -54,7 +54,7 @@ class ContactLists extends Base
     }
 
     /**
-     * Send a CSV file to blacklist contacts.
+     * Send a CSV file to import contacts.
      *
      * @param string $filename Full absolute path to the csv file.
      *

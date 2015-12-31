@@ -85,7 +85,7 @@ The contact list description.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::csv(string $filename)
 
-Send a CSV file to blacklist contacts.
+Send a CSV file to import contacts.
 
 
 
