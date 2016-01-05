@@ -17,6 +17,43 @@ use PortaText\Command\Base;
 class MyPassword extends Base
 {
     /**
+     * Use this nonce to reset password.
+     *
+     * @param string $nonce The nonce to use to reset the password.
+     * @param string $newPassword The new password to set.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function withNonce($nonce, $newPassword)
+    {
+        $this->setArgument('new_password', $newPassword);
+        return $this->setArgument('nonce', $nonce);
+    }
+
+    /**
+     * Asks to reset the password.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function reset()
+    {
+        return $this->setArgument('reset', true);
+    }
+
+    /**
+     * Asks to reset the password.
+     *
+     * @param string $email Reset the password for this email.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function forEmail($email)
+    {
+        return $this->setArgument('email', $email);
+    }
+
+
+    /**
      * Set Name.
      *
      * @param string $oldPassword The current password.
@@ -39,6 +76,17 @@ class MyPassword extends Base
      */
     protected function getEndpoint($method)
     {
-        return "me/password";
+        $endpoint = 'me/password';
+        $reset = $this->getArgument('reset');
+        $nonce = $this->getArgument('nonce');
+        if (!is_null($reset)) {
+            $endpoint .= '/reset';
+            $this->delArgument('reset');
+        }
+        if (!is_null($nonce)) {
+            $endpoint .= "/$nonce";
+            $this->delArgument('nonce');
+        }
+        return $endpoint;
     }
 }

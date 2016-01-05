@@ -33,6 +33,52 @@ Methods
 -------
 
 
+### withNonce
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\MyPassword::withNonce(string $nonce, string $newPassword)
+
+Use this nonce to reset password.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $nonce **string** - &lt;p&gt;The nonce to use to reset the password.&lt;/p&gt;
+* $newPassword **string** - &lt;p&gt;The new password to set.&lt;/p&gt;
+
+
+
+### reset
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\MyPassword::reset()
+
+Asks to reset the password.
+
+
+
+* Visibility: **public**
+
+
+
+
+### forEmail
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\MyPassword::forEmail(string $email)
+
+Asks to reset the password.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $email **string** - &lt;p&gt;Reset the password for this email.&lt;/p&gt;
+
+
+
 ### change
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\MyPassword::change(string $oldPassword, string $newPassword)
