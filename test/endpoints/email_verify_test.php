@@ -31,6 +31,6 @@ class EmailVerifyTest extends BaseCommandTest
         $this->mockClientForCommand("me/email_verify/one_big_nonce")
         ->emailVerify()
         ->withNonce("one_big_nonce")
-        ->post();
+        ->put();
     }
 }
