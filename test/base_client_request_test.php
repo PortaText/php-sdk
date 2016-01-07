@@ -35,15 +35,23 @@ class BaseClient extends \PHPUnit_Framework_TestCase
                     $descriptor->method === "amethod" &&
                     count(array_diff($descriptor->headers, array(
                         "X-Api-Key" => "anapikey",
-                        "Accept" => 'application/json',
+                        "Accept" => "accept content type",
                         "Content-Type" => "content type"
                     )) === 0) &&
-                    $descriptor->body === "a body";
+                    $descriptor->body === "a body" &&
+                    $descriptor->outputFile === "output File";
             }))
             ->will($this->returnValue(array(200, array(), "")));
         $client
             ->setApiKey("anapikey")
-            ->run("endpoint/subpath", "amethod", "content type", "a body");
+            ->run(
+                "endpoint/subpath",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body",
+                "output File"
+            );
     }
 }
 

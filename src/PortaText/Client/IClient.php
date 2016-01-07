@@ -58,7 +58,9 @@ interface IClient
      * @param string $endpoint Endpoint to invoke.
      * @param string $method HTTP method to use.
      * @param string $contentType Content-Type value.
+     * @param string $acceptContentType Accept value.
      * @param string $body Payload to send.
+     * @param string $outputFile File where to write result to.
      * @param string $authType One of "apiKey", "sessionToken", or "basic"
      *
      * @return PortaText\Command\Result
@@ -78,7 +80,9 @@ interface IClient
         $endpoint,
         $method,
         $contentType,
+        $acceptContentType,
         $body,
+        $outputFile = null,
         $authType = null
     );
 }

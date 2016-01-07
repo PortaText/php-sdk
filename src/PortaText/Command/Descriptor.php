@@ -42,18 +42,32 @@ class Descriptor
     public $body;
 
     /**
+     * File where to write result to.
+     *
+     * @var string
+     */
+    public $outputFile;
+
+    /**
      * Constructor.
      *
      * @param string $uri The full complete URI for the request.
      * @param string $method The HTTP method.
      * @param array $headers The HTTP headers.
      * @param string $body The body of the request.
+     * @param string $outputFile File where to write result to.
      */
-    public function __construct($uri, $method, $headers, $body)
-    {
+    public function __construct(
+        $uri,
+        $method,
+        $headers,
+        $body,
+        $outputFile = null
+    ) {
         $this->uri = $uri;
         $this->method = $method;
         $this->headers = $headers;
         $this->body = $body;
+        $this->outputFile = $outputFile;
     }
 }

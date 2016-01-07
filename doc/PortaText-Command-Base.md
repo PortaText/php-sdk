@@ -144,6 +144,22 @@ Returns the content type for this endpoint.
 
 
 
+### getAcceptContentType
+
+    string PortaText\Command\Base::getAcceptContentType(string $method)
+
+Returns the accepted content type for this endpoint.
+
+
+
+* Visibility: **protected**
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
 ### get
 
     \PortaText\Command\PortaText\Command\ICommand PortaText\Command\ICommand::get()

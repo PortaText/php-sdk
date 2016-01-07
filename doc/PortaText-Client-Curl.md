@@ -130,19 +130,86 @@ Returns an array with code, headers, and body.
 
 
 
-### parseCurlResult
+### assertCurlResult
 
-    array PortaText\Client\Curl::parseCurlResult(string $result)
+    mixed PortaText\Client\Curl::assertCurlResult(resource $curl, mixed $result, \PortaText\Client\PortaText\Command\Descriptor $descriptor)
 
-Given a curl result, will return headers and body.
+Asserts that the curl result was successful.
 
 
 
-* Visibility: **protected**
+* Visibility: **private**
 
 
 #### Arguments
-* $result **string** - &lt;p&gt;The CURL result.&lt;/p&gt;
+* $curl **resource** - &lt;p&gt;The curl resource.&lt;/p&gt;
+* $result **mixed** - &lt;p&gt;The result.&lt;/p&gt;
+* $descriptor **PortaText\Client\PortaText\Command\Descriptor** - &lt;p&gt;Command descriptor.&lt;/p&gt;
+
+
+
+### parseCode
+
+    integer PortaText\Client\Curl::parseCode(string $data)
+
+Parses the HTTP status line.
+
+
+
+* Visibility: **private**
+
+
+#### Arguments
+* $data **string** - &lt;p&gt;HTTP Status line.&lt;/p&gt;
+
+
+
+### parseHeader
+
+    array PortaText\Client\Curl::parseHeader(string $header)
+
+Parses an HTTP header line.
+
+
+
+* Visibility: **private**
+
+
+#### Arguments
+* $header **string** - &lt;p&gt;The HTTP header line.&lt;/p&gt;
+
+
+
+### openFile
+
+    resource|false PortaText\Client\Curl::openFile(string $file, string $mode)
+
+Opens a file and returns a file handle.
+
+
+
+* Visibility: **private**
+
+
+#### Arguments
+* $file **string** - &lt;p&gt;The filename.&lt;/p&gt;
+* $mode **string** - &lt;p&gt;The mode.&lt;/p&gt;
+
+
+
+### closeFiles
+
+    void PortaText\Client\Curl::closeFiles(array $files)
+
+Closes all the file handles.
+
+
+
+* Visibility: **private**
+
+
+#### Arguments
+* $files **array** - &lt;p&gt;Array of file handles.&lt;/p&gt;
 
 
 
@@ -183,7 +250,7 @@ This magic method is used to spawn commands on demand.
 
 ### run
 
-    \PortaText\Client\PortaText\Command\Result PortaText\Client\IClient::run(string $endpoint, string $method, string $contentType, string $body, string $authType)
+    \PortaText\Client\PortaText\Command\Result PortaText\Client\IClient::run(string $endpoint, string $method, string $contentType, string $acceptContentType, string $body, string $outputFile, string $authType)
 
 Runs the given command.
 
@@ -197,7 +264,9 @@ Runs the given command.
 * $endpoint **string** - &lt;p&gt;Endpoint to invoke.&lt;/p&gt;
 * $method **string** - &lt;p&gt;HTTP method to use.&lt;/p&gt;
 * $contentType **string** - &lt;p&gt;Content-Type value.&lt;/p&gt;
+* $acceptContentType **string** - &lt;p&gt;Accept value.&lt;/p&gt;
 * $body **string** - &lt;p&gt;Payload to send.&lt;/p&gt;
+* $outputFile **string** - &lt;p&gt;File where to write result to.&lt;/p&gt;
 * $authType **string** - &lt;p&gt;One of &quot;apiKey&quot;, &quot;sessionToken&quot;, or &quot;basic&quot;&lt;/p&gt;
 
 

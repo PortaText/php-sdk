@@ -47,6 +47,12 @@ class BaseClientGeneral extends \PHPUnit_Framework_TestCase
         $client
             ->setApiKey("anapikey")
             ->setEndpoint("http://1.2.3.4:80/some_path")
-            ->run("endpoint/subpath", "amethod", "content type", "a body");
+            ->run(
+                "endpoint/subpath",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body"
+            );
     }
 }

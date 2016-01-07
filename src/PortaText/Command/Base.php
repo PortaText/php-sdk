@@ -124,6 +124,24 @@ abstract class Base implements ICommand
     }
 
     /**
+     * Returns the accepted content type for this endpoint.
+     *
+     * @param string $method Method for this command.
+     *
+     * @return string
+     */
+    protected function getAcceptContentType($method)
+    {
+        // Just to make PHPMD happy.
+        $method = null;
+        $acceptFile = $this->getArgument("accept_file");
+        if (!is_null($acceptFile)) {
+            return "text/csv";
+        }
+        return 'application/json';
+    }
+
+    /**
      * Runs this command with a GET method and returns the result.
      *
      * @return PortaText\Command\ICommand
@@ -189,9 +207,19 @@ abstract class Base implements ICommand
     protected function run($method)
     {
         $endpoint = $this->getEndpoint($method);
-        $body = $this->getBody($method);
+        $outputFile = $this->getArgument('accept_file');
         $cType = $this->getContentType($method);
-        return $this->client->run($endpoint, $method, $cType, $body);
+        $aCType = $this->getAcceptContentType($method);
+        $this->delArgument('accept_file');
+        $body = $this->getBody($method);
+        return $this->client->run(
+            $endpoint,
+            $method,
+            $cType,
+            $aCType,
+            $body,
+            $outputFile
+        );
     }
 
     /**

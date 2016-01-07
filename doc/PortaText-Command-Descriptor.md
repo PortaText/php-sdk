@@ -61,13 +61,24 @@ The body of the request.
 * Visibility: **public**
 
 
+### $outputFile
+
+    public string $outputFile
+
+File where to write result to.
+
+
+
+* Visibility: **public**
+
+
 Methods
 -------
 
 
 ### __construct
 
-    mixed PortaText\Command\Descriptor::__construct(string $uri, string $method, array $headers, string $body)
+    mixed PortaText\Command\Descriptor::__construct(string $uri, string $method, array $headers, string $body, string $outputFile)
 
 Constructor.
 
@@ -81,5 +92,6 @@ Constructor.
 * $method **string** - &lt;p&gt;The HTTP method.&lt;/p&gt;
 * $headers **array** - &lt;p&gt;The HTTP headers.&lt;/p&gt;
 * $body **string** - &lt;p&gt;The body of the request.&lt;/p&gt;
+* $outputFile **string** - &lt;p&gt;File where to write result to.&lt;/p&gt;
 
 

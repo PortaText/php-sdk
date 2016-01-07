@@ -37,7 +37,13 @@ class AuthTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(array(200, array(), "")));
         $client
             ->setApiKey("anapikey")
-            ->run("endpoint/subpath", "amethod", "content type", "a body");
+            ->run(
+                "endpoint/subpath",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body"
+            );
     }
 
     /**
@@ -65,7 +71,14 @@ class AuthTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(array(401, array(), "")));
         $client
             ->setCredentials("user", "password")
-            ->run("endpoint", "amethod", "content type", "a body", "basic");
+            ->run(
+                "endpoint",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body",
+                "basic"
+            );
     }
 
     /**
@@ -131,8 +144,20 @@ class AuthTest extends \PHPUnit_Framework_TestCase
             ));
         $client
             ->setCredentials("user", "password")
-            ->run("endpoint", "amethod", "content type", "a body");
-        $client->run("endpoint", "amethod", "content type", "a body");
+            ->run(
+                "endpoint",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body"
+            );
+        $client->run(
+            "endpoint",
+            "amethod",
+            "content type",
+            "accept content type",
+            "a body"
+        );
     }
 
     /**
@@ -198,6 +223,12 @@ class AuthTest extends \PHPUnit_Framework_TestCase
             ));
         $client
             ->setCredentials("user", "password")
-            ->run("endpoint", "amethod", "content type", "a body");
+            ->run(
+                "endpoint",
+                "amethod",
+                "content type",
+                "accept content type",
+                "a body"
+            );
     }
 }

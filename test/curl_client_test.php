@@ -35,6 +35,75 @@ class CurlClient extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function can_save_to_file()
+    {
+        $address = "127.0.0.1";
+        $port = 10452;
+        $acceptFileFlag = tempnam("/tmp", "accept$port");
+        $writeFileFlag = tempnam("/tmp", "write$port");
+        $receivedFileFlag = tempnam("/tmp", "write$port");
+        $targetFile = tempnam("/tmp", "target$port");
+        switch($pid = pcntl_fork()) {
+            case -1:
+                throw new \Exception("Could not fork");
+            case 0:
+                $serverSock = $this->openServer($address, $port);
+                touch($acceptFileFlag);
+                $clientSock = @socket_accept($serverSock);
+                $buffer = '';
+                while(!strstr($buffer, "body")) {
+                    $newBuff = '';
+                    @socket_recv($clientSock, $newBuff, 2048, \MSG_DONTWAIT);
+                    $buffer .= $newBuff;
+                }
+                $result = implode("\r\n", array(
+                    "HTTP/1.1 742 OK",
+                    "Connection: close",
+                    "X-header1: value1",
+                    "X-header2: value2",
+                    "Content-Type: text/csv",
+                    "",
+                    "line1\nline2\n"
+                ));
+                @socket_write($clientSock, $result);
+                $this->waitForFile($receivedFileFlag);
+                @socket_close($clientSock);
+                @socket_close($serverSock);
+                file_put_contents($writeFileFlag, $result);
+                exit(0);
+                break;
+            default:
+                $descriptor = new Descriptor(
+                    "http://$address:$port",
+                    "delete",
+                    array(
+                        "X-Request-header1" => "value1",
+                        "X-Request-header2" => "value2"
+                    ),
+                    "this is a body",
+                    $targetFile
+                );
+                $portatext = new Client();
+                $this->waitForFile($acceptFileFlag);
+                usleep(100000);
+                list($code, $headers, $body) = $portatext->execute($descriptor);
+                touch($receivedFileFlag);
+                $this->waitForFile($writeFileFlag);
+                $contents = $this->assertEquals(
+                    "line1\nline2\n",
+                    file_get_contents($targetFile)
+                );
+                @unlink($acceptFileFlag);
+                @unlink($receivedFileFlag);
+                @unlink($writeFileFlag);
+                @unlink($targetFile);
+                break;
+        }
+    }
+
+    /**
+     * @test
+     */
     public function can_request_with_file()
     {
         $address = "127.0.0.1";

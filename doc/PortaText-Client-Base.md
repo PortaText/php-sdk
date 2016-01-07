@@ -148,7 +148,7 @@ This magic method is used to spawn commands on demand.
 
 ### run
 
-    \PortaText\Client\PortaText\Command\Result PortaText\Client\IClient::run(string $endpoint, string $method, string $contentType, string $body, string $authType)
+    \PortaText\Client\PortaText\Command\Result PortaText\Client\IClient::run(string $endpoint, string $method, string $contentType, string $acceptContentType, string $body, string $outputFile, string $authType)
 
 Runs the given command.
 
@@ -162,7 +162,9 @@ Runs the given command.
 * $endpoint **string** - &lt;p&gt;Endpoint to invoke.&lt;/p&gt;
 * $method **string** - &lt;p&gt;HTTP method to use.&lt;/p&gt;
 * $contentType **string** - &lt;p&gt;Content-Type value.&lt;/p&gt;
+* $acceptContentType **string** - &lt;p&gt;Accept value.&lt;/p&gt;
 * $body **string** - &lt;p&gt;Payload to send.&lt;/p&gt;
+* $outputFile **string** - &lt;p&gt;File where to write result to.&lt;/p&gt;
 * $authType **string** - &lt;p&gt;One of &quot;apiKey&quot;, &quot;sessionToken&quot;, or &quot;basic&quot;&lt;/p&gt;
 
 

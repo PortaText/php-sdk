@@ -16,7 +16,8 @@ class BaseCommandTest extends \PHPUnit_Framework_TestCase
     protected function mockClientForCommand(
         $assertEndpoint = null,
         $assertBody = '',
-        $assertContentType = 'application/json'
+        $assertContentType = 'application/json',
+        $assertAcceptContentType = 'application/json'
     ) {
         $expectedCalls = 1;
         if(is_null($assertEndpoint)) {
@@ -33,12 +34,14 @@ class BaseCommandTest extends \PHPUnit_Framework_TestCase
               $this->equalTo($assertEndpoint),
               $this->anything(),
               $this->equalTo($assertContentType),
+              $this->equalTo($assertAcceptContentType),
               $this->callback(function($body) use (&$assertBody) {
                   if (is_array($assertBody)) {
                       $assertBody = json_encode($assertBody);
                   }
                   return $assertBody === $body;
               }),
+              $this->anything(),
               $this->anything()
           );
         $client->setApiKey("anapikey");

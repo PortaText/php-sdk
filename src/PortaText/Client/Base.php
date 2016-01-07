@@ -125,7 +125,9 @@ abstract class Base implements IClient
      * @param string $endpoint Endpoint to invoke.
      * @param string $method HTTP method to use.
      * @param string $contentType Content-Type value.
+     * @param string $acceptContentType Accept value.
      * @param string $body Payload to send.
+     * @param string $outputFile File where to write the result to.
      * @param string $authType One of "apiKey", "sessionToken", or "basic"
      *
      * @return PortaText\Command\Result
@@ -145,7 +147,9 @@ abstract class Base implements IClient
         $endpoint,
         $method,
         $contentType,
+        $acceptContentType,
         $body,
+        $outputFile = null,
         $authType = null
     ) {
         $uri = implode("/", array($this->endpoint, $endpoint));
@@ -169,7 +173,7 @@ abstract class Base implements IClient
         $this->logger->debug("Calling $method $uri with $authType");
         $headers = array(
             "Content-Type" => $contentType,
-            "Accept" => "application/json"
+            "Accept" => $acceptContentType
         );
         switch ($authType) {
             case "apiKey":
@@ -189,7 +193,13 @@ abstract class Base implements IClient
                     "Invalid auth type: $authType"
                 );
         }
-        $descriptor = new Descriptor($uri, $method, $headers, $body);
+        $descriptor = new Descriptor(
+            $uri,
+            $method,
+            $headers,
+            $body,
+            $outputFile
+        );
         list($code, $resultHeaders, $resultBody) = $this->execute($descriptor);
         $result = new Result(
             $code,
@@ -203,7 +213,13 @@ abstract class Base implements IClient
          */
         if ($code === 401 && $authType === "sessionToken") {
             $this->login();
-            return $this->run($endpoint, $method, $contentType, $body);
+            return $this->run(
+                $endpoint,
+                $method,
+                $contentType,
+                $acceptContentType,
+                $body
+            );
         }
         $this->assertResult($descriptor, $result);
         return $result;
@@ -292,7 +308,15 @@ abstract class Base implements IClient
      */
     protected function login()
     {
-        $result = $this->run("login", "post", "application/json", "", "basic");
+        $result = $this->run(
+            "login",
+            "post",
+            "application/json",
+            "application/json",
+            "",
+            null,
+            "basic"
+        );
         $this->sessionToken = $result->data["token"];
     }
 

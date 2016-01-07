@@ -11,11 +11,21 @@ class CustomClient extends BaseClient
         $endpoint = "endpoint",
         $method = "get",
         $contentType = "application/json",
+        $acceptContentType = "application/json",
         $body = "",
+        $outputFile = null,
         $authType = null
     )
     {
-        return parent::run($endpoint, $method, $contentType, $body, $authType);
+        return parent::run(
+            $endpoint,
+            $method,
+            $contentType,
+            $acceptContentType,
+            $body,
+            $outputFile,
+            $authType
+        );
     }
 
     public function execute($descriptor)

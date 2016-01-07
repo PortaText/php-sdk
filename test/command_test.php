@@ -42,50 +42,60 @@ class CommandTest extends \PHPUnit_Framework_TestCase
                     $this->equalTo("customCommandEndpoint"),
                     $this->equalTo('get'),
                     $this->equalTo('application/json'),
+                    $this->equalTo('application/json'),
                     $this->callback(function($body) {
                         $body = json_decode($body, true);
                         return $body["argument1"] === "aValue";
                     }),
+                    $this->equalTo(null),
                     $this->equalTo(null)
                 ),
                 array(
                     $this->equalTo("customCommandEndpoint"),
                     $this->equalTo('post'),
                     $this->equalTo('application/json'),
+                    $this->equalTo('application/json'),
                     $this->callback(function($body) {
                         $body = json_decode($body, true);
                         return $body["argument1"] === "aValue";
                     }),
+                    $this->equalTo(null),
                     $this->equalTo(null)
                 ),
                 array(
                     $this->equalTo("customCommandEndpoint"),
                     $this->equalTo('put'),
                     $this->equalTo('application/json'),
+                    $this->equalTo('application/json'),
                     $this->callback(function($body) {
                         $body = json_decode($body, true);
                         return $body["argument1"] === "aValue";
                     }),
+                    $this->equalTo(null),
                     $this->equalTo(null)
                 ),
                 array(
                     $this->equalTo("customCommandEndpoint"),
                     $this->equalTo('delete'),
                     $this->equalTo('application/json'),
+                    $this->equalTo('application/json'),
                     $this->callback(function($body) {
                         $body = json_decode($body, true);
                         return $body["argument1"] === "aValue";
                     }),
+                    $this->equalTo(null),
                     $this->equalTo(null)
                 ),
                 array(
                     $this->equalTo("customCommandEndpoint"),
                     $this->equalTo('patch'),
                     $this->equalTo('application/json'),
+                    $this->equalTo('application/json'),
                     $this->callback(function($body) {
                         $body = json_decode($body, true);
                         return $body["argument1"] === "aValue";
                     }),
+                    $this->equalTo(null),
                     $this->equalTo(null)
                 )
             );

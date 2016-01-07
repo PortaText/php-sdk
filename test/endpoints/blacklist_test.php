@@ -18,6 +18,22 @@ class BlacklistTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_export_blacklist()
+    {
+        $this->mockClientForCommand(
+            'blacklist/contacts',
+            '',
+            'application/json',
+            'text/csv'
+        )
+        ->blacklist()
+        ->saveTo("/tmp/blacklist.csv")
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_blacklist_number()
     {
         $this->mockClientForCommand("blacklist/12223334444")

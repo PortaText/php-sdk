@@ -65,6 +65,22 @@ Send a CSV file to blacklist contacts.
 
 
 
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Blacklist::saveTo(string $filename)
+
+Used to export the blacklist to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
@@ -171,6 +187,23 @@ Returns the body for this endpoint.
     string PortaText\Command\Base::getContentType(string $method)
 
 Returns the content type for this endpoint.
+
+
+
+* Visibility: **protected**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+#### Arguments
+* $method **string** - &lt;p&gt;Method for this command.&lt;/p&gt;
+
+
+
+### getAcceptContentType
+
+    string PortaText\Command\Base::getAcceptContentType(string $method)
+
+Returns the accepted content type for this endpoint.
 
 
 
