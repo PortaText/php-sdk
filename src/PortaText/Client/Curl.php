@@ -68,11 +68,11 @@ class Curl extends Base
             $resource,
             $data
         ) use (
-            &$state,       //@codeCoverageIgnore
-            &$retCode,     //@codeCoverageIgnore
-            &$retHeaders,  //@codeCoverageIgnore
-            &$retBody,     //@codeCoverageIgnore
-            $fileHandleW   //@codeCoverageIgnore
+            &$state,
+            &$retCode,
+            &$retHeaders,
+            &$retBody,
+            $fileHandleW
         ) {
             $resource = null; // make MD happy
             $dataLen = strlen($data);
