@@ -64,7 +64,7 @@ class Result
     public function __construct($code, $headers, $data)
     {
         $this->code = $code;
-        $this->success = ($code > 199 && $code < 300) && $data["success"];
+        $this->success = $code > 199 && $code < 300;
         $this->headers = $headers;
         $this->data = $data;
     }
