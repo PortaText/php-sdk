@@ -72,6 +72,7 @@ interface IClient
      * @throws PortaText\Exception\Forbidden
      * @throws PortaText\Exception\NotFound
      * @throws PortaText\Exception\InvalidMedia
+     * @throws PortaText\Exception\NotAcceptable
      * @throws PortaText\Exception\InvalidMethod
      * @throws PortaText\Exception\RateLimited
      * @throws InvalidArgumentException

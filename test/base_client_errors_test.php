@@ -88,6 +88,16 @@ class BaseClientErrors extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @expectedException PortaText\Exception\NotAcceptable
+     */
+    public function cannot_request_on_not_acceptable()
+    {
+        $client = new CustomClient(406, array(), '{"success": "false"}');
+        $client->run();
+    }
+
+    /**
+     * @test
      * @expectedException PortaText\Exception\InvalidMedia
      */
     public function cannot_request_on_invalid_media()

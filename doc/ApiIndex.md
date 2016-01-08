@@ -41,6 +41,7 @@ API Index
         * [InvalidCredentials](PortaText-Exception-InvalidCredentials.md)
         * [InvalidMedia](PortaText-Exception-InvalidMedia.md)
         * [InvalidMethod](PortaText-Exception-InvalidMethod.md)
+        * [NotAcceptable](PortaText-Exception-NotAcceptable.md)
         * [NotFound](PortaText-Exception-NotFound.md)
         * [PaymentRequired](PortaText-Exception-PaymentRequired.md)
         * [RateLimited](PortaText-Exception-RateLimited.md)

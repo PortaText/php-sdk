@@ -139,6 +139,7 @@ abstract class Base implements IClient
      * @throws PortaText\Exception\Forbidden
      * @throws PortaText\Exception\NotFound
      * @throws PortaText\Exception\InvalidMedia
+     * @throws PortaText\Exception\NotAcceptable
      * @throws PortaText\Exception\InvalidMethod
      * @throws PortaText\Exception\RateLimited
      * @throws InvalidArgumentException
@@ -267,6 +268,7 @@ abstract class Base implements IClient
      * @throws PortaText\Exception\Forbidden
      * @throws PortaText\Exception\NotFound
      * @throws PortaText\Exception\InvalidMedia
+     * @throws PortaText\Exception\NotAcceptable
      * @throws PortaText\Exception\InvalidMethod
      * @throws PortaText\Exception\RateLimited
      */
@@ -278,6 +280,7 @@ abstract class Base implements IClient
             403 => "Forbidden",
             404 => "NotFound",
             405 => "InvalidMethod",
+            406 => "NotAcceptable",
             415 => "InvalidMedia",
             429 => "RateLimited",
             500 => "ServerError",
