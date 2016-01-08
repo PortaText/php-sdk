@@ -66,6 +66,18 @@ class ContactLists extends Base
     }
 
     /**
+     * Used to export the contact list to a CSV file on a GET.
+     *
+     * @param string $filename The filename.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function saveTo($filename)
+    {
+        return $this->setArgument("accept_file", $filename);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -81,7 +93,8 @@ class ContactLists extends Base
             $this->delArgument("id");
         }
         $file = $this->getArgument("file");
-        if (!is_null($file)) {
+        $saveTo = $this->getArgument("accept_file");
+        if (!is_null($file) || !is_null($saveTo)) {
             $endpoint .= "/contacts";
         }
         return $endpoint;

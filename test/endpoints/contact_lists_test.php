@@ -18,6 +18,23 @@ class ContactListsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_export_contact_list()
+    {
+        $this->mockClientForCommand(
+            'contact_lists/33/contacts',
+            '',
+            'application/json',
+            'text/csv'
+        )
+        ->contactLists()
+        ->id(33)
+        ->saveTo("/tmp/contact_list.csv")
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_contact_list()
     {
         $this->mockClientForCommand("contact_lists", array(

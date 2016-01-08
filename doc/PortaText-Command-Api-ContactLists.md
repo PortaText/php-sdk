@@ -97,6 +97,22 @@ Send a CSV file to import contacts.
 
 
 
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::saveTo(string $filename)
+
+Used to export the contact list to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
