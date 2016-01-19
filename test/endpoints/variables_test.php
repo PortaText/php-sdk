@@ -68,8 +68,8 @@ class VariablesTest extends BaseCommandTest
     {
         $this->mockClientForCommand("contact/12223334444/variables", array(
             "variables" => array(
-                "first_name" => "John",
-                "last_name" => "Doe"
+                array("key" => "first_name", "value" => "John"),
+                array("key" => "last_name", "value" => "Doe")
             )
         ))
         ->variables()

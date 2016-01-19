@@ -63,7 +63,11 @@ class Variables extends Base
      */
     public function setAll($variables)
     {
-        return $this->setArgument("variables", $variables);
+        $vars = array();
+        foreach ($variables as $k => $v) {
+            $vars[] = array('key' => $k, 'value' => $v);
+        }
+        return $this->setArgument("variables", $vars);
     }
 
     /**
