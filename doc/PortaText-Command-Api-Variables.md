@@ -1,12 +1,12 @@
-PortaText\Command\Api\Templates
+PortaText\Command\Api\Variables
 ===============
 
-The Templates endpoint.
+The Variables endpoint.
 
 
 
 
-* Class name: Templates
+* Class name: Variables
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,27 +33,27 @@ Methods
 -------
 
 
+### forContact
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::forContact(string $number)
+
+Use this contact number.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $number **string** - &lt;p&gt;number.&lt;/p&gt;
+
+
+
 ### name
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::name(string $name)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::name(string $name)
 
-Sets the template name.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $name **string** - &lt;p&gt;Template name.&lt;/p&gt;
-
-
-
-### description
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::description(string $description)
-
-Sets the template description.
+Specify only a variable name.
 
 
 
@@ -61,31 +61,15 @@ Sets the template description.
 
 
 #### Arguments
-* $description **string** - &lt;p&gt;Template description.&lt;/p&gt;
+* $name **string** - &lt;p&gt;name.&lt;/p&gt;
 
 
 
-### text
+### set
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::text(string $text)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::set(string $name, string $value)
 
-Sets the template text.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $text **string** - &lt;p&gt;Template text.&lt;/p&gt;
-
-
-
-### id
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Templates::id(integer $templateId)
-
-Sets the template id.
+Sets the given variable.
 
 
 
@@ -93,7 +77,24 @@ Sets the template id.
 
 
 #### Arguments
-* $templateId **integer** - &lt;p&gt;Template id.&lt;/p&gt;
+* $name **string** - &lt;p&gt;name.&lt;/p&gt;
+* $value **string** - &lt;p&gt;value.&lt;/p&gt;
+
+
+
+### setAll
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::setAll(array $variables)
+
+Sets all the given variables.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $variables **array** - &lt;p&gt;variables.&lt;/p&gt;
 
 
 

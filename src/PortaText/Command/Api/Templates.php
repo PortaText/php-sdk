@@ -19,7 +19,7 @@ class Templates extends Base
     /**
      * Sets the template name.
      *
-     * @param string $name name name.
+     * @param string $name Template name.
      *
      * @return PortaText\Command\ICommand
      */
