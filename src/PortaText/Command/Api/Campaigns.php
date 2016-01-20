@@ -78,6 +78,18 @@ class Campaigns extends Base
     }
 
     /**
+     * Send a CSV file to import contacts.
+     *
+     * @param string $filename Full absolute path to the csv file.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function csv($filename)
+    {
+        return $this->setArgument("file", $filename);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -92,6 +104,15 @@ class Campaigns extends Base
             $endpoint .= "/$campaignId";
             $this->delArgument("id");
             $this->delArgument("type");
+        }
+        $file = $this->getArgument("file");
+        if (!is_null($file)) {
+            $args = $this->getArguments();
+            unset($args['file']);
+            $args = array(
+                'settings' => json_encode($args)
+            );
+            $endpoint = $endpoint . '?' . http_build_query($args);
         }
         return $endpoint;
     }

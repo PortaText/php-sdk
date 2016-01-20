@@ -18,6 +18,37 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_create_sms_campaign_from_csv()
+    {
+        $qs = http_build_query(array(
+            "settings" => json_encode(array(
+                "type" => "sms",
+                "name" => "this is the name",
+                "description" => "and this is the description",
+                "from" => "12223334444",
+                "settings" => array(
+                    "text" => "Hello world"
+                )
+            ))
+        ));
+        $this->mockClientForCommand(
+            "campaigns?$qs",
+            'file:/tmp/contacts.csv',
+            'text/csv',
+            'application/json'
+        )
+        ->smsCampaign()
+        ->name("this is the name")
+        ->description("and this is the description")
+        ->csv("/tmp/contacts.csv")
+        ->from("12223334444")
+        ->text("Hello world")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_sms_campaign_with_text()
     {
         $this->mockClientForCommand("campaigns", array(
@@ -26,7 +57,9 @@ class CampaignsTest extends BaseCommandTest
             "description" => "and this is the description",
             "contact_list_ids" => array(1, 3, 5, 7, 9),
             "from" => "12223334444",
-            "text" => "Hello world"
+            "settings" => array(
+                "text" => "Hello world"
+            )
         ))
         ->smsCampaign()
         ->name("this is the name")
@@ -48,8 +81,10 @@ class CampaignsTest extends BaseCommandTest
             "description" => "and this is the description",
             "contact_list_ids" => array(1, 3, 5, 7, 9),
             "from" => "12223334444",
-            "template_id" => 987,
-            "variables" => array("key1" => "value1")
+            "settings" => array(
+                "template_id" => 987,
+                "variables" => array("key1" => "value1")
+            )
         ))
         ->smsCampaign()
         ->name("this is the name")

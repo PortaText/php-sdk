@@ -164,6 +164,23 @@ Contact list IDs to use.
 
 
 
+### csv
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::csv(string $filename)
+
+Send a CSV file to import contacts.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

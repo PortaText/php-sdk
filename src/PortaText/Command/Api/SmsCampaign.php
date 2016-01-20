@@ -26,8 +26,10 @@ class SmsCampaign extends Campaigns
      */
     public function useTemplate($templateId, array $variables = array())
     {
-        $this->setArgument("template_id", $templateId);
-        return $this->setArgument("variables", $variables);
+        return $this->setArgument("settings", array(
+            "template_id" => $templateId,
+            "variables" => $variables
+        ));
     }
 
     /**
@@ -39,7 +41,9 @@ class SmsCampaign extends Campaigns
      */
     public function text($text)
     {
-        return $this->setArgument("text", $text);
+        return $this->setArgument("settings", array(
+            "text" => $text
+        ));
     }
 
     /**
