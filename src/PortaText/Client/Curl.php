@@ -67,8 +67,7 @@ class Curl extends Base
         $curlOpts[CURLOPT_WRITEFUNCTION] = function (
             $resource,
             $data
-        ) use (
-            // @codeCoverageIgnoreStart
+        ) use ( // @codeCoverageIgnoreStart
             &$state,
             &$retCode,
             &$retHeaders,
