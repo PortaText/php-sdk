@@ -98,6 +98,38 @@ Sets all the given variables.
 
 
 
+### csv
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::csv(string $filename)
+
+Send a CSV file to import variables.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
+
+
+
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::saveTo(string $filename)
+
+Used to export the variables to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

@@ -71,6 +71,30 @@ class Variables extends Base
     }
 
     /**
+     * Send a CSV file to import variables.
+     *
+     * @param string $filename Full absolute path to the csv file.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function csv($filename)
+    {
+        return $this->setArgument("file", $filename);
+    }
+
+    /**
+     * Used to export the variables to a CSV file on a GET.
+     *
+     * @param string $filename The filename.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function saveTo($filename)
+    {
+        return $this->setArgument("accept_file", $filename);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -81,7 +105,11 @@ class Variables extends Base
     {
         $number = $this->getArgument("number");
         $this->delArgument("number");
-        $endpoint = "contacts/$number/variables";
+        $endpoint = "contacts";
+        if (!is_null($number)) {
+            $endpoint .= "/$number";
+        }
+        $endpoint .= "/variables";
         $name = $this->getArgument("name");
         if (!is_null($name)) {
             $endpoint .= "/$name";

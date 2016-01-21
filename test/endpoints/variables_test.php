@@ -96,4 +96,33 @@ class VariablesTest extends BaseCommandTest
         ->set("first_name", "John")
         ->get();
     }
+
+    /**
+     * @test
+     */
+    public function can_export_all_variables_to_csv()
+    {
+        $this->mockClientForCommand(
+            "contacts/variables", '', 'application/json', 'text/csv'
+        )
+        ->variables()
+        ->saveTo("/tmp/variables.csv")
+        ->get();
+    }
+
+    /**
+     * @test
+     */
+    public function can_import_all_variables_from_csv()
+    {
+        $this->mockClientForCommand(
+            "contacts/variables",
+            'file:/tmp/variables.csv',
+            'text/csv',
+            'application/json'
+        )
+        ->variables()
+        ->csv("/tmp/variables.csv")
+        ->put();
+    }
 }
