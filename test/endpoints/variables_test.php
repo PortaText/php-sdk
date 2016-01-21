@@ -20,7 +20,7 @@ class VariablesTest extends BaseCommandTest
      */
     public function can_delete_all_variables()
     {
-        $this->mockClientForCommand("contact/12223334444/variables")
+        $this->mockClientForCommand("contacts/12223334444/variables")
         ->variables()
         ->forContact("12223334444")
         ->delete();
@@ -31,7 +31,7 @@ class VariablesTest extends BaseCommandTest
      */
     public function can_delete_one_variable()
     {
-        $this->mockClientForCommand("contact/12223334444/variables/first_name")
+        $this->mockClientForCommand("contacts/12223334444/variables/first_name")
         ->variables()
         ->forContact("12223334444")
         ->name("first_name")
@@ -43,7 +43,7 @@ class VariablesTest extends BaseCommandTest
      */
     public function can_get_all_variables()
     {
-        $this->mockClientForCommand("contact/12223334444/variables")
+        $this->mockClientForCommand("contacts/12223334444/variables")
         ->variables()
         ->forContact("12223334444")
         ->get();
@@ -54,7 +54,7 @@ class VariablesTest extends BaseCommandTest
      */
     public function can_get_one_variable()
     {
-        $this->mockClientForCommand("contact/12223334444/variables/first_name")
+        $this->mockClientForCommand("contacts/12223334444/variables/first_name")
         ->variables()
         ->forContact("12223334444")
         ->name("first_name")
@@ -66,7 +66,7 @@ class VariablesTest extends BaseCommandTest
      */
     public function can_set_all_variables()
     {
-        $this->mockClientForCommand("contact/12223334444/variables", array(
+        $this->mockClientForCommand("contacts/12223334444/variables", array(
             "variables" => array(
                 array("key" => "first_name", "value" => "John"),
                 array("key" => "last_name", "value" => "Doe")
@@ -87,7 +87,7 @@ class VariablesTest extends BaseCommandTest
     public function can_set_one_variable()
     {
         $this->mockClientForCommand(
-            "contact/12223334444/variables/first_name", array(
+            "contacts/12223334444/variables/first_name", array(
                 "value" => "John"
             )
         )

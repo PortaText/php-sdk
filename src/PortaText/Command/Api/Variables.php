@@ -81,7 +81,7 @@ class Variables extends Base
     {
         $number = $this->getArgument("number");
         $this->delArgument("number");
-        $endpoint = "contact/$number/variables";
+        $endpoint = "contacts/$number/variables";
         $name = $this->getArgument("name");
         if (!is_null($name)) {
             $endpoint .= "/$name";
