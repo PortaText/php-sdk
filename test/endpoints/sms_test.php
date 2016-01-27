@@ -18,6 +18,26 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_send_to_contact_lists()
+    {
+        $this->mockClientForCommand("sms", array(
+            "from" => "12223334444",
+            "contact_list_ids" => array(1, 2),
+            "template_id" => 44,
+            "variables" => array("var1" => "value"),
+            "client_ref" => "custom_client_ref"
+        ))
+        ->sms()
+        ->from("12223334444")
+        ->toContactLists(array(1, 2))
+        ->useTemplate(44, array("var1" => "value"))
+        ->clientRef("custom_client_ref")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_send_message_with_template()
     {
         $this->mockClientForCommand("sms", array(

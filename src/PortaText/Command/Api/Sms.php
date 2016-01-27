@@ -93,6 +93,18 @@ class Sms extends Base
     }
 
     /**
+     * Contact list IDs to use.
+     *
+     * @param array $contactLists The contact list ids.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function toContactLists(array $contactLists)
+    {
+        return $this->setArgument("contact_list_ids", $contactLists);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.

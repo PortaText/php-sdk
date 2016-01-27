@@ -130,6 +130,22 @@ Set a specific custom client reference.
 
 
 
+### toContactLists
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::toContactLists(array $contactLists)
+
+Contact list IDs to use.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $contactLists **array** - &lt;p&gt;The contact list ids.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
