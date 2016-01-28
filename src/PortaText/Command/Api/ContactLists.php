@@ -42,6 +42,18 @@ class ContactLists extends Base
     }
 
     /**
+     * Add or remove this number to the contact list.
+     *
+     * @param string $name Name.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function withNumber($number)
+    {
+        return $this->setArgument("number", $number);
+    }
+
+    /**
      * The contact list description.
      *
      * @param string $description Description.
@@ -91,6 +103,11 @@ class ContactLists extends Base
         if (!is_null($contactListId)) {
             $endpoint = "contact_lists/$contactListId";
             $this->delArgument("id");
+        }
+        $number = $this->getArgument("number");
+        if (!is_null($number)) {
+            $this->delArgument("number");
+            return "$endpoint/contacts/$number";
         }
         $file = $this->getArgument("file");
         $saveTo = $this->getArgument("accept_file");

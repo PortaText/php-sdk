@@ -18,6 +18,30 @@ class ContactListsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_add_number_to_contact_list()
+    {
+        $this->mockClientForCommand('contact_lists/33/contacts/12223334444')
+        ->contactLists()
+        ->id(33)
+        ->withNumber('12223334444')
+        ->put();
+    }
+
+    /**
+     * @test
+     */
+    public function can_delete_number_from_contact_list()
+    {
+        $this->mockClientForCommand('contact_lists/33/contacts/12223334444')
+        ->contactLists()
+        ->id(33)
+        ->withNumber('12223334444')
+        ->delete();
+    }
+
+    /**
+     * @test
+     */
     public function can_export_contact_list()
     {
         $this->mockClientForCommand(

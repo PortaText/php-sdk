@@ -65,6 +65,22 @@ The contact list name.
 
 
 
+### withNumber
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::withNumber($number)
+
+Add or remove this number to the contact list.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $number **mixed**
+
+
+
 ### description
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::description(string $description)
