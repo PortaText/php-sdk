@@ -18,6 +18,17 @@ class BlacklistTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_check_for_blacklisted_number()
+    {
+        $this->mockClientForCommand('blacklist/12223334444')
+        ->blacklist()
+        ->number('12223334444')
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_export_blacklist()
     {
         $this->mockClientForCommand(
