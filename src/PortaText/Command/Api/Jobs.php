@@ -30,6 +30,18 @@ class Jobs extends Base
     }
 
     /**
+     * Return the specific page of results.
+     *
+     * @param integer $page Page number.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function page($page)
+    {
+        return $this->setArgument("page", $page);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -43,6 +55,11 @@ class Jobs extends Base
         if (!is_null($jobId)) {
             $endpoint .= "/$jobId";
             $this->delArgument("id");
+        }
+        $page = $this->getArgument("page");
+        $this->delArgument("page");
+        if (!is_null($page)) {
+            $endpoint .= "?page=$page";
         }
         return $endpoint;
     }

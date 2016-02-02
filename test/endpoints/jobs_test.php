@@ -18,6 +18,17 @@ class JobsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_get_all_jobs_paginated()
+    {
+        $this->mockClientForCommand("jobs?page=55")
+        ->jobs()
+        ->page(55)
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_all_jobs()
     {
         $this->mockClientForCommand("jobs")
