@@ -81,6 +81,22 @@ Used to export the blacklist to a CSV file on a GET.
 
 
 
+### page
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Blacklist::page(integer $page)
+
+Return the specific page of results.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $page **integer** - &lt;p&gt;Page number.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

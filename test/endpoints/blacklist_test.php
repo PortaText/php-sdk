@@ -18,6 +18,17 @@ class BlacklistTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_get_paginated_blacklist()
+    {
+        $this->mockClientForCommand('blacklist?page=55')
+        ->blacklist()
+        ->page(55)
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_check_for_blacklisted_number()
     {
         $this->mockClientForCommand('blacklist/12223334444')

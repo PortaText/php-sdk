@@ -53,6 +53,18 @@ class Blacklist extends Base
     }
 
     /**
+     * Return the specific page of results.
+     *
+     * @param integer $page Page number.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function page($page)
+    {
+        return $this->setArgument("page", $page);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -61,11 +73,21 @@ class Blacklist extends Base
      */
     protected function getEndpoint($method)
     {
-        $endpoint = "blacklist/contacts";
+        $endpoint = 'blacklist';
         $number = $this->getArgument("number");
         if (!is_null($number)) {
-            $endpoint = "blacklist/$number";
+            $endpoint .= "/$number";
             $this->delArgument("number");
+        }
+        if (!is_null($this->getArgument('file'))
+            || !is_null($this->getArgument('accept_file'))
+        ) {
+            $endpoint .= '/contacts';
+        }
+        $page = $this->getArgument("page");
+        $this->delArgument("page");
+        if (!is_null($page)) {
+            $endpoint .= "?page=$page";
         }
         return $endpoint;
     }
