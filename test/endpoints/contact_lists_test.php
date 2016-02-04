@@ -18,6 +18,18 @@ class ContactListsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_paginate_contacts()
+    {
+        $this->mockClientForCommand('contact_lists/33/contacts?page=55')
+        ->contactLists()
+        ->id(33)
+        ->page(55)
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_add_number_to_contact_list()
     {
         $this->mockClientForCommand('contact_lists/33/contacts/12223334444')
