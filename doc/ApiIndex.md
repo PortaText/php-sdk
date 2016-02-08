@@ -21,6 +21,7 @@ API Index
             * [Jobs](PortaText-Command-Api-Jobs.md)
             * [Me](PortaText-Command-Api-Me.md)
             * [MyPassword](PortaText-Command-Api-MyPassword.md)
+            * [NumberVerify](PortaText-Command-Api-NumberVerify.md)
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Settings](PortaText-Command-Api-Settings.md)
             * [Sms](PortaText-Command-Api-Sms.md)
