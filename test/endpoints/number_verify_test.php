@@ -17,6 +17,15 @@ class NumberVerifyTest extends BaseCommandTest
 {
     /**
      * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function cant_verify_without_number()
+    {
+        $this->mockClientForCommand()->numberVerify()->post();
+    }
+
+    /**
+     * @test
      */
     public function can_send_verification_code()
     {

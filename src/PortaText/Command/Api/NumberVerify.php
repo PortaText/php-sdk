@@ -76,6 +76,9 @@ class NumberVerify extends Base
     protected function getEndpoint($method)
     {
         $number = $this->getArgument("number");
+        if (is_null($number)) {
+            throw new \InvalidArgumentException("Number cant be null");
+        }
         $this->delArgument("number");
         $endpoint = "number_verify/$number";
 
