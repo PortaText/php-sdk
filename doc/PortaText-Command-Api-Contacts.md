@@ -1,12 +1,12 @@
-PortaText\Command\Api\Variables
+PortaText\Command\Api\Contacts
 ===============
 
-The Variables endpoint.
+The Contacts endpoint.
 
 
 
 
-* Class name: Variables
+* Class name: Contacts
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,9 +33,9 @@ Methods
 -------
 
 
-### forContact
+### id
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::forContact(string $number)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::id(string $number)
 
 Use this contact number.
 
@@ -51,7 +51,7 @@ Use this contact number.
 
 ### withContactLists
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::withContactLists()
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::withContactLists()
 
 Include contact lists in export.
 
@@ -64,7 +64,7 @@ Include contact lists in export.
 
 ### page
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::page(integer $page)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::page(integer $page)
 
 Return the specific page of results.
 
@@ -80,7 +80,7 @@ Return the specific page of results.
 
 ### name
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::name(string $name)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::name(string $name)
 
 Specify only a variable name.
 
@@ -96,7 +96,7 @@ Specify only a variable name.
 
 ### set
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::set(string $name, string $value)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::set(string $name, string $value)
 
 Sets the given variable.
 
@@ -113,7 +113,7 @@ Sets the given variable.
 
 ### setAll
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::setAll(array $variables)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::setAll(array $variables)
 
 Sets all the given variables.
 
@@ -129,7 +129,7 @@ Sets all the given variables.
 
 ### csv
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::csv(string $filename)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::csv(string $filename)
 
 Send a CSV file to import variables.
 
@@ -145,7 +145,7 @@ Send a CSV file to import variables.
 
 ### saveTo
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Variables::saveTo(string $filename)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Contacts::saveTo(string $filename)
 
 Used to export the variables to a CSV file on a GET.
 

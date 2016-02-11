@@ -1,8 +1,8 @@
 <?php
 /**
- * The Variables endpoint.
+ * The Contacts endpoint.
  *
- * @link https://github.com/PortaText/docs/wiki/REST-API#api_variables Variables endpoint.
+ * @link https://github.com/PortaText/docs/wiki/REST-API#api_all_contacts Contacts endpoint.
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  * @author Marcelo Gornstein <marcelog@portatext.com>
  * @copyright 2015 PortaText
@@ -12,9 +12,9 @@ namespace PortaText\Command\Api;
 use PortaText\Command\Base;
 
 /**
- * The Variables endpoint.
+ * The Contacts endpoint.
  */
-class Variables extends Base
+class Contacts extends Base
 {
     /**
      * Use this contact number.
@@ -22,10 +22,33 @@ class Variables extends Base
      * @param string $number number.
      *
      * @return PortaText\Command\ICommand
+     * @SuppressWarnings("ShortMethodName")
      */
-    public function forContact($number)
+    public function id($number)
     {
         return $this->setArgument("number", $number);
+    }
+
+    /**
+     * Include contact lists in export.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function withContactLists()
+    {
+        return $this->setArgument("with_contact_lists", true);
+    }
+
+    /**
+     * Return the specific page of results.
+     *
+     * @param integer $page Page number.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function page($page)
+    {
+        return $this->setArgument("page", $page);
     }
 
     /**
@@ -107,13 +130,27 @@ class Variables extends Base
         $this->delArgument("number");
         $endpoint = "contacts";
         if (!is_null($number)) {
-            $endpoint .= "/$number";
+            $endpoint .= "/$number/variables";
         }
-        $endpoint .= "/variables";
         $name = $this->getArgument("name");
         if (!is_null($name)) {
             $endpoint .= "/$name";
             $this->delArgument("name");
+        }
+        $queryString = array();
+        $withContactLists = $this->getArgument("with_contact_lists");
+        if (!is_null($withContactLists)) {
+            $queryString['with_contact_lists'] = "true";
+            $this->delArgument("with_contact_lists");
+        }
+        $page = $this->getArgument("page");
+        if (!is_null($page)) {
+            $queryString['page'] = $page;
+            $this->delArgument("page");
+        }
+        if (!empty($queryString)) {
+            $queryString = http_build_query($queryString);
+            return "$endpoint?$queryString";
         }
         return $endpoint;
     }
