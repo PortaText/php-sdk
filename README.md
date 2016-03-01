@@ -108,7 +108,7 @@ if ($result->success) {
 
 ### Getting error strings back from the server
 ```php
-if (!is_null($result->errors) {
+if (!is_null($result->errors)) {
     foreach ($result->errors as $error) {
         ...
   }
