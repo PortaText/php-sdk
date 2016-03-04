@@ -62,6 +62,6 @@ class Acl extends Base
      */
     protected function getEndpoint($method)
     {
-        return "me/acl";
+        return "acl";
     }
 }

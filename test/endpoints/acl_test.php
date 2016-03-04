@@ -20,7 +20,7 @@ class AclTest extends BaseCommandTest
      */
     public function can_set_acl()
     {
-        $this->mockClientForCommand("me/acl", array(
+        $this->mockClientForCommand("acl", array(
             "acl" => array(
                 array(
                     "ip" => "192.168.0.1",
@@ -51,7 +51,7 @@ class AclTest extends BaseCommandTest
      */
     public function can_get_acl()
     {
-        $this->mockClientForCommand("me/acl")
+        $this->mockClientForCommand("acl")
         ->acl()
         ->get();
     }
