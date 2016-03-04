@@ -1,6 +1,6 @@
 <?php
 /**
- * The me/credit_cards endpoint.
+ * The credit_cards endpoint.
  *
  * @link https://github.com/PortaText/docs/wiki/REST-API#api_credit_cards CreditCards endpoint.
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0

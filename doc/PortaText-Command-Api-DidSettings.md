@@ -1,7 +1,7 @@
 PortaText\Command\Api\DidSettings
 ===============
 
-The me/dids/:did endpoint.
+The dids/:did endpoint.
 
 
 

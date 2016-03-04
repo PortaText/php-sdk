@@ -1,7 +1,7 @@
 PortaText\Command\Api\Acl
 ===============
 
-The Me/Acl endpoint.
+The Acl endpoint.
 
 
 

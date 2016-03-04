@@ -29,7 +29,7 @@ class DidSettingsTest extends BaseCommandTest
      */
     public function can_enable_cnam()
     {
-        $this->mockClientForCommand("me/dids/12223334444", array(
+        $this->mockClientForCommand("dids/12223334444", array(
             "cnam_enabled" => true
         ))
         ->didSettings()
@@ -43,7 +43,7 @@ class DidSettingsTest extends BaseCommandTest
      */
     public function can_disable_cnam()
     {
-        $this->mockClientForCommand("me/dids/12223334444", array(
+        $this->mockClientForCommand("dids/12223334444", array(
             "cnam_enabled" => false
         ))
         ->didSettings()
@@ -57,7 +57,7 @@ class DidSettingsTest extends BaseCommandTest
      */
     public function can_disable_autoresponder()
     {
-        $this->mockClientForCommand("me/dids/12223334444", array(
+        $this->mockClientForCommand("dids/12223334444", array(
             "autoresponder_enabled" => false
         ))
         ->didSettings()
@@ -71,7 +71,7 @@ class DidSettingsTest extends BaseCommandTest
      */
     public function can_enable_autoresponder()
     {
-        $this->mockClientForCommand("me/dids/12223334444", array(
+        $this->mockClientForCommand("dids/12223334444", array(
             "autoresponder_text" => "Thanks for contacting us",
             "autoresponder_enabled" => true
         ))

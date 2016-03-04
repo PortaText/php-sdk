@@ -1,6 +1,6 @@
 <?php
 /**
- * The Me/Acl endpoint.
+ * The Acl endpoint.
  *
  * @link https://github.com/PortaText/docs/wiki/REST-API#api_acl ACL endpoint.
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
@@ -12,7 +12,7 @@ namespace PortaText\Command\Api;
 use PortaText\Command\Base;
 
 /**
- * The Me/Acl endpoint.
+ * The Acl endpoint.
  */
 class Acl extends Base
 {

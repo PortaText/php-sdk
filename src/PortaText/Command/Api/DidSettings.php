@@ -1,6 +1,6 @@
 <?php
 /**
- * The me/dids/:did endpoint.
+ * The dids/:did endpoint.
  *
  * @link https://github.com/PortaText/docs/wiki/REST-API#api_did_settings Did Settings endpoint.
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
@@ -12,7 +12,7 @@ namespace PortaText\Command\Api;
 use PortaText\Command\Base;
 
 /**
- * The me/dids/:did endpoint.
+ * The dids/:did endpoint.
  */
 class DidSettings extends Base
 {
@@ -85,6 +85,6 @@ class DidSettings extends Base
             throw new \InvalidArgumentException("DID number cant be null");
         }
         $this->delArgument("id");
-        return "me/dids/$number";
+        return "dids/$number";
     }
 }
