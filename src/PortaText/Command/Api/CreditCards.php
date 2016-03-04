@@ -88,7 +88,7 @@ class CreditCards extends Base
      */
     protected function getEndpoint($method)
     {
-        $endpoint = "me/credit_cards";
+        $endpoint = "credit_cards";
         $cardId = $this->getArgument("id");
         if (!is_null($cardId)) {
             $endpoint .= "/$cardId";

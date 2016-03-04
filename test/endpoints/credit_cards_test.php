@@ -20,7 +20,7 @@ class CreditCardsTest extends BaseCommandTest
      */
     public function can_delete_credit_card()
     {
-        $this->mockClientForCommand("me/credit_cards/44")
+        $this->mockClientForCommand("credit_cards/44")
         ->creditCards()
         ->id(44)
         ->delete();
@@ -31,7 +31,7 @@ class CreditCardsTest extends BaseCommandTest
      */
     public function can_get_credit_cards()
     {
-        $this->mockClientForCommand("me/credit_cards")
+        $this->mockClientForCommand("credit_cards")
         ->creditCards()
         ->get();
     }
@@ -41,7 +41,7 @@ class CreditCardsTest extends BaseCommandTest
      */
     public function can_create_credit_cards()
     {
-        $this->mockClientForCommand("me/credit_cards", array(
+        $this->mockClientForCommand("credit_cards", array(
             "first_name" => "John",
             "last_name" => "Doe",
             "address" => "1234 NW 12TH STREET",
