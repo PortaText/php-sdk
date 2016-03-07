@@ -81,10 +81,10 @@ class DidSettings extends Base
     protected function getEndpoint($method)
     {
         $number = $this->getArgument("id");
-        if (is_null($number)) {
-            throw new \InvalidArgumentException("DID number cant be null");
+        if (!is_null($number)) {
+            $this->delArgument("id");
+            return "dids/$number";
         }
-        $this->delArgument("id");
-        return "dids/$number";
+        return "dids";
     }
 }

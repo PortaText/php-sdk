@@ -17,11 +17,23 @@ class DidSettingsTest extends BaseCommandTest
 {
     /**
      * @test
-     * @expectedException \InvalidArgumentException
      */
-    public function cannot_request_settings_on_null_did()
+    public function can_get_all_dids()
     {
-        $this->mockClientForCommand(null)->didSettings()->get();
+        $this->mockClientForCommand("dids")
+        ->didSettings()
+        ->get();
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_one_did()
+    {
+        $this->mockClientForCommand("dids/12223334444")
+        ->didSettings()
+        ->forNumber('12223334444')
+        ->get();
     }
 
     /**
