@@ -64,15 +64,13 @@ class Settings extends Base
      * Enables auto recharges.
      *
      * @param integer $whenCredit Autorecharge when credit reaches this amount.
-     * @param integer $cardId Credit card ID to use for autorecharges.
      * @param float $total Total money to autorecharge.
      *
      * @return PortaText\Command\ICommand
      */
-    public function enableAutoRecharges($whenCredit, $cardId, $total)
+    public function enableAutoRecharges($whenCredit, $total)
     {
         $this->setArgument("autorecharge_enabled", true);
-        $this->setArgument("autorecharge_card_id", $cardId);
         $this->setArgument("autorecharge_total", $total);
         return $this->setArgument("autorecharge_when_credit", $whenCredit);
     }
@@ -85,6 +83,16 @@ class Settings extends Base
     public function disableAutoRecharges()
     {
         return $this->setArgument("autorecharge_enabled", false);
+    }
+
+    /**
+     * Sets default credit card id.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function defaultCreditCard($cardId)
+    {
+        return $this->setArgument("default_card_id", $cardId);
     }
 
     /**

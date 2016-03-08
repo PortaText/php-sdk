@@ -93,7 +93,7 @@ Set email where to send inbound messages to.
 
 ### enableAutoRecharges
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::enableAutoRecharges(integer $whenCredit, integer $cardId, float $total)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::enableAutoRecharges(integer $whenCredit, float $total)
 
 Enables auto recharges.
 
@@ -104,7 +104,6 @@ Enables auto recharges.
 
 #### Arguments
 * $whenCredit **integer** - &lt;p&gt;Autorecharge when credit reaches this amount.&lt;/p&gt;
-* $cardId **integer** - &lt;p&gt;Credit card ID to use for autorecharges.&lt;/p&gt;
 * $total **float** - &lt;p&gt;Total money to autorecharge.&lt;/p&gt;
 
 
@@ -119,6 +118,22 @@ Disables auto recharges.
 
 * Visibility: **public**
 
+
+
+
+### defaultCreditCard
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::defaultCreditCard($cardId)
+
+Sets default credit card id.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $cardId **mixed**
 
 
 

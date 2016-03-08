@@ -58,12 +58,24 @@ class SettingsTest extends BaseCommandTest
     {
         $this->mockClientForCommand("me/settings", array(
             "autorecharge_enabled" => true,
-            "autorecharge_card_id" => 66543221,
             "autorecharge_total" => 150,
             "autorecharge_when_credit" => 100
         ))
         ->settings()
-        ->enableAutoRecharges(100, 66543221, 150)
+        ->enableAutoRecharges(100, 150)
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
+    public function can_set_default_credit_card()
+    {
+        $this->mockClientForCommand("me/settings", array(
+            "default_card_id" => 66543221
+        ))
+        ->settings()
+        ->defaultCreditCard(66543221)
         ->patch();
     }
 
