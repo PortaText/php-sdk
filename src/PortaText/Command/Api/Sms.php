@@ -55,6 +55,18 @@ class Sms extends Base
     }
 
     /**
+     * Specifies source sms service.
+     *
+     * @param string $serviceId SMS Service ID.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function fromService($serviceId)
+    {
+        return $this->setArgument("service_id", $serviceId);
+    }
+
+    /**
      * Sets the template id to use.
      *
      * @param integer $templateId Use the given template as the message body.

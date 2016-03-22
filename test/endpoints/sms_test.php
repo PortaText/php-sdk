@@ -77,6 +77,25 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_send_from_sms_service()
+    {
+        $this->mockClientForCommand("sms", array(
+            "service_id" => 55,
+            "to" => "15556667777",
+            "text" => "hello world",
+            "client_ref" => "custom_client_ref"
+        ))
+        ->sms()
+        ->fromService(55)
+        ->to("15556667777")
+        ->text("hello world")
+        ->clientRef("custom_client_ref")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_sms_operation()
     {
         $this->mockClientForCommand("sms/763")

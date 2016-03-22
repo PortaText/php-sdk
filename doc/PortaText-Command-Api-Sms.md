@@ -81,6 +81,22 @@ Sets the message source number.
 
 
 
+### fromService
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::fromService(string $serviceId)
+
+Specifies source sms service.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $serviceId **string** - &lt;p&gt;SMS Service ID.&lt;/p&gt;
+
+
+
 ### useTemplate
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::useTemplate(integer $templateId, array $variables)
