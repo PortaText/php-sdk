@@ -66,6 +66,28 @@ class Campaigns extends Base
     }
 
     /**
+     * Specifies source sms service.
+     *
+     * @param string $serviceId SMS Service ID.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function fromService($serviceId)
+    {
+        return $this->setArgument("service_id", $serviceId);
+    }
+
+    /**
+     * Specifies all subscribers of the given SMS Service ID.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function allSubscribers()
+    {
+        return $this->setArgument("all_subscribers", true);
+    }
+
+    /**
      * Contact list IDs to use.
      *
      * @param array $contactLists The contact list ids.

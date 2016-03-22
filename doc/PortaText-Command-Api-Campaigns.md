@@ -97,6 +97,35 @@ Specifies source telephone number for the campaign.
 
 
 
+### fromService
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::fromService(string $serviceId)
+
+Specifies source sms service.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $serviceId **string** - &lt;p&gt;SMS Service ID.&lt;/p&gt;
+
+
+
+### allSubscribers
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::allSubscribers()
+
+Specifies all subscribers of the given SMS Service ID.
+
+
+
+* Visibility: **public**
+
+
+
+
 ### toContactLists
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::toContactLists(array $contactLists)

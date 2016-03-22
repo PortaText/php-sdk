@@ -71,7 +71,7 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
-    public function can_create_sms_campaign_with_template()
+    public function can_create_campaign_with_template()
     {
         $this->mockClientForCommand("campaigns", array(
             "name" => "this is the name",
@@ -88,6 +88,30 @@ class CampaignsTest extends BaseCommandTest
         ->description("and this is the description")
         ->toContactLists(array(1, 3, 5, 7, 9))
         ->from("12223334444")
+        ->useTemplate(987, array("key1" => "value1"))
+        ->post();
+    }
+
+    /**
+     * @test
+     */
+    public function can_create_campaign_from_sms_service()
+    {
+        $this->mockClientForCommand("campaigns", array(
+            "name" => "this is the name",
+            "description" => "and this is the description",
+            "service_id" => 55,
+            "all_subscribers" => true,
+            "settings" => array(
+                "template_id" => 987,
+                "variables" => array("key1" => "value1")
+            )
+        ))
+        ->campaigns()
+        ->name("this is the name")
+        ->description("and this is the description")
+        ->fromService(55)
+        ->allSubscribers()
         ->useTemplate(987, array("key1" => "value1"))
         ->post();
     }
