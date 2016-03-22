@@ -129,6 +129,39 @@ Send a CSV file to import contacts.
 
 
 
+### useTemplate
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::useTemplate(integer $templateId, array $variables)
+
+Sets the template id to use.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $templateId **integer** - &lt;p&gt;Use the given template as the message body.&lt;/p&gt;
+* $variables **array** - &lt;p&gt;Variables to use in template.&lt;/p&gt;
+
+
+
+### text
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::text(string $text)
+
+Sets the message text.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $text **string** - &lt;p&gt;Message text.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

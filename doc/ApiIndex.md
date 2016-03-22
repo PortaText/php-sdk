@@ -26,7 +26,6 @@ API Index
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Settings](PortaText-Command-Api-Settings.md)
             * [Sms](PortaText-Command-Api-Sms.md)
-            * [SmsCampaign](PortaText-Command-Api-SmsCampaign.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)
