@@ -90,6 +90,36 @@ class Campaigns extends Base
     }
 
     /**
+     * Sets the template id to use.
+     *
+     * @param integer $templateId Use the given template as the message body.
+     * @param array $variables Variables to use in template.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function useTemplate($templateId, array $variables = array())
+    {
+        return $this->setArgument("settings", array(
+            "template_id" => $templateId,
+            "variables" => $variables
+        ));
+    }
+
+    /**
+     * Sets the message text.
+     *
+     * @param string $text Message text.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function text($text)
+    {
+        return $this->setArgument("settings", array(
+            "text" => $text
+        ));
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -103,7 +133,6 @@ class Campaigns extends Base
         if (!is_null($campaignId)) {
             $endpoint .= "/$campaignId";
             $this->delArgument("id");
-            $this->delArgument("type");
         }
         $file = $this->getArgument("file");
         if (!is_null($file)) {

@@ -18,11 +18,10 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
-    public function can_create_sms_campaign_from_csv()
+    public function can_create_campaign_from_csv()
     {
         $qs = http_build_query(array(
             "settings" => json_encode(array(
-                "type" => "sms",
                 "name" => "this is the name",
                 "description" => "and this is the description",
                 "from" => "12223334444",
@@ -37,7 +36,7 @@ class CampaignsTest extends BaseCommandTest
             'text/csv',
             'application/json'
         )
-        ->smsCampaign()
+        ->campaigns()
         ->name("this is the name")
         ->description("and this is the description")
         ->csv("/tmp/contacts.csv")
@@ -49,10 +48,9 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
-    public function can_create_sms_campaign_with_text()
+    public function can_create_campaign_with_text()
     {
         $this->mockClientForCommand("campaigns", array(
-            "type" => "sms",
             "name" => "this is the name",
             "description" => "and this is the description",
             "contact_list_ids" => array(1, 3, 5, 7, 9),
@@ -61,7 +59,7 @@ class CampaignsTest extends BaseCommandTest
                 "text" => "Hello world"
             )
         ))
-        ->smsCampaign()
+        ->campaigns()
         ->name("this is the name")
         ->description("and this is the description")
         ->toContactLists(array(1, 3, 5, 7, 9))
@@ -76,7 +74,6 @@ class CampaignsTest extends BaseCommandTest
     public function can_create_sms_campaign_with_template()
     {
         $this->mockClientForCommand("campaigns", array(
-            "type" => "sms",
             "name" => "this is the name",
             "description" => "and this is the description",
             "contact_list_ids" => array(1, 3, 5, 7, 9),
@@ -86,7 +83,7 @@ class CampaignsTest extends BaseCommandTest
                 "variables" => array("key1" => "value1")
             )
         ))
-        ->smsCampaign()
+        ->campaigns()
         ->name("this is the name")
         ->description("and this is the description")
         ->toContactLists(array(1, 3, 5, 7, 9))
