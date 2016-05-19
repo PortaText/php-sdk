@@ -42,6 +42,27 @@ class ContactListsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_add_number_to_contact_list_with_variables()
+    {
+        $this->mockClientForCommand(
+            'contact_lists/33/contacts/12223334444', array(
+            "variables" => array(
+                array("key" => "first_name", "value" => "John"),
+                array("key" => "last_name", "value" => "Doe")
+            )
+        ))
+        ->contactLists()
+        ->id(33)
+        ->withNumber('12223334444', array(
+            "first_name" => "John",
+            "last_name" => "Doe"
+        ))
+        ->put();
+    }
+
+    /**
+     * @test
+     */
     public function can_delete_number_from_contact_list()
     {
         $this->mockClientForCommand('contact_lists/33/contacts/12223334444')

@@ -45,11 +45,19 @@ class ContactLists extends Base
      * Add or remove this number to the contact list.
      *
      * @param string $name Name.
+     * @param array $variables variables.
      *
      * @return PortaText\Command\ICommand
      */
-    public function withNumber($number)
+    public function withNumber($number, $variables = null)
     {
+        if (!is_null($variables)) {
+            $vars = array();
+            foreach ($variables as $k => $v) {
+                $vars[] = array('key' => $k, 'value' => $v);
+            }
+            $this->setArgument("variables", $vars);
+        }
         return $this->setArgument("number", $number);
     }
 
