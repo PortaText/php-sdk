@@ -88,6 +88,8 @@ class Settings extends Base
     /**
      * Sets default credit card id.
      *
+     * @param integer $cardId Credit Card ID to use by default.
+     *
      * @return PortaText\Command\ICommand
      */
     public function defaultCreditCard($cardId)
