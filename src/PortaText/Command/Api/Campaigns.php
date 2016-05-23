@@ -13,6 +13,7 @@ use PortaText\Command\Base;
 
 /**
  * The Campaigns endpoint.
+ * @SuppressWarnings("TooManyPublicMethods")
  */
 class Campaigns extends Base
 {
@@ -142,6 +143,39 @@ class Campaigns extends Base
     }
 
     /**
+     * Used to export the contacts to a CSV file on a GET.
+     *
+     * @param string $filename The filename.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function saveTo($filename)
+    {
+        return $this->setArgument("accept_file", $filename);
+    }
+    /**
+     * Query for campaign contacts.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function contacts()
+    {
+        return $this->setArgument("contacts", true);
+    }
+
+    /**
+     * Return the specific page of results.
+     *
+     * @param integer $page Page number.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function page($page)
+    {
+        return $this->setArgument("page", $page);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -156,6 +190,11 @@ class Campaigns extends Base
             $endpoint .= "/$campaignId";
             $this->delArgument("id");
         }
+        $contacts = $this->getArgument("contacts");
+        if (!is_null($contacts)) {
+            $endpoint .= "/contacts";
+            $this->delArgument("contacts");
+        }
         $file = $this->getArgument("file");
         if (!is_null($file)) {
             $args = $this->getArguments();
@@ -164,6 +203,16 @@ class Campaigns extends Base
                 'settings' => json_encode($args)
             );
             $endpoint = $endpoint . '?' . http_build_query($args);
+        }
+        $queryString = array();
+        $page = $this->getArgument("page");
+        if (!is_null($page)) {
+            $queryString['page'] = $page;
+            $this->delArgument("page");
+        }
+        if (!empty($queryString)) {
+            $queryString = http_build_query($queryString);
+            return "$endpoint?$queryString";
         }
         return $endpoint;
     }

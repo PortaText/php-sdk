@@ -18,6 +18,37 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_get_paginated_contacts()
+    {
+        $this->mockClientForCommand("campaigns/123/contacts?page=44")
+        ->campaigns()
+        ->id(123)
+        ->contacts()
+        ->page(44)
+        ->get();
+    }
+
+    /**
+     * @test
+     */
+    public function can_export_all_contacts()
+    {
+        $this->mockClientForCommand(
+            "campaigns/123/contacts",
+            '',
+            'application/json',
+            'text/csv'
+        )
+        ->campaigns()
+        ->id(123)
+        ->contacts()
+        ->saveTo("/tmp/contacts.csv")
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_campaign_from_csv()
     {
         $qs = http_build_query(array(

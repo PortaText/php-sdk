@@ -191,6 +191,51 @@ Sets the message text.
 
 
 
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::saveTo(string $filename)
+
+Used to export the contacts to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
+### contacts
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::contacts()
+
+Query for campaign contacts.
+
+
+
+* Visibility: **public**
+
+
+
+
+### page
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::page(integer $page)
+
+Return the specific page of results.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $page **integer** - &lt;p&gt;Page number.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
