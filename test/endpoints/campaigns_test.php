@@ -18,6 +18,17 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_get_paginated_list_of_campaigns()
+    {
+        $this->mockClientForCommand("campaigns?page=44")
+        ->campaigns()
+        ->page(44)
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_paginated_contacts()
     {
         $this->mockClientForCommand("campaigns/123/contacts?page=44")

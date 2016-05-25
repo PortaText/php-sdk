@@ -123,7 +123,7 @@ Disables auto recharges.
 
 ### defaultCreditCard
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::defaultCreditCard($cardId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::defaultCreditCard(integer $cardId)
 
 Sets default credit card id.
 
@@ -133,7 +133,7 @@ Sets default credit card id.
 
 
 #### Arguments
-* $cardId **mixed**
+* $cardId **integer** - &lt;p&gt;Credit Card ID to use by default.&lt;/p&gt;
 
 
 
