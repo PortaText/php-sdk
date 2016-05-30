@@ -18,6 +18,22 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_search()
+    {
+        $this->mockClientForCommand(
+            "sms?page=3&date_from=2015-01-01T00%3A00%3A00"
+        )
+        ->sms()
+        ->search(array(
+            'page' => 3,
+            'date_from' => '2015-01-01T00:00:00'
+        ))
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_send_to_contact_lists()
     {
         $this->mockClientForCommand("sms", array(

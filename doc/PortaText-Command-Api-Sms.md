@@ -162,6 +162,22 @@ Contact list IDs to use.
 
 
 
+### search
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::search(array $params)
+
+Searches for SMS operations.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Search params (see the API doc).&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

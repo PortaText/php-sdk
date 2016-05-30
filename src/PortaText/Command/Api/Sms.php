@@ -117,6 +117,18 @@ class Sms extends Base
     }
 
     /**
+     * Searches for SMS operations.
+     *
+     * @param array $params Search params (see the API doc).
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function search(array $params)
+    {
+        return $this->setArgument("search_params", $params);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -126,6 +138,12 @@ class Sms extends Base
     protected function getEndpoint($method)
     {
         $endpoint = "sms";
+        $searchParams = $this->getArgument("search_params");
+        if (!is_null($searchParams)) {
+            $queryString = http_build_query($searchParams);
+            $this->delArgument("search_params");
+            return "$endpoint?$queryString";
+        }
         $operationId = $this->getArgument("id");
         if (!is_null($operationId)) {
             $endpoint .= "/$operationId";
