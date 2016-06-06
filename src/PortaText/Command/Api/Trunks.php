@@ -36,9 +36,9 @@ class Trunks extends Base
      * @SuppressWarnings("ShortMethodName")
      * @return PortaText\Command\ICommand
      */
-    public function ip($ip)
+    public function ip($ipAddress)
     {
-        return $this->setArgument("ip", $ip);
+        return $this->setArgument("ip", $ipAddress);
     }
 
     /**

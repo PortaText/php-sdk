@@ -30,6 +30,7 @@ API Index
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)
+            * [Trunks](PortaText-Command-Api-Trunks.md)
         * [Base](PortaText-Command-Base.md)
         * [Descriptor](PortaText-Command-Descriptor.md)
         * [Factory](PortaText-Command-Factory.md)
