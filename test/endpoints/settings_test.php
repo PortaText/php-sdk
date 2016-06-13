@@ -18,6 +18,35 @@ class SettingsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_set_amd_settings()
+    {
+        $this->mockClientForCommand("me/settings", array(
+            "amd_initial_silence" => 900,
+            "amd_max_greeting_length" => 800,
+            "amd_after_greeting_silence" => 700,
+            "amd_total_time" => 600,
+            "amd_min_word_length" => 500,
+            "amd_between_words_silence" => 400,
+            "amd_max_words" => 300,
+            "amd_silence_threshold" => 200,
+            "amd_max_word_length" => 100
+        ))
+        ->settings()
+        ->amdInitialSilence(900)
+        ->amdMaxGreetingLength(800)
+        ->amdAfterGreetingSilence(700)
+        ->amdTotalTime(600)
+        ->amdMinWordLength(500)
+        ->amdBetweenWordsSilence(400)
+        ->amdMaxWords(300)
+        ->amdSilenceThreshold(200)
+        ->amdMaxWordLength(100)
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
     public function can_enable_alert_on_low_credit()
     {
         $this->mockClientForCommand("me/settings", array(

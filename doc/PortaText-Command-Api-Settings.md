@@ -137,6 +137,151 @@ Sets default credit card id.
 
 
 
+### amdMaxWordLength
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdMaxWordLength(integer $maxWordLength)
+
+The minimum duration of Voice considered to be a word (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $maxWordLength **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdSilenceThreshold
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdSilenceThreshold(integer $silenceThreshold)
+
+How long do we consider silence (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $silenceThreshold **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdMaxWords
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdMaxWords(integer $maxWords)
+
+Hhe maximum number of words in a greeting.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $maxWords **integer** - &lt;p&gt;Number of words.&lt;/p&gt;
+
+
+
+### amdBetweenWordsSilence
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdBetweenWordsSilence(integer $silenceBetweenWords)
+
+The minimum duration of silence after a word to consider the
+audio that follows to be a new word (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $silenceBetweenWords **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdMinWordLength
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdMinWordLength(integer $minWordLength)
+
+The minimum duration of Voice considered to be a word (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $minWordLength **integer**
+
+
+
+### amdTotalTime
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdTotalTime(integer $totalTime)
+
+The maximum time allowed for the algorithm (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $totalTime **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdAfterGreetingSilence
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdAfterGreetingSilence(integer $greetingSilence)
+
+Is the silence after detecting a greeting (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $greetingSilence **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdMaxGreetingLength
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdMaxGreetingLength(integer $greetingLength)
+
+Is the maximum length of a greeting (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $greetingLength **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
+### amdInitialSilence
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdInitialSilence(integer $initialSilence)
+
+Is maximum initial silence duration before greeting (milliseconds).
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $initialSilence **integer** - &lt;p&gt;Value in milliseconds.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
