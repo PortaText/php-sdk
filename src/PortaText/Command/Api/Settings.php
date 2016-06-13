@@ -123,7 +123,7 @@ class Settings extends Base
     }
 
     /**
-     * Hhe maximum number of words in a greeting.
+     * The maximum number of words in a greeting.
      *
      * @param integer $maxWords Number of words.
      *

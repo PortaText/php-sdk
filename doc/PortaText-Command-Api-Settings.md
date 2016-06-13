@@ -173,7 +173,7 @@ How long do we consider silence (milliseconds).
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::amdMaxWords(integer $maxWords)
 
-Hhe maximum number of words in a greeting.
+The maximum number of words in a greeting.
 
 
 
