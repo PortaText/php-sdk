@@ -97,22 +97,6 @@ Specifies source telephone number for the campaign.
 
 
 
-### fromService
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::fromService(string $serviceId)
-
-Specifies source sms service.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $serviceId **string** - &lt;p&gt;SMS Service ID.&lt;/p&gt;
-
-
-
 ### allSubscribers
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::allSubscribers()
@@ -155,39 +139,6 @@ Send a CSV file to import contacts.
 
 #### Arguments
 * $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
-
-
-
-### useTemplate
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::useTemplate(integer $templateId, array $variables)
-
-Sets the template id to use.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $templateId **integer** - &lt;p&gt;Use the given template as the message body.&lt;/p&gt;
-* $variables **array** - &lt;p&gt;Variables to use in template.&lt;/p&gt;
-
-
-
-### text
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::text(string $text)
-
-Sets the message text.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $text **string** - &lt;p&gt;Message text.&lt;/p&gt;
 
 
 

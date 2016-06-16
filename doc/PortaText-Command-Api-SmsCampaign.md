@@ -33,6 +33,22 @@ Methods
 -------
 
 
+### fromService
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\SmsCampaign::fromService(string $serviceId)
+
+Specifies source sms service.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $serviceId **string** - &lt;p&gt;SMS Service ID.&lt;/p&gt;
+
+
+
 ### useTemplate
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\SmsCampaign::useTemplate(integer $templateId, array $variables)
@@ -147,6 +163,20 @@ Specifies source telephone number for the campaign.
 
 
 
+### allSubscribers
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::allSubscribers()
+
+Specifies all subscribers of the given SMS Service ID.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+
+
 ### toContactLists
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::toContactLists(array $contactLists)
@@ -178,6 +208,54 @@ Send a CSV file to import contacts.
 
 #### Arguments
 * $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
+
+
+
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::saveTo(string $filename)
+
+Used to export the contacts to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
+### contacts
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::contacts()
+
+Query for campaign contacts.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+
+
+### page
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::page(integer $page)
+
+Return the specific page of results.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
+
+
+#### Arguments
+* $page **integer** - &lt;p&gt;Page number.&lt;/p&gt;
 
 
 

@@ -66,17 +66,6 @@ class Campaigns extends Base
         return $this->setArgument("from", $from);
     }
 
-    /**
-     * Specifies source sms service.
-     *
-     * @param string $serviceId SMS Service ID.
-     *
-     * @return PortaText\Command\ICommand
-     */
-    public function fromService($serviceId)
-    {
-        return $this->setArgument("service_id", $serviceId);
-    }
 
     /**
      * Specifies all subscribers of the given SMS Service ID.
@@ -110,36 +99,6 @@ class Campaigns extends Base
     public function csv($filename)
     {
         return $this->setArgument("file", $filename);
-    }
-
-    /**
-     * Sets the template id to use.
-     *
-     * @param integer $templateId Use the given template as the message body.
-     * @param array $variables Variables to use in template.
-     *
-     * @return PortaText\Command\ICommand
-     */
-    public function useTemplate($templateId, array $variables = array())
-    {
-        return $this->setArgument("settings", array(
-            "template_id" => $templateId,
-            "variables" => $variables
-        ));
-    }
-
-    /**
-     * Sets the message text.
-     *
-     * @param string $text Message text.
-     *
-     * @return PortaText\Command\ICommand
-     */
-    public function text($text)
-    {
-        return $this->setArgument("settings", array(
-            "text" => $text
-        ));
     }
 
     /**
@@ -189,6 +148,7 @@ class Campaigns extends Base
         if (!is_null($campaignId)) {
             $endpoint .= "/$campaignId";
             $this->delArgument("id");
+            $this->delArgument("type");
         }
         $contacts = $this->getArgument("contacts");
         if (!is_null($contacts)) {
