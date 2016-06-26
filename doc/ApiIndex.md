@@ -32,6 +32,7 @@ API Index
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)
             * [Trunks](PortaText-Command-Api-Trunks.md)
+            * [Version](PortaText-Command-Api-Version.md)
         * [Base](PortaText-Command-Base.md)
         * [Descriptor](PortaText-Command-Descriptor.md)
         * [Factory](PortaText-Command-Factory.md)
