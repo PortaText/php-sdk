@@ -42,6 +42,18 @@ class Jobs extends Base
     }
 
     /**
+     * Used to save the file resulting of a job execution.
+     *
+     * @param string $filename The filename.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function saveTo($filename)
+    {
+        return $this->setArgument("accept_any_file", $filename);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -60,6 +72,9 @@ class Jobs extends Base
         $this->delArgument("page");
         if (!is_null($page)) {
             $endpoint .= "?page=$page";
+        }
+        if (!is_null($this->getArgument("accept_any_file"))) {
+            $endpoint .= "/result";
         }
         return $endpoint;
     }

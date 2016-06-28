@@ -138,6 +138,10 @@ abstract class Base implements ICommand
         if (!is_null($acceptFile)) {
             return "text/csv";
         }
+        $acceptAnyFile = $this->getArgument("accept_any_file");
+        if (!is_null($acceptAnyFile)) {
+            return "*/*";
+        }
         return 'application/json';
     }
 
@@ -208,9 +212,13 @@ abstract class Base implements ICommand
     {
         $endpoint = $this->getEndpoint($method);
         $outputFile = $this->getArgument('accept_file');
+        if (is_null($outputFile)) {
+            $outputFile = $this->getArgument('accept_any_file');
+        }
         $cType = $this->getContentType($method);
         $aCType = $this->getAcceptContentType($method);
         $this->delArgument('accept_file');
+        $this->delArgument('accept_any_file');
         $body = $this->getBody($method);
         return $this->client->run(
             $endpoint,

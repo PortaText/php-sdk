@@ -1,12 +1,12 @@
-PortaText\Command\Api\Jobs
+PortaText\Command\Api\Inspect
 ===============
 
-The Jobs endpoint.
+The Inspect endpoint.
 
 
 
 
-* Class name: Jobs
+* Class name: Inspect
 * Namespace: PortaText\Command\Api
 * Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
 
@@ -33,27 +33,11 @@ Methods
 -------
 
 
-### id
+### number
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Jobs::id(integer $jobId)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Inspect::number(string $number)
 
-Sets the job id.
-
-
-
-* Visibility: **public**
-
-
-#### Arguments
-* $jobId **integer** - &lt;p&gt;The job id.&lt;/p&gt;
-
-
-
-### page
-
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Jobs::page(integer $page)
-
-Return the specific page of results.
+Inspects the given number.
 
 
 
@@ -61,15 +45,15 @@ Return the specific page of results.
 
 
 #### Arguments
-* $page **integer** - &lt;p&gt;Page number.&lt;/p&gt;
+* $number **string** - &lt;p&gt;The number to inspect.&lt;/p&gt;
 
 
 
-### saveTo
+### csv
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Jobs::saveTo(string $filename)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Inspect::csv(string $filename)
 
-Used to save the file resulting of a job execution.
+Send a CSV file to inspect numbers.
 
 
 
@@ -77,7 +61,7 @@ Used to save the file resulting of a job execution.
 
 
 #### Arguments
-* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+* $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
 
 
 

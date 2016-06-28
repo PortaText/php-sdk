@@ -18,6 +18,23 @@ class JobsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_get_job_result()
+    {
+        $this->mockClientForCommand(
+            'jobs/55/result',
+            '',
+            'application/json',
+            '*/*'
+        )
+        ->jobs()
+        ->id(55)
+        ->saveTo("/tmp/result.zip")
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_all_jobs_paginated()
     {
         $this->mockClientForCommand("jobs?page=55")
