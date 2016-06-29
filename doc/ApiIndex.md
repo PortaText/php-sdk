@@ -16,6 +16,7 @@ API Index
             * [ContactLists](PortaText-Command-Api-ContactLists.md)
             * [Contacts](PortaText-Command-Api-Contacts.md)
             * [CreditCards](PortaText-Command-Api-CreditCards.md)
+            * [Destinations](PortaText-Command-Api-Destinations.md)
             * [DidSearch](PortaText-Command-Api-DidSearch.md)
             * [DidSettings](PortaText-Command-Api-DidSettings.md)
             * [EmailVerify](PortaText-Command-Api-EmailVerify.md)
