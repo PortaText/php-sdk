@@ -28,4 +28,20 @@ class DestinationsTest extends BaseCommandTest
         ->sortBy('destination', 'desc')
         ->get();
     }
+
+    /**
+     * @test
+     */
+    public function can_export_destinations()
+    {
+        $this->mockClientForCommand(
+            'destinations',
+            '',
+            'application/json',
+            'text/csv'
+        )
+        ->destinations()
+        ->saveTo("/tmp/destinations.csv")
+        ->get();
+    }
 }

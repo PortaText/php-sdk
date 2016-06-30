@@ -26,4 +26,20 @@ class OperatorsTest extends BaseCommandTest
         ->sortBy('mcc', 'desc')
         ->get();
     }
+
+    /**
+     * @test
+     */
+    public function can_export_operators()
+    {
+        $this->mockClientForCommand(
+            'operators',
+            '',
+            'application/json',
+            'text/csv'
+        )
+        ->operators()
+        ->saveTo("/tmp/operators.csv")
+        ->get();
+    }
 }

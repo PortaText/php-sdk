@@ -66,6 +66,22 @@ Sort by the given field and order elements.
 
 
 
+### saveTo
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Operators::saveTo(string $filename)
+
+Used to export the list to a CSV file on a GET.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;The filename.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
