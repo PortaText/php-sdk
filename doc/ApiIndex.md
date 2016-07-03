@@ -29,6 +29,7 @@ API Index
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Services](PortaText-Command-Api-Services.md)
             * [Settings](PortaText-Command-Api-Settings.md)
+            * [Simulate](PortaText-Command-Api-Simulate.md)
             * [Sms](PortaText-Command-Api-Sms.md)
             * [SmsCampaign](PortaText-Command-Api-SmsCampaign.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
