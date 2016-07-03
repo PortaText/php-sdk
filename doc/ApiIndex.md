@@ -32,6 +32,7 @@ API Index
             * [Simulate](PortaText-Command-Api-Simulate.md)
             * [Sms](PortaText-Command-Api-Sms.md)
             * [SmsCampaign](PortaText-Command-Api-SmsCampaign.md)
+            * [Summary](PortaText-Command-Api-Summary.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)
