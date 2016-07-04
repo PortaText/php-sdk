@@ -69,7 +69,7 @@ Sets the start date.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Summary::saveTo(string $filename)
 
-Used to export the blacklist to a CSV file on a GET.
+Used to export the summary to a CSV file on a GET.
 
 
 

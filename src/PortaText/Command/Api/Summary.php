@@ -42,7 +42,7 @@ class Summary extends Base
     }
 
     /**
-     * Used to export the blacklist to a CSV file on a GET.
+     * Used to export the summary to a CSV file on a GET.
      *
      * @param string $filename The filename.
      *
