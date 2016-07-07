@@ -20,11 +20,8 @@ class SimulateTest extends BaseCommandTest
      */
     public function can_simulate_message_with_template()
     {
-        $this->mockClientForCommand("simulate", array(
-            "country" => "us",
-            "template_id" => 44,
-            "variables" => array("var1" => "value")
-        ))
+        $qs = "template_id=44&variables=%7B%22var1%22%3A%22value%22%7D&country=us";
+        $this->mockClientForCommand("simulate?$qs")
         ->simulate()
         ->country("us")
         ->useTemplate(44, array("var1" => "value"))
@@ -36,13 +33,19 @@ class SimulateTest extends BaseCommandTest
      */
     public function can_simulate_message_with_text()
     {
-        $this->mockClientForCommand("simulate", array(
-            "country" => "us",
-            "text" => "hello world"
-        ))
+        $this->mockClientForCommand("simulate?text=hello+world&country=us")
         ->simulate()
         ->country("us")
         ->text("hello world")
         ->get();
+    }
+
+    /**
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function cant_simulate_without_country()
+    {
+        $this->mockClientForCommand()->simulate()->get();
     }
 }

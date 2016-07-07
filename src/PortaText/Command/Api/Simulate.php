@@ -64,6 +64,33 @@ class Simulate extends Base
     protected function getEndpoint($method)
     {
         $endpoint = "simulate";
-        return $endpoint;
+        $queryString = array();
+        $text = $this->getArgument("text");
+        if (!is_null($text)) {
+            $queryString['text'] = $text;
+            $this->delArgument("text");
+        }
+
+        $templateId = $this->getArgument("template_id");
+        if (!is_null($templateId)) {
+            $queryString['template_id'] = $templateId;
+            $this->delArgument("template_id");
+        }
+
+        $variables = $this->getArgument("variables");
+        if (!is_null($variables)) {
+            $queryString['variables'] = json_encode($variables);
+            $this->delArgument("variables");
+        }
+
+        $country = $this->getArgument("country");
+        if (is_null($country)) {
+            throw new \InvalidArgumentException("Country cant be null");
+        }
+        $queryString['country'] = $country;
+        $this->delArgument("country");
+
+        $queryString = http_build_query($queryString);
+        return "$endpoint?$queryString";
     }
 }
