@@ -120,6 +120,10 @@ abstract class Base implements ICommand
         if (!is_null($file)) {
             return "text/csv";
         }
+        $soundFile = $this->getArgument("sound_file");
+        if (!is_null($soundFile)) {
+            return "audio/mpeg";
+        }
         return 'application/json';
     }
 
@@ -141,6 +145,10 @@ abstract class Base implements ICommand
         $acceptAnyFile = $this->getArgument("accept_any_file");
         if (!is_null($acceptAnyFile)) {
             return "*/*";
+        }
+        $acceptSoundFile = $this->getArgument("accept_sound_file");
+        if (!is_null($acceptSoundFile)) {
+            return "audio/mpeg";
         }
         return 'application/json';
     }
@@ -215,10 +223,14 @@ abstract class Base implements ICommand
         if (is_null($outputFile)) {
             $outputFile = $this->getArgument('accept_any_file');
         }
+        if (is_null($outputFile)) {
+            $outputFile = $this->getArgument('accept_sound_file');
+        }
         $cType = $this->getContentType($method);
         $aCType = $this->getAcceptContentType($method);
         $this->delArgument('accept_file');
         $this->delArgument('accept_any_file');
+        $this->delArgument('accept_sound_file');
         $body = $this->getBody($method);
         return $this->client->run(
             $endpoint,
