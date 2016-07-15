@@ -81,6 +81,45 @@ Used to export the summary to a CSV file on a GET.
 
 
 
+### byMonth
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Summary::byMonth()
+
+Sets report granularity to month.
+
+
+
+* Visibility: **public**
+
+
+
+
+### byDay
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Summary::byDay()
+
+Sets report granularity to day.
+
+
+
+* Visibility: **public**
+
+
+
+
+### byWeek
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Summary::byWeek()
+
+Sets report granularity to week.
+
+
+
+* Visibility: **public**
+
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

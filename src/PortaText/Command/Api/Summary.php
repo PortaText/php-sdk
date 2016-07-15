@@ -54,6 +54,36 @@ class Summary extends Base
     }
 
     /**
+     * Sets report granularity to month.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function byMonth()
+    {
+        return $this->setArgument("granularity", "month");
+    }
+
+    /**
+     * Sets report granularity to day.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function byDay()
+    {
+        return $this->setArgument("granularity", "date");
+    }
+
+    /**
+     * Sets report granularity to week.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function byWeek()
+    {
+        return $this->setArgument("granularity", "week");
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -73,6 +103,11 @@ class Summary extends Base
         if (!is_null($dateTo)) {
             $queryString['date_to'] = $dateTo;
             $this->delArgument("date_to");
+        }
+        $granularity = $this->getArgument("granularity");
+        if (!is_null($granularity)) {
+            $queryString['granularity'] = $granularity;
+            $this->delArgument("granularity");
         }
         if (!empty($queryString)) {
             $queryString = http_build_query($queryString);

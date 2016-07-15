@@ -54,4 +54,37 @@ class SummaryTest extends BaseCommandTest
         ->to('2015-05-01T00:00:00')
         ->get();
     }
+
+    /**
+     * @test
+     */
+    public function can_get_summary_by_granularity_day()
+    {
+        $this->mockClientForCommand("summary?granularity=date")
+        ->summary()
+        ->byDay()
+        ->get();
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_summary_by_granularity_month()
+    {
+        $this->mockClientForCommand("summary?granularity=month")
+        ->summary()
+        ->byMonth()
+        ->get();
+    }
+
+    /**
+     * @test
+     */
+    public function can_get_summary_by_granularity_week()
+    {
+        $this->mockClientForCommand("summary?granularity=week")
+        ->summary()
+        ->byWeek()
+        ->get();
+    }
 }
