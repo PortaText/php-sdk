@@ -74,6 +74,33 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_schedule_message_with_text()
+    {
+        $this->mockClientForCommand("sms", array(
+            "from" => "12223334444",
+            "to" => "15556667777",
+            "text" => "hello world",
+            "schedule" => array(
+                "any_day" => array(
+                    "from" => "15:00",
+                    "to" => "17:30"
+                )
+            )
+        ))
+        ->sms()
+        ->from("12223334444")
+        ->to("15556667777")
+        ->text("hello world")
+        ->schedule("any_day", array(
+            "from" => "15:00",
+            "to" => "17:30"
+        ))
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_send_message_with_text()
     {
         $this->mockClientForCommand("sms", array(

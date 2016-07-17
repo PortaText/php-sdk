@@ -178,6 +178,23 @@ Searches for SMS operations.
 
 
 
+### schedule
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::schedule($type, $details)
+
+Schedule this campaign
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $type **mixed**
+* $details **mixed**
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
