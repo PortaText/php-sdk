@@ -129,7 +129,7 @@ class Sms extends Base
     }
 
     /**
-     * Schedule this campaign
+     * Schedule this message
      *
      * @param integer $page Page number.
      *
