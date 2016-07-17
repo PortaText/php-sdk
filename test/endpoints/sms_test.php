@@ -74,7 +74,7 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
-    public function can_schedule_message_with_text()
+    public function can_schedule_message()
     {
         $this->mockClientForCommand("sms", array(
             "from" => "12223334444",
