@@ -91,6 +91,40 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_schedule_sms_campaign()
+    {
+        $this->mockClientForCommand("campaigns", array(
+            "type" => "sms",
+            "name" => "this is the name",
+            "description" => "and this is the description",
+            "contact_list_ids" => array(1, 3, 5, 7, 9),
+            "from" => "12223334444",
+            "settings" => array(
+                "text" => "Hello world"
+            ),
+            "schedule" => array(
+                "any_day" => array(
+                    "from" => "13:50",
+                    "to" => "18:44"
+                )
+            )
+        ))
+        ->smsCampaign()
+        ->name("this is the name")
+        ->description("and this is the description")
+        ->toContactLists(array(1, 3, 5, 7, 9))
+        ->from("12223334444")
+        ->text("Hello world")
+        ->schedule("any_day", array(
+            "from" => "13:50",
+            "to" => "18:44"
+        ))
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_sms_campaign_with_text()
     {
         $this->mockClientForCommand("campaigns", array(

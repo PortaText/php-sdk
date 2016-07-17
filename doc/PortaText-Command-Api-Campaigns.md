@@ -187,6 +187,23 @@ Return the specific page of results.
 
 
 
+### schedule
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::schedule($type, $details)
+
+Schedule this campaign
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $type **mixed**
+* $details **mixed**
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

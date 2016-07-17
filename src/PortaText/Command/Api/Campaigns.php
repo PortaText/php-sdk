@@ -135,6 +135,21 @@ class Campaigns extends Base
     }
 
     /**
+     * Schedule this campaign
+     *
+     * @param integer $page Page number.
+     *
+     * @return PortaText\Command\ICommand
+     * @see https://github.com/PortaText/docs/wiki/REST-API#schedules
+     */
+    public function schedule($type, $details)
+    {
+        $schedule = array();
+        $schedule[$type] = $details;
+        return $this->setArgument("schedule", $schedule);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
