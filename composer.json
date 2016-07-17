@@ -21,6 +21,7 @@
     "evert/phpdoc-md" : "~0.1.1",
     "satooshi/php-coveralls": "1.0.1",
     "codeclimate/php-test-reporter": "0.3.0",
-    "sebastian/phpcpd": "*"
+    "sebastian/phpcpd": "*",
+    "symfony/dependency-injection": "@dev"
   }
 }
