@@ -65,7 +65,7 @@ class Settings extends Base
      * Enables auto recharges.
      *
      * @param integer $whenCredit Autorecharge when credit reaches this amount.
-     * @param float $total Total money to autorecharge.
+     * @param float $total Total credits to autorecharge.
      *
      * @return PortaText\Command\ICommand
      */

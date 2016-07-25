@@ -182,7 +182,7 @@ Searches for SMS operations.
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::schedule($type, $details)
 
-Schedule this campaign
+Schedule this message
 
 
 

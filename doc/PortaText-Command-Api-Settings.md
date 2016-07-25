@@ -104,7 +104,7 @@ Enables auto recharges.
 
 #### Arguments
 * $whenCredit **integer** - &lt;p&gt;Autorecharge when credit reaches this amount.&lt;/p&gt;
-* $total **float** - &lt;p&gt;Total money to autorecharge.&lt;/p&gt;
+* $total **float** - &lt;p&gt;Total credits to autorecharge.&lt;/p&gt;
 
 
 

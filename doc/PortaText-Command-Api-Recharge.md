@@ -61,7 +61,7 @@ Set Name.
 
 
 #### Arguments
-* $total **float** - &lt;p&gt;Total money to recharge.&lt;/p&gt;
+* $total **float** - &lt;p&gt;Total credits to recharge.&lt;/p&gt;
 
 
 

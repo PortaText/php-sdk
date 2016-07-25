@@ -31,7 +31,7 @@ class Recharge extends Base
     /**
      * Set Name.
      *
-     * @param float $total Total money to recharge.
+     * @param float $total Total credits to recharge.
      *
      * @return PortaText\Command\ICommand
      */
