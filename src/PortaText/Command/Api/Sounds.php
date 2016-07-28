@@ -77,6 +77,13 @@ class Sounds extends Base
         return $this->setArgument("sound_file", $filename);
     }
 
+    /**
+     * Returns the body for this endpoint.
+     *
+     * @param string $method Method for this command.
+     *
+     * @return string
+     */
     protected function getBody($method)
     {
         $file = $this->getArgument("sound_file");

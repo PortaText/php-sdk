@@ -131,7 +131,8 @@ class Sms extends Base
     /**
      * Schedule this message
      *
-     * @param integer $page Page number.
+     * @param integer $type Schedule type.
+     * @param array $details Schedule configuration.
      *
      * @return PortaText\Command\ICommand
      * @see https://github.com/PortaText/docs/wiki/REST-API#schedules

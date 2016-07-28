@@ -31,7 +31,7 @@ class Trunks extends Base
     /**
      * Sets the trunk ip address.
      *
-     * @param string $ip trunk ip address
+     * @param string $ipAddress trunk ip address
      *
      * @SuppressWarnings("ShortMethodName")
      * @return PortaText\Command\ICommand

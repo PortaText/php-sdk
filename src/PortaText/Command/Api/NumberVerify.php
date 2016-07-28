@@ -31,7 +31,7 @@ class NumberVerify extends Base
     /**
      * Sets the code number when verifying the number.
      *
-     * @param string $target Phone number to send message to.
+     * @param string $code The code to verify.
      *
      * @return PortaText\Command\ICommand
      */

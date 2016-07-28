@@ -51,7 +51,7 @@ Selects the target number.
 
 ### verifyWith
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\NumberVerify::verifyWith($code)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\NumberVerify::verifyWith(string $code)
 
 Sets the code number when verifying the number.
 
@@ -61,7 +61,7 @@ Sets the code number when verifying the number.
 
 
 #### Arguments
-* $code **mixed**
+* $code **string** - &lt;p&gt;The code to verify.&lt;/p&gt;
 
 
 

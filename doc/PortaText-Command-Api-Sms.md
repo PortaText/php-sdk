@@ -180,7 +180,7 @@ Searches for SMS operations.
 
 ### schedule
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::schedule($type, $details)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Sms::schedule(integer $type, array $details)
 
 Schedule this message
 
@@ -190,8 +190,8 @@ Schedule this message
 
 
 #### Arguments
-* $type **mixed**
-* $details **mixed**
+* $type **integer** - &lt;p&gt;Schedule type.&lt;/p&gt;
+* $details **array** - &lt;p&gt;Schedule configuration.&lt;/p&gt;
 
 
 

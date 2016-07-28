@@ -44,7 +44,7 @@ class ContactLists extends Base
     /**
      * Add or remove this number to the contact list.
      *
-     * @param string $name Name.
+     * @param string $number Number.
      * @param array $variables variables.
      *
      * @return PortaText\Command\ICommand

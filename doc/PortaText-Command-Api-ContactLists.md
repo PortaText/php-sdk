@@ -67,7 +67,7 @@ The contact list name.
 
 ### withNumber
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::withNumber($number, array $variables)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\ContactLists::withNumber(string $number, array $variables)
 
 Add or remove this number to the contact list.
 
@@ -77,7 +77,7 @@ Add or remove this number to the contact list.
 
 
 #### Arguments
-* $number **mixed**
+* $number **string** - &lt;p&gt;Number.&lt;/p&gt;
 * $variables **array** - &lt;p&gt;variables.&lt;/p&gt;
 
 

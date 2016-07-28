@@ -51,7 +51,7 @@ Sets the trunk name.
 
 ### ip
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Trunks::ip($ipAddress)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Trunks::ip(string $ipAddress)
 
 Sets the trunk ip address.
 
@@ -61,7 +61,7 @@ Sets the trunk ip address.
 
 
 #### Arguments
-* $ipAddress **mixed**
+* $ipAddress **string** - &lt;p&gt;trunk ip address&lt;/p&gt;
 
 
 
