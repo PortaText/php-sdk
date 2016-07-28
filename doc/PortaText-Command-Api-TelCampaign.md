@@ -1,14 +1,14 @@
-PortaText\Command\Api\Campaigns
+PortaText\Command\Api\TelCampaign
 ===============
 
-The Campaigns endpoint.
+The Campaigns endpoint. This is a campaign of type Telephony.
 
 
 
 
-* Class name: Campaigns
+* Class name: TelCampaign
 * Namespace: PortaText\Command\Api
-* Parent class: [PortaText\Command\Base](PortaText-Command-Base.md)
+* Parent class: [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 
@@ -33,6 +33,84 @@ Methods
 -------
 
 
+### iterations
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::iterations(integer $iterations)
+
+Sets the total number of iterations.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $iterations **integer** - &lt;p&gt;Maximum number of attempts to contact.&lt;/p&gt;
+
+
+
+### agents
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::agents(integer $agents)
+
+Sets the total number of agents.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $agents **integer** - &lt;p&gt;Maximum number of attempts to contact.&lt;/p&gt;
+
+
+
+### postCallWorkDuration
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::postCallWorkDuration(integer $seconds)
+
+Sets the post work duration for each agent after each call.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $seconds **integer** - &lt;p&gt;Post call work duration.&lt;/p&gt;
+
+
+
+### minIterationTime
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::minIterationTime(integer $minutes)
+
+Minimum time to wait before attempting to recontact a target.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $minutes **integer** - &lt;p&gt;Time in minutes.&lt;/p&gt;
+
+
+
+### __construct
+
+    mixed PortaText\Command\Base::__construct()
+
+Standard constructor.
+
+
+
+* Visibility: **public**
+* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
+
+
+
+
 ### id
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::id(integer $campaignId)
@@ -42,6 +120,7 @@ Sets the campaign id.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -58,6 +137,7 @@ The campaign name.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -67,7 +147,7 @@ The campaign name.
 
 ### description
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::description(string $description)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::description(string $description)
 
 The campaign description.
 
@@ -90,6 +170,7 @@ Specifies source telephone number for the campaign.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -106,6 +187,7 @@ Specifies all subscribers of the given SMS Service ID.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 
@@ -119,6 +201,7 @@ Contact list IDs to use.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -135,6 +218,7 @@ Send a CSV file to import contacts.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -151,6 +235,7 @@ Used to export the contacts to a CSV file on a GET.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -167,6 +252,7 @@ Query for campaign contacts.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 
@@ -180,6 +266,7 @@ Return the specific page of results.
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -196,6 +283,7 @@ Schedule this campaign
 
 
 * Visibility: **public**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
@@ -231,25 +319,12 @@ Set a campaign setting.
 
 
 * Visibility: **protected**
+* This method is defined by [PortaText\Command\Api\Campaigns](PortaText-Command-Api-Campaigns.md)
 
 
 #### Arguments
 * $name **string** - &lt;p&gt;Setting name.&lt;/p&gt;
 * $value **mixed** - &lt;p&gt;Setting value.&lt;/p&gt;
-
-
-
-### __construct
-
-    mixed PortaText\Command\Base::__construct()
-
-Standard constructor.
-
-
-
-* Visibility: **public**
-* This method is defined by [PortaText\Command\Base](PortaText-Command-Base.md)
-
 
 
 

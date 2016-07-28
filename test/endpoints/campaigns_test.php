@@ -18,6 +18,36 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_create_telephony_campaigns()
+    {
+        $this->mockClientForCommand("campaigns", array(
+            "type" => "telephony",
+            "name" => "this is the name",
+            "description" => "and this is the description",
+            "from" => "12223334444",
+            "contact_list_ids" => array(1, 3, 5, 7, 9),
+            "settings" => array(
+                "iterations" => 3,
+                "agents" => 20,
+                "post_call_work_duration" => 15,
+                "min_iteration_time" => 5
+            )
+        ))
+        ->telCampaign()
+        ->name("this is the name")
+        ->description("and this is the description")
+        ->from("12223334444")
+        ->toContactLists(array(1, 3, 5, 7, 9))
+        ->iterations(3)
+        ->agents(20)
+        ->postCallWorkDuration(15)
+        ->minIterationTime(5)
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_paginated_list_of_campaigns()
     {
         $this->mockClientForCommand("campaigns?page=44")

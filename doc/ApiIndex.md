@@ -36,6 +36,7 @@ API Index
             * [Sounds](PortaText-Command-Api-Sounds.md)
             * [Summary](PortaText-Command-Api-Summary.md)
             * [Tariffs](PortaText-Command-Api-Tariffs.md)
+            * [TelCampaign](PortaText-Command-Api-TelCampaign.md)
             * [Templates](PortaText-Command-Api-Templates.md)
             * [Timezones](PortaText-Command-Api-Timezones.md)
             * [Trunks](PortaText-Command-Api-Trunks.md)

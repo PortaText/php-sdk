@@ -137,7 +137,8 @@ class Campaigns extends Base
     /**
      * Schedule this campaign
      *
-     * @param integer $page Page number.
+     * @param integer $type Schedule type.
+     * @param array $details Schedule configuration.
      *
      * @return PortaText\Command\ICommand
      * @see https://github.com/PortaText/docs/wiki/REST-API#schedules
@@ -190,5 +191,32 @@ class Campaigns extends Base
             return "$endpoint?$queryString";
         }
         return $endpoint;
+    }
+
+    /**
+     * Set a campaign setting.
+     *
+     * @param string $name Setting name.
+     * @param mixed $value Setting value.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    protected function setSetting($name, $value)
+    {
+        $args = $this->getArgument("settings");
+        if (is_null($args)) {
+            $args = array();
+        }
+        $args[$name] = $value;
+        return $this->setArgument("settings", $args);
+    }
+
+    /**
+     * Standard constructor.
+     *
+     */
+    public function __construct()
+    {
+        parent::__construct();
     }
 }
