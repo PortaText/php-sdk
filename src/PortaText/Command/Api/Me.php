@@ -80,6 +80,18 @@ class Me extends Base
     }
 
     /**
+     * Set language.
+     *
+     * @param string $language The 2-letter iso code for the language.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function language($language)
+    {
+        return $this->setArgument('language', $language);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.

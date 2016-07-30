@@ -114,6 +114,22 @@ Set timezone.
 
 
 
+### language
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Me::language(string $language)
+
+Set language.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $language **string** - &lt;p&gt;The 2-letter iso code for the language.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
