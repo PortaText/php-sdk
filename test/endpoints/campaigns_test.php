@@ -30,7 +30,8 @@ class CampaignsTest extends BaseCommandTest
                 "iterations" => 3,
                 "agents" => 20,
                 "post_call_work_duration" => 15,
-                "min_iteration_time" => 5
+                "min_iteration_time" => 5,
+                "outbound_trunk_id" => 44
             )
         ))
         ->telCampaign()
@@ -42,6 +43,7 @@ class CampaignsTest extends BaseCommandTest
         ->agents(20)
         ->postCallWorkDuration(15)
         ->minIterationTime(5)
+        ->outboundTrunk(44)
         ->post();
     }
 

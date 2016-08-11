@@ -97,6 +97,22 @@ Minimum time to wait before attempting to recontact a target.
 
 
 
+### outboundTrunk
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::outboundTrunk(integer $trunkId)
+
+Sets the outbound trunk id.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $trunkId **integer** - &lt;p&gt;Trunk ID.&lt;/p&gt;
+
+
+
 ### __construct
 
     mixed PortaText\Command\Base::__construct()

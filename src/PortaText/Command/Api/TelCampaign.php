@@ -65,6 +65,18 @@ class TelCampaign extends Campaigns
     }
 
     /**
+     * Sets the outbound trunk id.
+     *
+     * @param integer $trunkId Trunk ID.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function outboundTrunk($trunkId)
+    {
+        return $this->setSetting("outbound_trunk_id", $trunkId);
+    }
+
+    /**
      * Standard constructor.
      *
      */
