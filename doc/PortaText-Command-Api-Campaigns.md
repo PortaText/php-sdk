@@ -171,6 +171,22 @@ Query for campaign contacts.
 
 
 
+### contact
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::contact(string $contact)
+
+Selects a contact to operate with.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $contact **string** - &lt;p&gt;Contact ID.&lt;/p&gt;
+
+
+
 ### page
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::page(integer $page)

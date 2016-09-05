@@ -18,6 +18,18 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_cancel_contact()
+    {
+        $this->mockClientForCommand("campaigns/44/contacts/12223334444")
+        ->campaigns()
+        ->id(44)
+        ->contact("12223334444")
+        ->delete();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_telephony_campaigns()
     {
         $this->mockClientForCommand("campaigns", array(

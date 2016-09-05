@@ -112,6 +112,7 @@ class Campaigns extends Base
     {
         return $this->setArgument("accept_file", $filename);
     }
+
     /**
      * Query for campaign contacts.
      *
@@ -120,6 +121,18 @@ class Campaigns extends Base
     public function contacts()
     {
         return $this->setArgument("contacts", true);
+    }
+
+    /**
+     * Selects a contact to operate with.
+     *
+     * @param string $contact Contact ID.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function contact($contact)
+    {
+        return $this->setArgument("contact", $contact);
     }
 
     /**
@@ -179,6 +192,11 @@ class Campaigns extends Base
                 'settings' => json_encode($args)
             );
             $endpoint = $endpoint . '?' . http_build_query($args);
+        }
+        $contact = $this->getArgument("contact");
+        if (!is_null($contact)) {
+            $endpoint .= "/contacts/$contact";
+            $this->delArgument("contact");
         }
         $queryString = array();
         $page = $this->getArgument("page");
