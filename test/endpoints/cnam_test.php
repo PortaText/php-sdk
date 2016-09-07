@@ -17,6 +17,21 @@ class CnamTest extends BaseCommandTest
 {
     /**
      * @test
+     */
+    public function can_query_with_csv()
+    {
+        $this->mockClientForCommand(
+            "cnam",
+            "file:/tmp/a.csv",
+            "text/csv"
+        )
+        ->cnam()
+        ->csv("/tmp/a.csv")
+        ->post();
+    }
+
+    /**
+     * @test
      * @expectedException \InvalidArgumentException
      */
     public function cannot_request_cnam_for_null_did()

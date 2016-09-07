@@ -49,6 +49,22 @@ Asks for CNAM info for the specific number.
 
 
 
+### csv
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Cnam::csv(string $filename)
+
+Send a CSV file to query CNAM.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $filename **string** - &lt;p&gt;Full absolute path to the csv file.&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)

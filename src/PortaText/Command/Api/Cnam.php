@@ -29,6 +29,18 @@ class Cnam extends Base
     }
 
     /**
+     * Send a CSV file to query CNAM.
+     *
+     * @param string $filename Full absolute path to the csv file.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function csv($filename)
+    {
+        return $this->setArgument("file", $filename);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
@@ -37,11 +49,16 @@ class Cnam extends Base
      */
     protected function getEndpoint($method)
     {
+        $endpoint = "cnam";
         $number = $this->getArgument("id");
-        if (is_null($number)) {
+        $file = $this->getArgument("file");
+        if (is_null($number) && is_null($file)) {
             throw new \InvalidArgumentException("DID number cant be null");
         }
         $this->delArgument("id");
-        return "cnam/$number";
+        if (!is_null($number)) {
+            $endpoint .= "/$number";
+        }
+        return $endpoint;
     }
 }
