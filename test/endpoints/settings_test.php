@@ -18,6 +18,35 @@ class SettingsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_enable_sns_publishing()
+    {
+        $this->mockClientForCommand("me/settings", array(
+            "sns_publish_enabled" => true,
+            "sns_access_key" => "key",
+            "sns_access_secret" => "secret",
+            "sns_topic" => "topic"
+        ))
+        ->settings()
+        ->publishEventsToSns("key", "secret", "topic")
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
+    public function can_disable_sns_publishing()
+    {
+        $this->mockClientForCommand("me/settings", array(
+            "sns_publish_enabled" => false
+        ))
+        ->settings()
+        ->dontPublishEventsToSns()
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
     public function can_set_amd_settings()
     {
         $this->mockClientForCommand("me/settings", array(

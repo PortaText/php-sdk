@@ -214,6 +214,33 @@ class Settings extends Base
     }
 
     /**
+     * Enables publishing of events to an SNS topic.
+     *
+     * @param string $key Amazon AWS access key.
+     * @param string $secret Amazon AWS access secret.
+     * @param string $topicArn SNS Topic ARN.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function publishEventsToSns($key, $secret, $topicArn)
+    {
+        $this->setArgument("sns_publish_enabled", true);
+        $this->setArgument("sns_access_key", $key);
+        $this->setArgument("sns_access_secret", $secret);
+        return $this->setArgument("sns_topic", $topicArn);
+    }
+
+    /**
+     * Disables publishing of events to an SNS topic.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function dontPublishEventsToSns()
+    {
+        return $this->setArgument("sns_publish_enabled", false);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.

@@ -282,6 +282,37 @@ Is maximum initial silence duration before greeting (milliseconds).
 
 
 
+### publishEventsToSns
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::publishEventsToSns(string $key, string $secret, string $topicArn)
+
+Enables publishing of events to an SNS topic.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $key **string** - &lt;p&gt;Amazon AWS access key.&lt;/p&gt;
+* $secret **string** - &lt;p&gt;Amazon AWS access secret.&lt;/p&gt;
+* $topicArn **string** - &lt;p&gt;SNS Topic ARN.&lt;/p&gt;
+
+
+
+### dontPublishEventsToSns
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Settings::dontPublishEventsToSns()
+
+Disables publishing of events to an SNS topic.
+
+
+
+* Visibility: **public**
+
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
