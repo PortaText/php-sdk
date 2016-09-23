@@ -18,6 +18,34 @@ class DidSettingsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_enable_stop_words()
+    {
+        $this->mockClientForCommand("dids/12223334444", array(
+            "stop_words_enabled" => true
+        ))
+        ->didSettings()
+        ->forNumber("12223334444")
+        ->enableStopWords()
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
+    public function can_disable_stop_words()
+    {
+        $this->mockClientForCommand("dids/12223334444", array(
+            "stop_words_enabled" => false
+        ))
+        ->didSettings()
+        ->forNumber("12223334444")
+        ->disableStopWords()
+        ->patch();
+    }
+
+    /**
+     * @test
+     */
     public function can_get_all_dids()
     {
         $this->mockClientForCommand("dids")

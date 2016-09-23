@@ -62,6 +62,32 @@ Enables CNAM lookup.
 
 
 
+### enableStopWords
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::enableStopWords()
+
+Enables autodetection of stop words.
+
+
+
+* Visibility: **public**
+
+
+
+
+### disableStopWords
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::disableStopWords()
+
+Disables autodetection of stop words.
+
+
+
+* Visibility: **public**
+
+
+
+
 ### disableCnam
 
     \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\DidSettings::disableCnam()

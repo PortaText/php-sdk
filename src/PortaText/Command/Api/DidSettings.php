@@ -39,6 +39,26 @@ class DidSettings extends Base
     }
 
     /**
+     * Enables autodetection of stop words.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function enableStopWords()
+    {
+        return $this->setArgument("stop_words_enabled", true);
+    }
+
+    /**
+     * Disables autodetection of stop words.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function disableStopWords()
+    {
+        return $this->setArgument("stop_words_enabled", false);
+    }
+
+    /**
      * Disables CNAM lookup.
      *
      * @return PortaText\Command\ICommand
