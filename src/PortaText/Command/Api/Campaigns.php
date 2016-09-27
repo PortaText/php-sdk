@@ -57,7 +57,7 @@ class Campaigns extends Base
     /**
      * Specifies source telephone number for the campaign.
      *
-     * @param string $from Telephone number (you must own this one).
+     * @param string|array $from Telephone number (you must own this one).
      *
      * @return PortaText\Command\ICommand
      */

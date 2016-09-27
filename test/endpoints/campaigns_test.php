@@ -169,6 +169,30 @@ class CampaignsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_use_multiple_dids_as_source()
+    {
+        $this->mockClientForCommand("campaigns", array(
+            "type" => "sms",
+            "name" => "this is the name",
+            "description" => "and this is the description",
+            "contact_list_ids" => array(1, 3, 5, 7, 9),
+            "from" => ["12223334444", "12223334445"],
+            "settings" => array(
+                "text" => "Hello world"
+            )
+        ))
+        ->smsCampaign()
+        ->name("this is the name")
+        ->description("and this is the description")
+        ->toContactLists(array(1, 3, 5, 7, 9))
+        ->from(["12223334444", "12223334445"])
+        ->text("Hello world")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_create_sms_campaign_with_text()
     {
         $this->mockClientForCommand("campaigns", array(

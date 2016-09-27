@@ -83,7 +83,7 @@ The campaign description.
 
 ### from
 
-    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::from(string $from)
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Campaigns::from(string|array $from)
 
 Specifies source telephone number for the campaign.
 
@@ -93,7 +93,7 @@ Specifies source telephone number for the campaign.
 
 
 #### Arguments
-* $from **string** - &lt;p&gt;Telephone number (you must own this one).&lt;/p&gt;
+* $from **string|array** - &lt;p&gt;Telephone number (you must own this one).&lt;/p&gt;
 
 
 
