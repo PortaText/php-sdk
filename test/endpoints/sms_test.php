@@ -101,6 +101,40 @@ class SmsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_send_message_with_any_as_from()
+    {
+        $this->mockClientForCommand("sms", array(
+            "from" => "any",
+            "to" => "15556667777",
+            "text" => "hello world"
+        ))
+        ->sms()
+        ->from("any")
+        ->to("15556667777")
+        ->text("hello world")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
+    public function can_send_message_with_a_list_as_from()
+    {
+        $this->mockClientForCommand("sms", array(
+            "from" => ["12223334444", "12223334445", "12223334446"],
+            "to" => "15556667777",
+            "text" => "hello world"
+        ))
+        ->sms()
+        ->from(["12223334444", "12223334445", "12223334446"])
+        ->to("15556667777")
+        ->text("hello world")
+        ->post();
+    }
+
+    /**
+     * @test
+     */
     public function can_send_message_with_text()
     {
         $this->mockClientForCommand("sms", array(
