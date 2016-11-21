@@ -43,7 +43,12 @@ class CampaignsTest extends BaseCommandTest
                 "agents" => 20,
                 "post_call_work_duration" => 15,
                 "min_iteration_time" => 5,
-                "outbound_trunk_id" => 44
+                "outbound_trunk_id" => 44,
+                "dial_timeout" => 120,
+                "flow" => array(
+                    array("wait" => array("seconds" => 5)),
+                    array("play" => array("sound_id" => 3))
+                )
             )
         ))
         ->telCampaign()
@@ -56,6 +61,11 @@ class CampaignsTest extends BaseCommandTest
         ->postCallWorkDuration(15)
         ->minIterationTime(5)
         ->outboundTrunk(44)
+        ->dialTimeout(120)
+        ->flow(array(
+            array("wait" => array("seconds" => 5)),
+            array("play" => array("sound_id" => 3))
+        ))
         ->post();
     }
 

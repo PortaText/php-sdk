@@ -77,6 +77,30 @@ class TelCampaign extends Campaigns
     }
 
     /**
+     * Dial Timeout for Leg A.
+     *
+     * @param integer $dialTimeout In seconds.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function dialTimeout($dialTimeout)
+    {
+        return $this->setSetting("dial_timeout", $dialTimeout);
+    }
+
+    /**
+     * An array of call flow objects.
+     *
+     * @param array $flow Call flow objects.
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function flow($flow)
+    {
+        return $this->setSetting("flow", $flow);
+    }
+
+    /**
      * Standard constructor.
      *
      */
