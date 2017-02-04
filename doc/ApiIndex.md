@@ -10,6 +10,7 @@ API Index
         * PortaText\Command\Api
             * [Acl](PortaText-Command-Api-Acl.md)
             * [Blacklist](PortaText-Command-Api-Blacklist.md)
+            * [Calls](PortaText-Command-Api-Calls.md)
             * [CampaignLifecycle](PortaText-Command-Api-CampaignLifecycle.md)
             * [Campaigns](PortaText-Command-Api-Campaigns.md)
             * [Cnam](PortaText-Command-Api-Cnam.md)

@@ -113,6 +113,38 @@ Sets the outbound trunk id.
 
 
 
+### dialTimeout
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::dialTimeout(integer $dialTimeout)
+
+Dial Timeout for Leg A.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $dialTimeout **integer** - &lt;p&gt;In seconds.&lt;/p&gt;
+
+
+
+### flow
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\TelCampaign::flow(array $flow)
+
+An array of call flow objects.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $flow **array** - &lt;p&gt;Call flow objects.&lt;/p&gt;
+
+
+
 ### __construct
 
     mixed PortaText\Command\Base::__construct()
