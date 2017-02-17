@@ -28,6 +28,7 @@ API Index
             * [MyPassword](PortaText-Command-Api-MyPassword.md)
             * [NumberVerify](PortaText-Command-Api-NumberVerify.md)
             * [Operators](PortaText-Command-Api-Operators.md)
+            * [Plans](PortaText-Command-Api-Plans.md)
             * [Recharge](PortaText-Command-Api-Recharge.md)
             * [Services](PortaText-Command-Api-Services.md)
             * [Settings](PortaText-Command-Api-Settings.md)
