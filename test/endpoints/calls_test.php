@@ -18,6 +18,22 @@ class CallsTest extends BaseCommandTest
     /**
      * @test
      */
+    public function can_search()
+    {
+        $this->mockClientForCommand(
+            "calls?page=1&date_from=2017-01-01T10%3A00%3A00"
+        )
+        ->calls()
+        ->search(array(
+            'page' => 1,
+            'date_from' => '2017-01-01T10:00:00'
+        ))
+        ->get();
+    }
+
+    /**
+     * @test
+     */
     public function can_issue_call()
     {
         $this->mockClientForCommand("calls", array(

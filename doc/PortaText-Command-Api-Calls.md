@@ -113,6 +113,22 @@ An array of call flow objects.
 
 
 
+### search
+
+    \PortaText\Command\Api\PortaText\Command\ICommand PortaText\Command\Api\Calls::search(array $params)
+
+Searches for Calls operations.
+
+
+
+* Visibility: **public**
+
+
+#### Arguments
+* $params **array** - &lt;p&gt;Search params (see the API doc).&lt;/p&gt;
+
+
+
 ### getEndpoint
 
     string PortaText\Command\Base::getEndpoint(string $method)
