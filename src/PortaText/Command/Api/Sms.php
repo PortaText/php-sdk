@@ -145,6 +145,16 @@ class Sms extends Base
     }
 
     /**
+     * Send message via whatsapp .
+     *
+     * @return PortaText\Command\ICommand
+     */
+    public function whatsapp()
+    {
+        return $this->setArgument("whatsapp", true);
+    }
+
+    /**
      * Returns a string with the endpoint for the given command.
      *
      * @param string $method Method for this command.
